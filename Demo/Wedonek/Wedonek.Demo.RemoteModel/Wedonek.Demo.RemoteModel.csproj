@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>E:\项目\开源项目NetCore\Demo\Wedonek\Wedonek.Demo.RemoteModel\Wedonek.Demo.RemoteModel.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Source\RpcClient\RpcClient.csproj" />
+    <ProjectReference Include="..\..\..\Source\RpcHelper\RpcHelper.csproj" />
+    <ProjectReference Include="..\..\..\Source\RpcModel\RpcModel.csproj" />
+  </ItemGroup>
+
+</Project>

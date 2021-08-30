@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wedonek.Demo.RemoteModel</name>
+    </assembly>
+    <members>
+        <member name="T:Wedonek.Demo.RemoteModel.File.UpDemoFile">
+            <summary>
+            上传文件测试
+            </summary>
+        </member>
+        <member name="T:Wedonek.Demo.RemoteModel.Msg.PlaceAnOrder">
+            <summary>
+            用户下单事件广播(演示使用消息队列广播消息)
+            </summary>
+        </member>
+        <member name="T:Wedonek.Demo.RemoteModel.Order.AddOrder">
+            <summary>
+            添加订单
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.AddOrder.OrderNo">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.AddOrder.UserId">
+            <summary>
+            下单用户ID
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.AddOrder.OrderTitle">
+            <summary>
+            订单标题
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.AddOrder.OrderPrice">
+            <summary>
+            价格
+            </summary>
+        </member>
+        <member name="T:Wedonek.Demo.RemoteModel.Order.GetOrder">
+            <summary>
+            查询订单
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.GetOrder.OrderId">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="T:Wedonek.Demo.RemoteModel.Order.Model.OrderData">
+            <summary>
+            订单信息
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.Model.OrderData.Id">
+            <summary>
+            订单ID
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.Model.OrderData.OrderNo">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.Model.OrderData.UserId">
+            <summary>
+            下单用户ID
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.Model.OrderData.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.Model.OrderData.UserPhone">
+            <summary>
+            用户手机
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.Model.OrderData.OrderTitle">
+            <summary>
+            订单标题
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.Model.OrderData.OrderPrice">
+            <summary>
+            订单价格
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.Model.OrderData.AddTime">
+            <summary>
+            订单添加时间
+            </summary>
+        </member>
+        <member name="T:Wedonek.Demo.RemoteModel.Order.Msg.AddOrderMsg">
+            <summary>
+            添加订单(已订阅的方式推送)
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.Order.Msg.AddOrderMsg.Order">
+            <summary>
+            订单信息
+            </summary>
+        </member>
+        <member name="T:Wedonek.Demo.RemoteModel.Order.Msg.DropOrderMsg">
+            <summary>
+            向其它订单服务广播删除订单
+            </summary>
+        </member>
+        <member name="T:Wedonek.Demo.RemoteModel.Subscribe.UserGoOnline">
+            <summary>
+            用户上线事件(演示订阅的接收方法)
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.User.AddUser.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.User.AddUser.UserPhone">
+            <summary>
+            用户手机
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.User.Model.UserDatum.UserId">
+            <summary>
+            下单用户ID
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.User.Model.UserDatum.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.User.Model.UserDatum.UserPhone">
+            <summary>
+            用户手机
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.User.Model.UserDatum.OrderNum">
+            <summary>
+            订单数
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.User.SetOrderNo.UserId">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Wedonek.Demo.RemoteModel.User.SetOrderNo.OrderNo">
+            <summary>
+            订单号
+            </summary>
+        </member>
+    </members>
+</doc>

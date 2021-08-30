@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wedonek.Gateway.Modular</name>
+    </assembly>
+    <members>
+        <member name="T:Wedonek.Gateway.Modular.Controller.FileController">
+            <summary>
+            文件接口
+            </summary>
+        </member>
+        <member name="M:Wedonek.Gateway.Modular.Controller.FileController.UpHead">
+            <summary>
+            上传头像
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.Gateway.Modular.Controller.FileController.UpDemo">
+            <summary>
+            上传文件演示
+            </summary>
+        </member>
+        <member name="T:Wedonek.Gateway.Modular.Controller.UserController">
+            <summary>
+            用户接口
+            </summary>
+        </member>
+        <member name="M:Wedonek.Gateway.Modular.Controller.UserController.Reg(Wedonek.Gateway.Modular.Model.UserRegParam)">
+            <summary>
+            注册
+            </summary>
+            <param name="reg">用户资料</param>
+            <returns>用户Id</returns>
+        </member>
+        <member name="M:Wedonek.Gateway.Modular.Controller.UserController.Get">
+            <summary>
+            获取用户资料
+            </summary>
+            <returns>用户资料</returns>
+        </member>
+        <member name="M:Wedonek.Gateway.Modular.Controller.UserController.Login(System.String)">
+            <summary>
+            用户登陆
+            </summary>
+            <param name="phone">手机号</param>
+            <returns>授权码</returns>
+        </member>
+        <member name="T:Wedonek.Gateway.Modular.Event.MsgEvent">
+            <summary>
+            接收广播消息
+            </summary>
+        </member>
+        <member name="T:Wedonek.Gateway.Modular.Event.SubscribeEvent">
+            <summary>
+            订阅演示
+            </summary>
+        </member>
+        <member name="M:Wedonek.Gateway.Modular.Event.SubscribeEvent.UserGoOnline(Wedonek.Demo.RemoteModel.Subscribe.UserGoOnline)">
+            <summary>
+            订阅用户上线事件
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="T:Wedonek.Gateway.Modular.GatewayModular">
+            <summary>
+            网关模块
+            </summary>
+        </member>
+        <member name="M:Wedonek.Gateway.Modular.GatewayModular.Init">
+            <summary>
+            模块初始化
+            </summary>
+        </member>
+        <member name="P:Wedonek.Gateway.Modular.Model.OrderParam.OrderTitle">
+            <summary>
+            订单标题
+            </summary>
+        </member>
+        <member name="P:Wedonek.Gateway.Modular.Model.OrderParam.OrderPrice">
+            <summary>
+            订单价格
+            </summary>
+        </member>
+        <member name="T:Wedonek.Gateway.Modular.Model.UpResult">
+            <summary>
+            上传结果
+            </summary>
+        </member>
+        <member name="T:Wedonek.Gateway.Modular.Model.UserRegParam">
+            <summary>
+            注册资料
+            </summary>
+        </member>
+        <member name="P:Wedonek.Gateway.Modular.Model.UserRegParam.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Wedonek.Gateway.Modular.Model.UserRegParam.UserPhone">
+            <summary>
+            用户手机
+            </summary>
+        </member>
+        <member name="T:Wedonek.Gateway.Modular.Service.OrderService">
+            <summary>
+            订单接口
+            </summary>
+        </member>
+        <member name="M:Wedonek.Gateway.Modular.Service.OrderService.AddOrder(Wedonek.Gateway.Modular.UserLoginState,Wedonek.Gateway.Modular.Model.OrderParam)">
+            <summary>
+            添加订单
+            </summary>
+            <param name="state">用户登陆状态</param>
+            <param name="add">添加订单参数</param>
+            <returns>订单Id</returns>
+        </member>
+        <member name="M:Wedonek.Gateway.Modular.Service.OrderService.DropOrder(System.Guid)">
+            <summary>
+            删除订单
+            </summary>
+            <param name="orderId">订单Id</param>
+        </member>
+        <member name="M:Wedonek.Gateway.Modular.Service.OrderService.GetOrder(System.Guid)">
+            <summary>
+            获取订单
+            </summary>
+            <param name="orderId">订单Id</param>
+            <returns>订单信息</returns>
+        </member>
+        <member name="M:Wedonek.Gateway.Modular.Service.OrderService.Query(Wedonek.Gateway.Modular.UserLoginState,RpcModel.BasicPage,System.Int64@)">
+            <summary>
+            查询订单
+            </summary>
+            <param name="state">订单状态</param>
+            <param name="paging">分页信息</param>
+            <param name="count">订单数</param>
+            <returns>订单信息</returns>
+        </member>
+        <member name="P:Wedonek.Gateway.Modular.UserLoginState.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+    </members>
+</doc>

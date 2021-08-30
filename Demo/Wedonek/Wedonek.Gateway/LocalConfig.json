@@ -1,0 +1,135 @@
+{
+  "rpc": {
+    "RpcServer": [ "172.17.0.2" ], //链接的终节点地址
+    "RpcAppId": "9cc83d72ba2a4b9f94493325c3acf4ee", //集群AppId
+    "RpcAppSecret": "a375982219934630aabb646e41e0ef14", //集群链接密钥
+    "RpcSystemType": "demo.gateway", //所属系统类别
+    "LocalMac": "7c:b2:7d:ea:fd:df", //本地MAC地址
+    "IsEnableError": true //是否启用错误管理模块
+  },
+  "track": {
+    "IsEnable": true, //是否启用链路
+    "Trace128Bits": true, //生成128位的ID
+    "ServiceName": "网关Demo", //链接记录的 服务名
+    "TraceType": 0, //链路跟踪 使用的第三方 0=Zipkin
+    "TrackDepth": 0, //链路深度  基本 = 0,  发起的参数 = 2, 响应的数据 = 4, 接收的数据 = 8,   返回的数据 = 16 全部=30
+    "TrackRange": 14, //链路跟踪范围   ALL = 14,  Gateway = 2, RpcMsg = 4, RpcQueue = 8
+    "SamplingRate": 1000, // 抽样率 1/1000000
+    "ZipkinTack": {
+      "PostUri": "http://127.0.0.1:9411/api/v1/spans" //Zipkin 数据提交地址
+    }
+  },
+  "rpc_config": {
+    "TranOverTime": 300, //事务超时时间 单位：秒
+    "CloseDelayTime": 10, //关闭延迟时间 单位：秒 
+    "ExpireTime": 10, //消息过期时间(秒)
+    "LockTimeOut": 3, //同步锁本地超时时间
+    "LockOverTime": 2, //远程锁过期时间
+    "MaxRetryNum": 3, //数据发送失败最大重试数
+    "IsValidateData": false, //发送数据前是否验证数据格式
+    "IsEnableQueue": true, //是否启用消息队列
+    "IsUpLog": true, //是否上传日志
+    "LogGradeLimit": 3, //上传日志级别限制
+    "CacheType": 1 //缓存组件使用的缓存类型 默认：redis ( 0 =Memcached 1=redis 2=local)
+  },
+  "log": {
+    "LogGrade": 1, //框架记录日志最低级别
+    "IsConsole": true//是否写入控制台
+  },
+  "memcached": {
+    "MinPoolSize": 2, //最小链接数
+    "MaxPoolSize": 100, //最大连接数
+    "ServerIp": [ "172.29.112.1" ], //链接地址
+    "UserName": null, //用户名
+    "Pwd": null //密码
+  },
+  "redis": {
+    "DefaultDatabase": 0, //默认DB
+    "AllowAdmin": true, //是否应允许管理操作
+    "KeepAlive": 60, //Ping间隔 单位:秒
+    "ConnectRetry": 3, //链接重试次数
+    "SyncTimeout": 5000, //同步超时
+    "AsyncTimeout": 5000, //异步超时
+    "ConnectTimeout": 5000, //链接超时
+    "ResponseTimeout": 5000, //响应超时
+    "ServerIp": [ "127.0.0.1:6379" ], //链接节点地址
+    "UserName": null, //用户名
+    "Pwd": null, //密码
+    "HighPrioritySocketThreads": true, // SocketManager读写器线程使用ThreadPriority.AboveNormal
+    "CheckCertificateRevocation": false, //是否检查证书吊销列表
+    "ServiceName": null //用于通过sentinel解析服务的服务名称
+  },
+  "queue": {
+    "QueueType": 0, //消息队列类型 目前只支持RabbitMQ
+    "ClientProvidedName": null, //用于连接的默认客户端提供的名称
+    "UserName": "guest", //用户名
+    "Pwd": "guest", //密码
+    "VirtualHost": "/", //虚拟地址
+    "IsLasting": false, //消息是否持久化
+    "IsAutoAck": true, //普通消息自动消费
+    "SubIsAutoAck": true, //订阅消息是否自动消费
+    "Servers": [
+      {
+        "ServerUri": null, //链接uri地址
+        "ServerIp": "127.0.0.1" //链接IP地址
+      }
+    ]
+  },
+  "accredit": {
+    "HeartbeatTime": 600, //心跳时间 在心跳时间内授权存在访问则将授权服务中的信息更新(秒)
+    "ErrorVaildTime": 10, //本地授权失效缓冲时间 单位:秒
+    "MinCheckTime": 5, //授权信息最短同步时间 单位:秒
+    "MaxCheckime": 60, //授权信息最长同步时间 单位:秒
+    "MinCacheTime": 180, //授权信息缓存本地最短时间 单位:秒 
+    "MaxCacheTime": 300, //授权信息缓存本地最长时间 单位:秒 
+    "RoleType": "demo" //当前服务节点角色类型 默认：服务节点组名
+  },
+  "socket": {
+    "SyncTimeOut": 12000, //发送到返回的同步超时时间 单位：毫秒
+    "CompressionSize": 10240, //启用数据压缩的最小字节大小
+    "SpinWait": 50, //消息同步锁休眠时间 单位：毫秒 -1 关闭休眠。升级过程：休眠>加锁
+    "TimeOut": 10, // 发送超时时间 单位：秒 默认：10秒
+    "ConTimeout": 5, //链接超时时间 单位：秒 默认：5秒
+    "ClientNum": 2, //连接池最小链接数
+    "UpFileMD5LimitSize": 5242880, //上传文件完整计算MD5大小限制默认：5MB
+    "UpFileSendTimeOut": 10 //文件上传发送超时时间(单位：秒) 默认：10秒
+  },
+  "gateway": {
+    "TracePwd": "wedonek", //强制链路密码
+    "http": {
+      "Url": "http://127.0.0.1:86/", //HTTP监听地址
+      "ApiRouteFormat": "/api/{controller}/{name}", //生成API访问路径格式
+      "MaxRequstLength": 0, //最大请求长度 默认：0 
+      "UpConfig": { //上传配置
+        "SingleFileSize": 10485760, //单文件最大大小
+        "FileExtension": [ ".jpg", ".png" ], //允许的上传格式
+        "LimitFileNum": 1 //每次上传的文件数量
+      },
+      "CrossDomain": { //跨域配置
+        "AllowCredentials": true, //是否允许跨域
+        "AllowUrlReferrer": [ ".wedonek.com" ], //跨域限定允许访问来源
+        "AllowHead": "*", //跨域限定头部
+        "MaxAge": "3600", //有效时间
+        "Method": "POST,GET,OPTIONS" //允许的请求方式 ,号分隔
+      }
+    },
+    "socket": { //WebSocket 通用配置
+      "RequestEncoding": "utf-8", //请求编码
+      "ApiRouteFormat": "/api/{controller}/{name}" //生成API访问路径格式
+    },
+    "WebSocketDemo": { //模块 WebSocketDemo 的WebSocket配置
+      "IsSingle": false, //是否启用单点链接
+      "HeartbeatTime": 10, //客户端心跳时间 单位：秒
+      "ServerPort": 1254, //服务端口号
+      "BufferSize": 5242880, //发送数据流的缓冲区大小 默认：5MB
+      "TcpBacklog": 5000, //监听队列长度
+      "Certificate": { //SSL 配置
+        "FileName": "", //SSL 文件名
+        "Pwd": "" //SSL 密码
+      }
+    }
+  },
+  "database": {//数据库链接配置
+    "defSqlCon": ""//默认数据库链接字符串
+  }
+}

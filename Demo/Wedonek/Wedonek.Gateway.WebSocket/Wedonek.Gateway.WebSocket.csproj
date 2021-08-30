@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Source\RpcHelper\RpcHelper.csproj" />
+    <ProjectReference Include="..\..\..\Source\WebSocketGateway\WebSocketGateway.csproj" />
+    <ProjectReference Include="..\Wedonek.Demo.RemoteModel\Wedonek.Demo.RemoteModel.csproj" />
+  </ItemGroup>
+
+</Project>

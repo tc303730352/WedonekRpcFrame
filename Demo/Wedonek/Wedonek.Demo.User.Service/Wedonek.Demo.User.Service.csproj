@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>E:\NetCore项目\开源项目NetCore\Demo\Wedonek\Wedonek.Demo.User.Service\Wedonek.Demo.User.Service.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Source\RpcCacheClient\RpcCacheClient.csproj" />
+    <ProjectReference Include="..\..\..\Source\RpcClient\RpcClient.csproj" />
+    <ProjectReference Include="..\..\..\Source\RpcHelper\RpcHelper.csproj" />
+    <ProjectReference Include="..\..\..\Source\RpcModel\RpcModel.csproj" />
+    <ProjectReference Include="..\..\..\Source\RpcModular\RpcModular.csproj" />
+    <ProjectReference Include="..\Wedonek.Demo.RemoteModel\Wedonek.Demo.RemoteModel.csproj" />
+  </ItemGroup>
+
+</Project>
