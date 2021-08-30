@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ApiGateway\ApiGateway.csproj" />
+    <ProjectReference Include="..\HttpWebSocket\HttpWebSocket.csproj" />
+    <ProjectReference Include="..\RpcClient\RpcClient.csproj" />
+    <ProjectReference Include="..\RpcHelper\RpcHelper.csproj" />
+    <ProjectReference Include="..\RpcModel\RpcModel.csproj" />
+    <ProjectReference Include="..\RpcModularModel\RpcModularModel.csproj" />
+    <ProjectReference Include="..\RpcModular\RpcModular.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>E:\NetCore项目\开源项目NetCore\Source\RpcSyncService\RpcSyncService\RpcSyncService.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>E:\NetCore项目\开源项目NetCore\Source\RpcSyncService\RpcSyncService\RpcSyncService.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\RpcCacheClient\RpcCacheClient.csproj" />
+    <ProjectReference Include="..\..\RpcClient\RpcClient.csproj" />
+    <ProjectReference Include="..\..\RpcHelper\RpcHelper.csproj" />
+    <ProjectReference Include="..\..\RpcModel\RpcModel.csproj" />
+    <ProjectReference Include="..\..\RpcModularModel\RpcModularModel.csproj" />
+    <ProjectReference Include="..\..\RpcModular\RpcModular.csproj" />
+    <ProjectReference Include="..\..\SqlExecHelper\SqlExecHelper.csproj" />
+  </ItemGroup>
+</Project>

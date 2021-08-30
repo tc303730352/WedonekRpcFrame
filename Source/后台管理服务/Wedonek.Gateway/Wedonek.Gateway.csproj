@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ApiGateway\ApiGateway.csproj" />
+    <ProjectReference Include="..\..\HttpApiGateway\HttpApiDocHelper\HttpApiDocHelper.csproj" />
+    <ProjectReference Include="..\..\RpcHelper\RpcHelper.csproj" />
+    <ProjectReference Include="..\Wedonek.RpcStore.Gateway\Wedonek.RpcStore.Gateway.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LocalConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\RpcClient\RpcClient.csproj" />
+    <ProjectReference Include="..\..\RpcHelper\RpcHelper.csproj" />
+    <ProjectReference Include="..\..\RpcModel\RpcModel.csproj" />
+    <ProjectReference Include="..\..\SqlExecHelper\SqlExecHelper.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>E:\项目\开源项目NetCore\Source\HttpApiGateway\HttpApiGateway\HttpApiGateway.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ApiGateway\ApiGateway.csproj" />
+    <ProjectReference Include="..\..\RpcClient\RpcClient.csproj" />
+    <ProjectReference Include="..\..\RpcHelper\RpcHelper.csproj" />
+    <ProjectReference Include="..\..\RpcModel\RpcModel.csproj" />
+    <ProjectReference Include="..\..\RpcModular\RpcModular.csproj" />
+    <ProjectReference Include="..\HttpService\HttpService.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?><errorlist lang="zh">
+<demo>
+<error><id>2</id><code>name.len</code><msg>demo.name.len</msg></error>
+<error><id>4</id><code>id.error</code><msg>demo.id.error</msg></error>
+<error><id>11</id><code>orderTitle.len</code><msg>demo.orderTitle.len</msg></error>
+<error><id>6</id><code>user.name.len</code><msg>demo.user.name.len</msg></error>
+<error><id>5</id><code>user.name.null</code><msg>demo.user.name.null</msg></error>
+<error><id>1</id><code>name.null</code><msg>demo.name.null</msg></error>
+<error><id>7</id><code>orderNo.null</code><msg>demo.orderNo.null</msg></error>
+<error><id>3</id><code>id.null</code><msg>demo.id.null</msg></error>
+<error><id>8</id><code>orderNo.len</code><msg>demo.orderNo.len</msg></error>
+<error><id>10</id><code>orderTitle.null</code><msg>demo.orderTitle.null</msg></error>
+<error><id>12</id><code>orderPrice.null</code><msg>demo.orderPrice.null</msg></error>
+<error><id>9</id><code>orderNo.format</code><msg>demo.orderNo.format</msg></error>
+</demo>
+</errorlist>

@@ -1,0 +1,120 @@
+﻿using System;
+using System.Data;
+
+using SqlExecHelper.Interface;
+using SqlExecHelper.SqlValue;
+
+namespace SqlExecHelper
+{
+        public interface ISqlDAL : IDisposable
+        {
+                string TableName { get; set; }
+
+                int RowNum { get; }
+                IBatchDrop BatchDrop(int row, int col);
+                bool BatchDrop<T, Result>(string column, T[] datas, out Result[] results, params ISqlWhere[] param);
+                bool BatchDrop<T, Result>(string column, T[] datas, string returnCol, out Result[] results, params ISqlWhere[] param);
+                int BatchDrop<T>(string column, T[] datas, params ISqlWhere[] param);
+                IBatchInsert BatchInsert();
+                IBatchMerge BatchMerge(int row, int col);
+                IBatchQuery BatchQuery(int row, int col);
+                IBatchExecSql BatchSql(int row, int col);
+                IBatchUpdate BatchUpdate(int row, int col);
+                IDAL BeginTrans();
+                bool CheckIsExists(out bool isExists, params ISqlWhere[] where);
+                void CommitTrans();
+                int Drop(ISqlWhere[] where);
+                bool Drop<T, Result>(string column, T data, out Result result);
+                bool Drop<T, Result>(string column, T data, string returnColumn, out Result result);
+                bool Drop<T, Result>(string column, T data, string returnColumn, out Result[] result);
+                bool Drop<T>(out T result, ISqlWhere[] where);
+                bool Drop<T>(out T[] result, ISqlWhere[] where);
+                bool Drop<T>(string column, out T result, ISqlWhere[] where);
+                bool Drop<T>(string column, out T[] result, ISqlWhere[] where);
+                int Drop<T>(string column, T data);
+                bool ExecuteCount<T>(out T count, params ISqlWhere[] where) where T : struct;
+                bool ExecuteNonQuery(string sql, params SqlBasicParameter[] param);
+                bool ExecuteScalar<T, T1>(string column, out T data, string where, T1 value);
+                bool ExecuteScalar<T>(string column, out T data, params ISqlWhere[] where);
+                bool ExecuteScalar<T>(string sql, out T value, params SqlBasicParameter[] param);
+                bool ExecuteScalar<T>(string column, out T data, string orderBy, params ISqlWhere[] where);
+                bool ExecuteScalar<T>(string column, SqlFuncType func, out T data, params ISqlWhere[] where);
+                bool ExecuteScalar<T>(string column, string func, out T val, params ISqlWhere[] where);
+                bool ExecuteScalarTable<T>(string column, out T data, params ISqlWhere[] where);
+                bool ExecuteScalarTable<T>(string column, out T data, T def, params ISqlWhere[] where);
+                bool ExecuteSum<T>(string column, out T sum, params ISqlWhere[] where) where T : struct;
+                bool Get<T, Result>(string column, T data, out Result[] datas, params ISqlWhere[] where);
+                bool Get<T, Result>(string column, T[] ids, out Result[] datas, params ISqlWhere[] where);
+                bool Get<T, Result>(string column, T[] ids, string showCol, out Result[] datas, params ISqlWhere[] where);
+                bool Get<T>(out T[] datas, params ISqlWhere[] where);
+                bool Get<T>(out T[] datas, string orderBy, params ISqlWhere[] where);
+                bool Get<T>(string column, out T[] datas, params ISqlWhere[] where);
+                bool GetDataSet(string sql, out DataSet dataSet, params SqlBasicParameter[] param);
+                bool GetRow<T, Result>(string column, T value, out Result data);
+                bool GetRow<T>(out T data, params ISqlWhere[] where);
+                bool GetRow<T>(out T data, string orderBy, params ISqlWhere[] where);
+                bool GetRow<T>(string sql, out T data, params SqlBasicParameter[] param);
+                bool GetTable<T>(string sql, out T[] datas, params SqlBasicParameter[] param);
+                bool GetTop<T>(int top, out T[] datas, params ISqlWhere[] where);
+                bool GetTop<T>(int top, string orderBy, out T[] datas, params ISqlWhere[] where);
+                bool GetTop<T>(int top, string column, string orderBy, out T[] datas, params ISqlWhere[] where);
+                bool GetTop<T>(string column, int top, out T[] datas, params ISqlWhere[] where);
+                bool Group<T>(string group, ISqlWhere[] having, out T data, params ISqlWhere[] where);
+                bool Group<T>(string group, ISqlWhere[] having, out T[] datas, params ISqlWhere[] where);
+                bool Group<T>(string group, out T data, params ISqlWhere[] where);
+                bool Group<T>(string group, out T[] datas, params ISqlWhere[] where);
+                bool Group<T>(string group, string orderBy, ISqlWhere[] having, out T[] data, params ISqlWhere[] where);
+                bool Group<T>(string group, string orderBy, out T[] datas, params ISqlWhere[] where);
+                bool Group<T>(string[] groups, ISqlWhere[] having, out T[] datas, params ISqlWhere[] where);
+                bool Group<T>(string[] groups, out T data, params ISqlWhere[] where);
+                bool Group<T>(string[] groups, out T[] datas, params ISqlWhere[] where);
+                bool Group<T>(string[] groups, string orderBy, ISqlWhere[] having, out T[] datas, params ISqlWhere[] where);
+                bool Group<T>(string[] groups, string orderBy, out T[] datas, params ISqlWhere[] where);
+                bool GroupByOne<T>(string group, ISqlWhere[] having, out T[] datas, params ISqlWhere[] where);
+                bool GroupByOne<T>(string group, out T[] datas, params ISqlWhere[] where);
+                bool Insert(IInsertSqlValue[] column, out long id);
+                bool Insert(IInsertSqlValue[] column, out int id);
+                bool Insert<T, Result>(T data, out Result result) where T : class;
+                bool Insert<T, Result>(T data, string column, out Result result) where T : class;
+                bool Insert<T, Result>(T[] adds, out Result[] results) where T : class;
+                bool Insert<T, Result>(T[] adds, string column, out Result[] results) where T : class;
+                bool Insert<T>(T data) where T : class;
+                bool Insert<T>(T data, out int id) where T : class;
+                bool Insert<T>(T data, out long id) where T : class;
+                bool Insert<T>(T[] adds) where T : class;
+                IInsertTable InsertTable();
+                IInsertTable InsertTable(int row, int col);
+                bool JoinQuery<T>(string one, string two, IOrderBy[] orderBy, int index, int size, out long count, out T[] array, params ISqlWhere[] where);
+                bool JoinQuery<T>(string one, string two, IOrderBy[] orderBy, int index, int size, out T[] array, params ISqlWhere[] where);
+                bool JoinQuery<T>(string one, string two, IOrderBy[] orderby, out T[] datas, params ISqlWhere[] where);
+                bool JoinQuery<T>(string one, string two, out T[] datas, params ISqlWhere[] where);
+                bool Query<T>(string orderBy, int index, int size, out T[] array, out long count, params ISqlWhere[] where);
+                bool Query<T>(string orderBy, int index, int size, out T[] array, params ISqlWhere[] where);
+                bool Query<T>(string column, string orderBy, int index, int size, out T[] array, out long count, params ISqlWhere[] where);
+                bool Query<T>(string column, string orderBy, int index, int size, out T[] array, params ISqlWhere[] where);
+                void RollbackTrans();
+                bool Update(ISqlSetColumn[] columns, params ISqlWhere[] where);
+                bool Update<Result>(ISqlSetColumn[] columns, out Result result, params ISqlWhere[] where);
+                bool Update<Result>(ISqlSetColumn[] columns, out Result[] result, params ISqlWhere[] where);
+                bool Update<Result>(ISqlSetColumn[] columns, SqlEventPrefix prefix, out Result result, params ISqlWhere[] where);
+                bool Update<Result>(ISqlSetColumn[] columns, SqlEventPrefix prefix, out Result[] result, params ISqlWhere[] where);
+                bool Update<Result>(ISqlSetColumn[] columns, string column, out Result result, params ISqlWhere[] where);
+                bool Update<Result>(ISqlSetColumn[] columns, string column, out Result[] result, params ISqlWhere[] where);
+                bool Update<Result>(ISqlSetColumn[] columns, string column, SqlEventPrefix prefix, out Result result, params ISqlWhere[] where);
+                bool Update<Result>(ISqlSetColumn[] columns, string column, SqlEventPrefix prefix, out Result[] result, params ISqlWhere[] where);
+                bool Update<T, Result>(ISqlSetColumn[] columns, string column, T[] vals, string retCol, SqlEventPrefix prefix, out Result[] results, params ISqlWhere[] where);
+                bool Update<T, Result>(ISqlSetColumn[] columns, string column, T[] vals, string retCol, out Result[] results, params ISqlWhere[] where);
+                bool Update<T, Result>(T data, out Result result, params ISqlWhere[] where);
+                bool Update<T, Result>(T data, out Result[] result, params ISqlWhere[] where);
+                bool Update<T, Result>(T data, SqlEventPrefix prefix, out Result result, params ISqlWhere[] where);
+                bool Update<T, Result>(T data, SqlEventPrefix prefix, out Result[] result, params ISqlWhere[] where);
+                bool Update<T, Result>(T data, string column, out Result result, params ISqlWhere[] where);
+                bool Update<T, Result>(T data, string column, out Result[] result, params ISqlWhere[] where);
+                bool Update<T, Result>(T data, string column, SqlEventPrefix prefix, out Result result, params ISqlWhere[] where);
+                bool Update<T, Result>(T data, string column, SqlEventPrefix prefix, out Result[] result, params ISqlWhere[] where);
+                bool Update<T, T1>(T data, string column, T1 val);
+                bool Update<T>(ISqlSetColumn[] columns, string column, T val);
+                bool Update<T>(ISqlSetColumn[] columns, string column, T[] vals, params ISqlWhere[] where);
+                bool Update<T>(T data, params ISqlWhere[] where);
+        }
+}

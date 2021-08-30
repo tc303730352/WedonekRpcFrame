@@ -1,0 +1,18 @@
+{
+  "gateway": {
+    "http": {
+      "Url": "http://127.0.0.1:89/"
+    }
+  },
+  "rpc": {
+    "RpcSystemType": "sys.store",
+    "RpcServer": [ "127.0.0.1" ],
+    "RpcAppSecret": "c429d30e8ab14464b70ce926802ba7dd",
+    "RpcAppId": "4a96a64fa89e4fd387d9a881a6a539f9",
+    "LocalMac": "7c:b2:7d:ea:fd:df"
+  },
+  "database": {
+    "RpcExtendService": "Data Source=.;Initial Catalog=RpcExtendService;Persist Security Info=True;User ID=sa;Password=426831;Max Pool Size = 1024",
+    "defSqlCon": "Data Source=.;Initial Catalog=RpcService;Persist Security Info=True;User ID=sa;Password=426831;Max Pool Size = 1024"
+  }
+}

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EmitMapper.Core" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\RpcCacheClient\RpcCacheClient.csproj" />
+    <ProjectReference Include="..\..\RpcHelper\RpcHelper.csproj" />
+    <ProjectReference Include="..\..\RpcModel\RpcModel.csproj" />
+    <ProjectReference Include="..\..\SocketTcpClient\SocketTcpClient.csproj" />
+    <ProjectReference Include="..\..\SocketTcpServer\SocketTcpServer.csproj" />
+    <ProjectReference Include="..\..\SqlExecHelper\SqlExecHelper.csproj" />
+  </ItemGroup>
+</Project>

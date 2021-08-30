@@ -1,0 +1,833 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wedonek.RpcStore.Gateway</name>
+    </assembly>
+    <members>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.AdminController">
+            <summary>
+            管理员
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.AdminController.Login(Wedonek.RpcStore.Gateway.Model.AdminLogin)">
+            <summary>
+            管理员登陆
+            </summary>
+            <param name="login"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.AdminController.SetPwd(System.String)">
+            <summary>
+            设置密码
+            </summary>
+            <param name="pwd"></param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.AdminController.RegAdmin(Wedonek.RpcStore.Gateway.Model.AdminLogin)">
+            <summary>
+            注册管理员
+            </summary>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.AutoTaskController">
+            <summary>
+            任务管理
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.AutoTaskController.Add(Wedonek.RpcStore.Service.Model.AutoTask)">
+            <summary>
+            添加任务
+            </summary>
+            <param name="task">任务信息</param>
+            <returns>任务Id</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.AutoTaskController.Drop(System.Int64)">
+            <summary>
+            删除任务
+            </summary>
+            <param name="id">任务Id</param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.AutoTaskController.Get(System.Int64)">
+            <summary>
+            获取任务详细
+            </summary>
+            <param name="id">任务Id</param>
+            <returns>任务详细</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.AutoTaskController.Query(HttpApiGateway.Model.PagingParam{Wedonek.RpcStore.Service.Model.QueryTaskParam},System.Int64@)">
+            <summary>
+            查询
+            </summary>
+            <param name="param">查询参数</param>
+            <param name="count">任务总量</param>
+            <returns>任务列表</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.AutoTaskController.Set(Wedonek.RpcStore.Service.Model.AutoTaskSetParam)">
+            <summary>
+            修改
+            </summary>
+            <param name="param">修改信息</param>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.ClientLimitController">
+            <summary>
+            客户端节点限流配置
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ClientLimitController.Drop(System.Int64,System.Int64)">
+            <summary>
+            删除配置
+            </summary>
+            <param name="rpcMerId">集群Id</param>
+            <param name="serverId">服务节点Id</param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ClientLimitController.Get(System.Int64,System.Int64)">
+            <summary>
+            获取配置
+            </summary>
+            <param name="rpcMerId">集群Id</param>
+            <param name="serverId">服务节点Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ClientLimitController.Sync(Wedonek.RpcStore.Service.Model.ServerClientLimitData)">
+            <summary>
+            添加或设置
+            </summary>
+            <param name="add"></param>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.ErrorController">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ErrorController.Add(Wedonek.RpcStore.Service.Model.ErrorAddDatum)">
+            <summary>
+            添加错误
+            </summary>
+            <param name="add">错误信息</param>
+            <returns>错误Id</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ErrorController.GetError(System.Int64,System.String)">
+            <summary>
+            获取错误信息
+            </summary>
+            <param name="errorId">错误Id</param>
+            <param name="lang">语言</param>
+            <returns>错误信息</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ErrorController.Query(HttpApiGateway.Model.PagingParam{Wedonek.RpcStore.Gateway.Model.ErrorParam},System.Int64@)">
+            <summary>
+            查询错误信息
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="count">错误总量</param>
+            <returns>错误数据</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ErrorController.SetMsg(Wedonek.RpcStore.Gateway.Model.SetErrorParam)">
+            <summary>
+            设置错误的友好提示
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.LimitConfigController">
+            <summary>
+            服务节点限流配置
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.LimitConfigController.Drop(System.Int64)">
+            <summary>
+            删除配置
+            </summary>
+            <param name="serverId">节点Id</param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.LimitConfigController.Get(System.Int64)">
+            <summary>
+            获取配置
+            </summary>
+            <param name="serverId">节点Id</param>
+            <returns>节点配置</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.LimitConfigController.Sync(Wedonek.RpcStore.Service.Model.AddServerLimitConfig)">
+            <summary>
+            同步配置
+            </summary>
+            <param name="add"></param>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.ReduceInRankController">
+            <summary>
+            熔断降级
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ReduceInRankController.Drop(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ReduceInRankController.Get(System.Int64,System.Int64)">
+            <summary>
+            获取
+            </summary>
+            <param name="rpcMerId"></param>
+            <param name="serverId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ReduceInRankController.Sync(Wedonek.RpcStore.Service.Model.AddReduceInRank)">
+            <summary>
+            设置或添加
+            </summary>
+            <param name="datum"></param>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.RemoteGroupController">
+            <summary>
+            集群服务节点组
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RemoteGroupController.Drop(System.Int64)">
+            <summary>
+            删除绑定
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RemoteGroupController.Get(System.Int64)">
+            <summary>
+            获取绑定的服务节点
+            </summary>
+            <param name="rpcMerId">集群Id</param>
+            <returns>服务节点列表</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RemoteGroupController.Set(Wedonek.RpcStore.Gateway.Model.BindServer)">
+            <summary>
+            绑定服务节点
+            </summary>
+            <param name="set">绑定信息</param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RemoteGroupController.SetWeight(System.Int64,System.Int32)">
+            <summary>
+            设置权重
+            </summary>
+            <param name="id"></param>
+            <param name="weight"></param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RemoteGroupController.Query(System.Int64,HttpApiGateway.Model.PagingParam{Wedonek.RpcStore.Service.Model.QueryServiceParam},System.Int64@)">
+            <summary>
+            查询绑定的节点状态
+            </summary>
+            <param name="rpcMerId"></param>
+            <param name="query"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.RpcMerConfigController">
+            <summary>
+            集群配置
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RpcMerConfigController.Add(Wedonek.RpcStore.Service.Model.AddMerConfig)">
+            <summary>
+            添加
+            </summary>
+            <param name="add"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RpcMerConfigController.Drop(System.Guid)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RpcMerConfigController.Get(System.Guid)">
+            <summary>
+            获取
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RpcMerConfigController.Gets(System.Int64)">
+            <summary>
+            获取配置列表
+            </summary>
+            <param name="rpcMerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RpcMerConfigController.Set(System.Guid,Wedonek.RpcStore.Service.Model.SetMerConfig)">
+            <summary>
+            修改配置
+            </summary>
+            <param name="id"></param>
+            <param name="param"></param>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.RpcMerController">
+            <summary>
+            服务集群
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RpcMerController.Add(Wedonek.RpcStore.Service.Model.RpcMerDatum)">
+            <summary>
+            添加集群
+            </summary>
+            <param name="mer">集群信息</param>
+            <returns>集群Id</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RpcMerController.Get(System.Int64)">
+            <summary>
+            获取集群信息
+            </summary>
+            <param name="id">集群Id</param>
+            <returns>集群信息</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RpcMerController.Query(System.String,RpcModel.BasicPage,System.Int64@)">
+            <summary>
+            查询集群
+            </summary>
+            <param name="name">名称</param>
+            <param name="paging">分页</param>
+            <param name="count">数据总量</param>
+            <returns>集群列表</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RpcMerController.Set(System.Int64,Wedonek.RpcStore.Service.Model.RpcMerSetParam)">
+            <summary>
+            设置集群信息
+            </summary>
+            <param name="id"></param>
+            <param name="datum"></param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.RpcMerController.Drop(System.Int64)">
+            <summary>
+            删除集群
+            </summary>
+            <param name="id">集群Id</param>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.ServerController">
+            <summary>
+            服务节点
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerController.SetState(System.Int64,RpcModel.RpcServiceState)">
+            <summary>
+            设置服务状态
+            </summary>
+            <param name="id"></param>
+            <param name="state"></param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerController.Add(Wedonek.RpcStore.Service.Model.ServerConfigAddParam)">
+            <summary>
+            添加节点
+            </summary>
+            <param name="add"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerController.Drop(System.Int64)">
+            <summary>
+            删除节点
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerController.Get(System.Int64)">
+            <summary>
+            获取节点信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerController.Query(HttpApiGateway.Model.PagingParam{Wedonek.RpcStore.Service.Model.QueryServiceParam},System.Int64@)">
+            <summary>
+            查询节点
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="count">节点总数</param>
+            <returns>服务节点资料</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerController.Set(System.Int64,Wedonek.RpcStore.Service.Model.ServerConfigSetParam)">
+            <summary>
+            修改节点资料
+            </summary>
+            <param name="id">节点Id</param>
+            <param name="set">节点配置</param>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.ServerDictateController">
+            <summary>
+            服务节点指令限流
+            </summary>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.ServerGroupController">
+            <summary>
+            服务组
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerGroupController.Add(Wedonek.RpcStore.Service.Model.ServerGroupDatum)">
+            <summary>
+            添加服务组
+            </summary>
+            <param name="add"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerGroupController.CheckIsRepeat(System.String)">
+            <summary>
+            检查是否重复
+            </summary>
+            <param name="typeVal">类别</param>
+            <returns>是否重复</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerGroupController.Drop(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="groupId">组别Id</param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerGroupController.GetGroup(System.Int64)">
+            <summary>
+            获取组信息
+            </summary>
+            <param name="groupId">组Id</param>
+            <returns>服务组信息</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerGroupController.GetGroups">
+            <summary>
+            获取所以服务组
+            </summary>
+            <returns>组信息</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerGroupController.Query(System.String,RpcModel.BasicPage,System.Int64@)">
+            <summary>
+            查询服务组
+            </summary>
+            <param name="name">组名</param>
+            <param name="paging">分页信息</param>
+            <param name="count">数据量</param>
+            <returns>组信息列表</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerGroupController.Set(System.Int64,System.String)">
+            <summary>
+            设置组
+            </summary>
+            <param name="groupId">组Id</param>
+            <param name="name">组名</param>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.ServerRegionController">
+            <summary>
+            服务区域管理
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerRegionController.Add(System.String)">
+            <summary>
+            添加区域
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerRegionController.Drop(System.Int32)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerRegionController.Gets">
+            <summary>
+            获取列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerRegionController.Set(Wedonek.RpcStore.Service.Model.ServerRegion)">
+            <summary>
+            修改
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.ServerTypeController">
+            <summary>
+            服务类目
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerTypeController.Add(Wedonek.RpcStore.Service.Model.ServerTypeDatum)">
+            <summary>
+            添加服务类别
+            </summary>
+            <param name="add">服务类别资料</param>
+            <returns>新的类别Id</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerTypeController.CheckIsRepeat(System.String)">
+            <summary>
+            检查类别是否重复
+            </summary>
+            <param name="typeVal">类别值</param>
+            <returns>是否重复</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerTypeController.Drop(System.Int64)">
+            <summary>
+            删除类别
+            </summary>
+            <param name="id">类别Id</param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerTypeController.Get(System.Int64)">
+            <summary>
+            获取服务类别
+            </summary>
+            <param name="id">类别Id</param>
+            <returns>类别资料</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerTypeController.Gets(System.Int64)">
+            <summary>
+            获取服务组下的类别
+            </summary>
+            <param name="groupId">服务组Id</param>
+            <returns>类别列表</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerTypeController.Query(HttpApiGateway.Model.PagingParam{Wedonek.RpcStore.Service.Model.ServerTypeQueryParam},System.Int64@)">
+            <summary>
+            查询服务类别
+            </summary>
+            <param name="query">查询分页参数</param>
+            <param name="count">数据量</param>
+            <returns>类别列表</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.ServerTypeController.Set(System.Int64,Wedonek.RpcStore.Service.Model.ServerTypeSetParam)">
+            <summary>
+            设置服务类别
+            </summary>
+            <param name="id">类别Id</param>
+            <param name="param">修改的信息</param>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Controller.SysConfigController">
+            <summary>
+            系统配置
+            </summary>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.SysConfigController.Add(Wedonek.RpcStore.Service.Model.SysConfigAddParam)">
+            <summary>
+            添加配置
+            </summary>
+            <param name="add">配置信息</param>
+            <returns>配置Id</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.SysConfigController.Drop(System.Int64)">
+            <summary>
+            删除配置
+            </summary>
+            <param name="configId">配置Id</param>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.SysConfigController.Get(System.Int64)">
+            <summary>
+            获取配置信息
+            </summary>
+            <param name="configId">配置Id</param>
+            <returns>配置信息</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.SysConfigController.Query(HttpApiGateway.Model.PagingParam{Wedonek.RpcStore.Service.Model.QuerySysParam},System.Int64@)">
+            <summary>
+            配置查询
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="count">数据总量</param>
+            <returns>配置资料</returns>
+        </member>
+        <member name="M:Wedonek.RpcStore.Gateway.Controller.SysConfigController.Set(Wedonek.RpcStore.Gateway.Model.SysConfigSet)">
+            <summary>
+            设置配置
+            </summary>
+            <param name="config">配置</param>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.AdminLogin.LoginName">
+            <summary>
+            登陆名
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.AdminLogin.Pwd">
+            <summary>
+            登陆密码
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.BindRemoteServer.Id">
+            <summary>
+            数据Id
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.BindRemoteServer.ServerId">
+            <summary>
+            服务节点Id
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.BindRemoteServer.ServerName">
+            <summary>
+            服务节点名称
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.BindRemoteServer.IsOnline">
+            <summary>
+            是否在线
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.BindRemoteServer.SystemName">
+            <summary>
+            类型值
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.BindRemoteServer.Weight">
+            <summary>
+            权重
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.BindServer.RpcMerId">
+            <summary>
+            集群Id
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.BindServer.ServerId">
+            <summary>
+            服务节点Id
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.DictateQueryParam.ServerId">
+            <summary>
+            服务ID
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.DictateQueryParam.Dictate">
+            <summary>
+            指令
+            </summary>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Model.ErrorData">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ErrorData.Id">
+            <summary>
+            错误Id
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ErrorData.ErrorCode">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ErrorData.Zh">
+            <summary>
+            中文
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ErrorData.En">
+            <summary>
+            英文
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ErrorParam.ErrorCode">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Model.RemoteServer">
+            <summary>
+            服务节点
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.RemoteServer.SystemName">
+            <summary>
+            所属类别
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.RemoteServer.BalancedType">
+            <summary>
+            负载方式
+            </summary>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Model.RemoteServerBindState">
+            <summary>
+            服务节点绑定状态
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.RemoteServerBindState.GroupName">
+            <summary>
+            组别名
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.RemoteServerBindState.IsBind">
+            <summary>
+            是否绑定
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.RemoteServerBindState.BindId">
+            <summary>
+            绑定Id
+            </summary>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Model.RemoteServerDatum">
+            <summary>
+            远程服务资料
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.RemoteServerDatum.GroupName">
+            <summary>
+            组别名称
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.RemoteServerDatum.TransmitConfig">
+            <summary>
+            分发配置
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.RpcMerConfigDatum.SystemName">
+            <summary>
+            系统名
+            </summary>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Model.ServerRelation">
+            <summary>
+            服务关联
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerRelation.Id">
+            <summary>
+            服务Id
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerRelation.ServerName">
+            <summary>
+            服务名
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerRelation.ServerIp">
+            <summary>
+            服务Ip
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerRelation.ServerPort">
+            <summary>
+            服务端口
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerRelation.ConIp">
+            <summary>
+            链接Ip
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerRelation.ServerMac">
+            <summary>
+            服务Mac
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerRelation.ServerIndex">
+            <summary>
+            服务编号
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerRelation.IsOnline">
+            <summary>
+            是否在线
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerRelation.SystemName">
+            <summary>
+            系统名
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerRelation.GroupName">
+            <summary>
+            组名
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerRelation.IsRemote">
+            <summary>
+            是否远程
+            </summary>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Model.ServerTypeData">
+            <summary>
+            服务类型资料
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerTypeData.Id">
+            <summary>
+            类型ID
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerTypeData.GroupName">
+            <summary>
+            服务组
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerTypeData.GroupVal">
+            <summary>
+            类型值
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerTypeData.TypeVal">
+            <summary>
+            类型值
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerTypeData.SystemName">
+            <summary>
+            服务名
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.ServerTypeData.BalancedType">
+            <summary>
+            负载均衡的方式
+            </summary>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Model.SetErrorParam">
+            <summary>
+            设置错误信息
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.SetErrorParam.ErrorId">
+            <summary>
+            错误Id
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.SetErrorParam.Lang">
+            <summary>
+            错误信息语言
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.SetErrorParam.Msg">
+            <summary>
+            错误友好提示
+            </summary>
+        </member>
+        <member name="T:Wedonek.RpcStore.Gateway.Model.SysConfigInfo">
+            <summary>
+            配置信息
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.SysConfigInfo.Id">
+            <summary>
+            配置Id
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.SysConfigInfo.Range">
+            <summary>
+            配置范围
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.SysConfigInfo.Name">
+            <summary>
+            配置名
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.SysConfigInfo.ValueType">
+            <summary>
+            值类型
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.SysConfigInfo.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.SysConfigSet.Id">
+            <summary>
+            配置Id
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.SysConfigSet.ValueType">
+            <summary>
+            值类型
+            </summary>
+        </member>
+        <member name="P:Wedonek.RpcStore.Gateway.Model.SysConfigSet.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+    </members>
+</doc>

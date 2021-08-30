@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTaskService", "AutoTaskService\AutoTaskService.csproj", "{26DD5A00-BE14-4B43-A6F2-83CEAA295738}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RpcClient", "..\RpcClient\RpcClient.csproj", "{0940F99D-BE54-42BF-BCEF-1D02D76BBB0C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RpcModel", "..\RpcModel\RpcModel.csproj", "{1A40F82F-5726-4B95-A690-9C13BFC44319}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RpcExtend", "..\RpcExtend\RpcExtend.csproj", "{2132D531-8BB2-46EC-B66D-30340977AE59}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlExecHelper", "..\SqlExecHelper\SqlExecHelper.csproj", "{3284C81B-551E-4A1B-A77A-A958DB71CBCE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolsHelper", "..\ToolsHelper\ToolsHelper.csproj", "{B1AD07FB-05A9-48CF-9626-CB1FB7E7B057}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{3812C8C3-3FC3-46B1-8ED1-11F6B31DD4DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26DD5A00-BE14-4B43-A6F2-83CEAA295738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26DD5A00-BE14-4B43-A6F2-83CEAA295738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26DD5A00-BE14-4B43-A6F2-83CEAA295738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26DD5A00-BE14-4B43-A6F2-83CEAA295738}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0940F99D-BE54-42BF-BCEF-1D02D76BBB0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0940F99D-BE54-42BF-BCEF-1D02D76BBB0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0940F99D-BE54-42BF-BCEF-1D02D76BBB0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0940F99D-BE54-42BF-BCEF-1D02D76BBB0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A40F82F-5726-4B95-A690-9C13BFC44319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A40F82F-5726-4B95-A690-9C13BFC44319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A40F82F-5726-4B95-A690-9C13BFC44319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A40F82F-5726-4B95-A690-9C13BFC44319}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2132D531-8BB2-46EC-B66D-30340977AE59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2132D531-8BB2-46EC-B66D-30340977AE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2132D531-8BB2-46EC-B66D-30340977AE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2132D531-8BB2-46EC-B66D-30340977AE59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3284C81B-551E-4A1B-A77A-A958DB71CBCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3284C81B-551E-4A1B-A77A-A958DB71CBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3284C81B-551E-4A1B-A77A-A958DB71CBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3284C81B-551E-4A1B-A77A-A958DB71CBCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1AD07FB-05A9-48CF-9626-CB1FB7E7B057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1AD07FB-05A9-48CF-9626-CB1FB7E7B057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1AD07FB-05A9-48CF-9626-CB1FB7E7B057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1AD07FB-05A9-48CF-9626-CB1FB7E7B057}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3812C8C3-3FC3-46B1-8ED1-11F6B31DD4DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3812C8C3-3FC3-46B1-8ED1-11F6B31DD4DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3812C8C3-3FC3-46B1-8ED1-11F6B31DD4DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3812C8C3-3FC3-46B1-8ED1-11F6B31DD4DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E467C396-FFD4-43A2-974B-C9E669B5BB20}
+	EndGlobalSection
+EndGlobal

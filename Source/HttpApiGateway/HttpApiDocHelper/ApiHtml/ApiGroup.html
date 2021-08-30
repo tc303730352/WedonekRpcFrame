@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <title>API组</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="col-xs-10 col-xs-offset-1">
+            <div class="row">
+                <h1>API列表</h1>
+                <a href="/api/helper/DownPostman?id=0" target="_blank">导出所有接口Posman的配置</a>
+                <div id="ApiList">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="ApiTr" type="text/html">
+        {{each list}}
+        <div class="col-xs-12">
+            <h2>{{$value.Name}}</h2>
+            <h4>Uri: {{$value.Root}}</h4>
+            <a href="/api/helper/DownPostman?id={{$value.Id}}" target="_blank">导出该组Posman配置</a>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>API类型</th>
+                        <th>说明</th>
+                        <th>路径</th>
+                        <th>身份标识验证</th>
+                        <th>是否验证</th>
+                        <th>权限</th>
+                        <th>提交方式</th>
+                        <th>详细</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each $value.ApiList as api}}
+                    <tr>
+                        <td>{{$index}}</td>
+                        <td><%=GetApiTypeName(api.ApiType) %></td>
+                        <td>{{api.Show}}</td>
+                        <td>{{api.Uri}}</td>
+                        <td>{{api.IsIdentity?"是":"否"}}</td>
+                        <td>{{api.IsAccredit?"是":"否"}}</td>
+                        <td>{{api.Prower}}</td>
+                        <td>{{api.RequestMethod}}</td>
+                        <td><a href="ApiInfo.html?id={{api.Id}}">详细</a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{/each}}
+    </script>
+    <script src="js/jquery.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/basic.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/art-template.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/ApiGroup.js" charset="utf-8" type="text/javascript"></script>
+</body>
+</html>

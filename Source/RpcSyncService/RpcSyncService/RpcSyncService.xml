@@ -1,0 +1,763 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RpcSyncService</name>
+    </assembly>
+    <members>
+        <member name="T:RpcSyncService.Broadcast.InitBroadcast">
+            <summary>
+            初始化广播
+            </summary>
+        </member>
+        <member name="T:RpcSyncService.Broadcast.LoadALLMerNode">
+            <summary>
+            加载集群下的所有节点
+            </summary>
+        </member>
+        <member name="T:RpcSyncService.Broadcast.LoadALLMerOnlyNode">
+            <summary>
+            加载当前集群下的所有指令集
+            </summary>
+        </member>
+        <member name="T:RpcSyncService.Broadcast.LoadALLNode">
+            <summary>
+            加载区域所有节点
+            </summary>
+        </member>
+        <member name="T:RpcSyncService.Broadcast.LoadALLOnlyNode">
+            <summary>
+            加载所有根节点
+            </summary>
+        </member>
+        <member name="T:RpcSyncService.Broadcast.LoadMerNode">
+            <summary>
+            加载所有集群下的节点
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Collect.TransactionCollect.TranRollbackLock(System.Guid)">
+            <summary>
+            回滚主事务返回受影响的事务ID
+            </summary>
+            <param name="mainTranId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.Collect.TransactionCollect.SubmitTran(System.Guid)">
+            <summary>
+            提交事务
+            </summary>
+            <param name="tranId"></param>
+        </member>
+        <member name="M:RpcSyncService.Collect.TransactionCollect._SubmitMainTran(RpcSyncService.Model.RegTranState)">
+            <summary>
+            提交主事务
+            </summary>
+            <param name="tranId"></param>
+        </member>
+        <member name="M:RpcSyncService.Collect.TransactionCollect.ForceRollbackTran(System.Guid)">
+            <summary>
+            回滚事务
+            </summary>
+            <param name="tranId"></param>
+        </member>
+        <member name="M:RpcSyncService.Collect.TransactionCollect.RollbackTran(System.Guid)">
+            <summary>
+            回滚事务
+            </summary>
+            <param name="tranId"></param>
+        </member>
+        <member name="F:RpcSyncService.Config.SyncConfig.WaitLock">
+            <summary>
+            待获取锁
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Config.SyncConfig.ObtainLock">
+            <summary>
+            获得锁
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Config.SyncConfig.ReleaseLock">
+            <summary>
+            释放锁            
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Config.SyncConfig.IsSendEmail">
+            <summary>
+            是否发送Email
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Config.SyncConfig.DisplayName">
+            <summary>
+            发件人显示名
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Config.SyncConfig.TranRollbackRetryNum">
+            <summary>
+            事务回滚重试数
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Config.SyncConfig.InfoLimitGrade">
+            <summary>
+            Email发送限定等级
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Config.SyncConfig.ErrorLimitGrade">
+            <summary>
+            错误发送限定等级
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Config.SyncConfig.EmailAccount">
+            <summary>
+            Email账户
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Config.SyncConfig.Reciver">
+            <summary>
+            收件人
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Config.SyncConfig.EmailPwd">
+            <summary>
+            Email账户密码
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Controller.LockController.SessionId">
+            <summary>
+            锁的会话
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Controller.LockController.OverTime">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Controller.LockController.ReleaseTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Controller.LockController._LockTimeOut">
+            <summary>
+            锁超时时间
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Controller.LockController._Result">
+            <summary>
+            执行结果(数据交换)
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Controller.LockController._LockStatus">
+            <summary>
+            锁状态
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Controller.LockController._LockServerId">
+            <summary>
+            拥有锁的服务器ID
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Controller.LockController._BindId">
+            <summary>
+            包含锁的服务器列表
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Controller.LockController._Lock">
+            <summary>
+            锁
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Controller.SyncLockController.LockId">
+            <summary>
+            锁Id
+            </summary>
+        </member>
+        <member name="F:RpcSyncService.Controller.SyncLockController._CurrentId">
+            <summary>
+            当前会话
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.DAL.TransactionDAL.GetHangUpTran(System.Guid[]@)">
+            <summary>
+            获取挂起的事务
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.DAL.TransactionDAL.GetOverTimeTran(System.Guid[]@)">
+            <summary>
+            获取超时的事务
+            </summary>
+            <param name="trans"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RpcSyncService.Event.IdentityEvent">
+            <summary>
+            身份标识
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.IdentityEvent.GetIdentity(RpcModularModel.Identity.GetIdentity,RpcModel.MsgSource)">
+            <summary>
+            获取身份标识
+            </summary>
+            <param name="obj">参数</param>
+            <param name="source">事件原</param>
+            <returns>身份标识</returns>
+        </member>
+        <member name="T:RpcSyncService.Event.ResourceEvent">
+            <summary>
+            资源服务
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.ResourceEvent.ClearResource">
+            <summary>
+            清理资源
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.ResourceEvent.InvalidResource">
+            <summary>
+            检查无效资源
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.ResourceEvent.SyncResource(RpcModularModel.Resource.SyncResource,RpcModel.MsgSource)">
+            <summary>
+            同步资源
+            </summary>
+            <param name="obj">参数</param>
+            <param name="source">来源</param>
+        </member>
+        <member name="T:RpcSyncService.Event.RpcAccreditEvent">
+            <summary>
+            登陆授权服务
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcAccreditEvent.ApplyAccredit(RpcModularModel.Accredit.ApplyAccredit,RpcModel.MsgSource)">
+            <summary>
+            申请授权
+            </summary>
+            <param name="apply"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcAccreditEvent.SetUserState(RpcModularModel.Accredit.SetUserState,RpcModel.MsgSource)">
+            <summary>
+            设置授权状态
+            </summary>
+            <param name="obj">参数</param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcAccreditEvent.SetAccredit(RpcModularModel.Accredit.SetAccredit,RpcModel.MsgSource)">
+            <summary>
+            设置授权
+            </summary>
+            <param name="obj"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcAccreditEvent.KickOutAccredit(RpcModularModel.Accredit.KickOutAccredit,RpcModel.MsgSource)">
+            <summary>
+            踢出授权
+            </summary>
+            <param name="obj"></param>
+            <param name="source"></param>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcAccreditEvent.GetAccredit(RpcModularModel.Accredit.GetAccredit,RpcModel.MsgSource)">
+            <summary>
+            获取授权信息
+            </summary>
+            <param name="obj"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcAccreditEvent.CheckAccredit(RpcModularModel.Accredit.CheckAccredit,System.String@)">
+            <summary>
+            检查授权
+            </summary>
+            <param name="obj"></param>
+            <param name="error"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcAccreditEvent.CancelAccredit(RpcModularModel.Accredit.CancelAccredit,RpcModel.MsgSource)">
+            <summary>
+            取消授权
+            </summary>
+            <param name="cancel"></param>
+            <param name="source"></param>
+        </member>
+        <member name="T:RpcSyncService.Event.RpcErrorEvent">
+            <summary>
+            错误事件
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcErrorEvent.InitError(RpcModel.ErrorManage.InitError)">
+            <summary>
+            初始化错误信息
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcErrorEvent.GetErrorMsg(RpcModel.ErrorManage.GetErrorMsg)">
+            <summary>
+            获取错误描述
+            </summary>
+            <param name="obj"></param>
+            <returns>错误描述</returns>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcErrorEvent.GetError(RpcModel.ErrorManage.GetError)">
+            <summary>
+            通过错误Code获取错误ID
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcErrorEvent.FindError(RpcModel.ErrorManage.GetErrorCode)">
+            <summary>
+            查询错误
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcEvent.Broadcast(RpcModel.BroadcastMsg,RpcModel.MsgSource)">
+            <summary>
+            广播消息
+            </summary>
+            <param name="msg">消息</param>
+            <param name="source">数据源</param>
+        </member>
+        <member name="T:RpcSyncService.Event.RpcLockEvent">
+            <summary>
+            远程锁服务
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcLockEvent.ReleaseLock(RpcModel.RemoteLock.ReleaseLock,RpcModel.MsgSource)">
+            <summary>
+            重置锁
+            </summary>
+            <param name="obj"></param>
+            <param name="source"></param>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcLockEvent.GetLockStatus(RpcModel.RemoteLock.GetLockStatus)">
+            <summary>
+            获取锁状态
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcLockEvent.ApplyLock(RpcModel.RemoteLock.ApplyLock,RpcModel.MsgSource)">
+            <summary>
+            申请锁
+            </summary>
+            <param name="apply"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RpcSyncService.Event.RpcSysConfigEvent">
+            <summary>
+            系统配置服务
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcSysConfigEvent.GetSysConfig(RpcModel.MsgSource)">
+            <summary>
+            获取系统配置
+            </summary>
+            <param name="source">事件原</param>
+            <returns></returns>
+        </member>
+        <member name="T:RpcSyncService.Event.RpcTranEvent">
+            <summary>
+            远程事务模块
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.CheckOverTimeTran">
+            <summary>
+            检查超时的事务
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.GetTranResult(RpcModel.Tran.GetTranResult)">
+            <summary>
+            获取事务结果
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.CheckHangUpTran">
+            <summary>
+            检查挂起的事务状态
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.RestartRetryTran">
+            <summary>
+            重启回滚失败的事务
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.TranLockOverTime">
+            <summary>
+            锁事务超时
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.ApplyTran(RpcModel.Tran.ApplyTran,RpcModel.MsgSource)">
+            <summary>
+            申请事务
+            </summary>
+            <param name="obj"></param>
+            <param name="source"></param>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.ForceRollbackTran(RpcModel.Tran.ForceRollbackTran)">
+            <summary>
+            强制回滚事务
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.RollbackTran(RpcModel.Tran.RollbackTran)">
+            <summary>
+            回滚事务
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.SetTranExtend(RpcModel.Tran.SetTranExtend)">
+            <summary>
+            设置事务的扩展参数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.SubmitTran(RpcModel.Tran.SubmitTran)">
+            <summary>
+            提交事务
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.GetTranState(RpcModel.Tran.GetTranState)">
+            <summary>
+            获取事务状态
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.EndTran(RpcModel.Tran.EndTran)">
+            <summary>
+            结束事务
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:RpcSyncService.Event.RpcTranEvent.AddTranLog(RpcModel.Tran.AddTranLog,RpcModel.MsgSource)">
+            <summary>
+            添加事务日志
+            </summary>
+            <param name="add"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RpcSyncService.Event.SystemLogEvent">
+            <summary>
+            系统日志模块
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Event.SystemLogEvent.SaveErrorLog(RpcModel.SysError.SaveErrorLog,RpcModel.MsgSource)">
+            <summary>
+            保存错误日志
+            </summary>
+            <param name="log"></param>
+            <param name="source"></param>
+        </member>
+        <member name="T:RpcSyncService.IInitBroadcast">
+            <summary>
+            广播节点加载接口
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.IInitBroadcast.CheckIsUsable(RpcModel.BroadcastMsg)">
+            <summary>
+            检查是否适用
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcSyncService.IInitBroadcast.InitBroadcastBody(RpcModel.BroadcastMsg,RpcModel.MsgSource,RpcSyncService.Model.BroadcastBody@,System.String@)">
+            <summary>
+            初始化广播体
+            </summary>
+            <param name="msg">广播信息</param>
+            <param name="source">发送原</param>
+            <param name="body">广播消息体</param>
+            <param name="error">错误信息</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:RpcSyncService.Logic.RpcTranLogic.CheckHangUpTran">
+            <summary>
+            检查挂起的事务状态
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Logic.RpcTranLogic.RestartRetryTran">
+            <summary>
+            重启回滚失败的事务
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Logic.RpcTranLogic.CheckOverTimeTran">
+            <summary>
+            检查超时的事务
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.AccreditToken.CheckKey">
+            <summary>
+            验证KEY 授权用户唯一键
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.AccreditToken.ApplyId">
+            <summary>
+            请求唯一键
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.AccreditToken.RoleType">
+            <summary>
+            角色类型
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.AccreditToken.AccreditRole">
+            <summary>
+            授权的服务器角色类别(用于跨服务验证)
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.AccreditToken.AccreditId">
+            <summary>
+            授权ID
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.AccreditToken.SysGroupId">
+            <summary>
+            所属系统组别
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.AccreditToken.RpcMerId">
+            <summary>
+            服务组商ID
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.AccreditToken.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:RpcSyncService.Model.DAL_Model.SysConfigModel">
+            <summary>
+            系统配置项
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.DAL_Model.SysConfigModel.RpcMerId">
+            <summary>
+            集群ID
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.DAL_Model.SysConfigModel.ServerId">
+            <summary>
+            所属节点
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.DAL_Model.SysConfigModel.Name">
+            <summary>
+            配置名
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.DAL_Model.SysConfigModel.ValueType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.DAL_Model.SysConfigModel.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.DAL_Model.SysConfigModel.ToUpdateTime">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.InvalidResource.ModularId">
+            <summary>
+            模块Id
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.InvalidResource.VerNum">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.InvalidResource.MaxVer">
+            <summary>
+            最大版本号
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.InvalidResource.MinVer">
+            <summary>
+            最小版本号
+            </summary>
+        </member>
+        <member name="M:RpcSyncService.Model.InvalidResource.CheckIsInvalid">
+            <summary>
+            总量
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.OverTimeTran.Id">
+            <summary>
+            事务ID
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.RegTranState.Id">
+            <summary>
+            事务ID
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.RegTranState.MainTranId">
+            <summary>
+            主事务Id
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.RegTranState.OverTime">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.RegTranState.TranStatus">
+            <summary>
+            事务状态
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.RegTranState.IsEnd">
+            <summary>
+            是否截止
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.RemoteServer.RegionId">
+            <summary>
+            区域Id
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.SetTranState.Id">
+            <summary>
+            事务ID
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.Id">
+            <summary>
+            事务Id
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.MainTranId">
+            <summary>
+            主事务Id
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.ParentId">
+            <summary>
+            父级事务Id
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.RpcMerId">
+            <summary>
+            集群Id
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.ServerId">
+            <summary>
+            服务节点Id
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.SystemType">
+            <summary>
+            节点类别
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.SystemTypeId">
+            <summary>
+            节点类别id
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.RegionId">
+            <summary>
+            区域Id
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.TranName">
+            <summary>
+            事务名
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.SubmitJson">
+            <summary>
+            提交的数据
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.TranStatus">
+            <summary>
+            事务状态
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.Level">
+            <summary>
+            事务级别
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.IsRegTran">
+            <summary>
+            是否为注册事务
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.IsEnd">
+            <summary>
+            是否结束
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.OverTime">
+             <summary>
+            超时时间
+             </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.FailTime">
+            <summary>
+            失败时间
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TransactionList.AddTime">
+            <summary>
+            添加时间
+            </summary>
+        </member>
+        <member name="T:RpcSyncService.Model.TranState">
+            <summary>
+            事务状态
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TranState.Id">
+            <summary>
+            事务ID
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TranState.MainTranId">
+            <summary>
+            主事务Id
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TranState.ParentId">
+            <summary>
+            父级事务Id
+            </summary>
+        </member>
+        <member name="P:RpcSyncService.Model.TranState.TranStatus">
+            <summary>
+            事务状态
+            </summary>
+        </member>
+        <member name="T:RpcSyncService.RpcSyncEvent">
+            <summary>
+            RPC系统事件
+            </summary>
+        </member>
+        <member name="T:RpcSyncService.Tran.SingleTranRollbackQueue">
+            <summary>
+            处理单个事务的回滚
+            </summary>
+        </member>
+        <member name="T:RpcSyncService.Tran.TranRollbackQueue">
+            <summary>
+            事务回滚
+            </summary>
+        </member>
+    </members>
+</doc>
