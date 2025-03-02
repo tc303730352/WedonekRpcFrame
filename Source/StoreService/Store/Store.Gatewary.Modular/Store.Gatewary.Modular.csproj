@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<EnablePreviewFeatures>True</EnablePreviewFeatures>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>Store.Gatewary.Modular.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DocumentationFile>Store.Gatewary.Modular.xml</DocumentationFile>
+	</PropertyGroup>
+	<ItemGroup>
+	  <PackageReference Include="EmitMapper.Core" Version="1.0.8" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Gateway\WeDonekRpc.HttpApiGateway\WeDonekRpc.HttpApiGateway.csproj" />
+		<ProjectReference Include="..\RpcStore.RemoteModel\RpcStore.RemoteModel.csproj" />
+	</ItemGroup>
+</Project>

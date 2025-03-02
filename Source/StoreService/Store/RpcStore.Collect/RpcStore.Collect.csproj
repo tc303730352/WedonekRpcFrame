@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EmitMapper.Core" Version="1.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Basic\WeDonekRpc.CacheClient\WeDonekRpc.CacheClient.csproj" />
+    <ProjectReference Include="..\..\..\Basic\WeDonekRpc.Client\WeDonekRpc.Client.csproj" />
+    <ProjectReference Include="..\..\..\Basic\WeDonekRpc.Helper\WeDonekRpc.Helper.csproj" />
+    <ProjectReference Include="..\..\..\Basic\WeDonekRpc.Model\WeDonekRpc.Model.csproj" />
+    <ProjectReference Include="..\RpcStore.DAL\RpcStore.DAL.csproj" />
+    <ProjectReference Include="..\RpcStore.Model\RpcStore.Model.csproj" />
+    <ProjectReference Include="..\RpcStore.RemoteModel\RpcStore.RemoteModel.csproj" />
+  </ItemGroup>
+
+</Project>

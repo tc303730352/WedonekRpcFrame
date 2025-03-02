@@ -1,0 +1,649 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HttpApiGateway</name>
+    </assembly>
+    <members>
+        <member name="T:HttpApiGateway.ApiController">
+            <summary>
+            接口操作类
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.ApiController.ServiceName">
+            <summary>
+            服务名
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.ApiController.AccreditId">
+            <summary>
+            授权码
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.ApiController.UserState">
+            <summary>
+            用户状态
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.ApiController.Request">
+            <summary>
+            请求
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.ApiController.Install(HttpApiGateway.Interface.IRouteConfig)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.ApiController.CancelAccredit">
+            <summary>
+            取消授权
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.ApiGatewayService.Global">
+            <summary>
+            全局事件
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.ApiGatewayService.InitApiService">
+            <summary>
+            初始化Api服务
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.ApiGatewayService.StopApiService">
+            <summary>
+            停止服务
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.ApiGatewayService.InitApiService``1">
+            <summary>
+            初始化Api服务
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:HttpApiGateway.Attr.ApiMethodIgnore">
+            <summary>
+            方法忽略
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Attr.ApiPrower">
+            <summary>
+            Api权限
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Attr.ApiPrower.IsAccredit">
+            <summary>
+            是否验证
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Attr.ApiPrower.Prower">
+            <summary>
+            验证权限
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Attr.ApiRouteName">
+            <summary>
+            自定义名称或路径
+            </summary>
+        </member>
+        <member name="F:HttpApiGateway.Attr.ApiRouteName._IsPath">
+            <summary>
+            是否为路径
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Attr.ApiRouteName.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Attr.ApiUpConfig">
+            <summary>
+            上传配置
+            </summary>
+        </member>
+        <member name="F:HttpApiGateway.Attr.ApiUpConfig._MaxSize">
+            <summary>
+            最大大小
+            </summary>
+        </member>
+        <member name="F:HttpApiGateway.Attr.ApiUpConfig._Extension">
+            <summary>
+            允许的扩展
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Attr.ApiUpConfig.LimitFileNum">
+            <summary>
+            限定一次请求上传文件数量（0 无限制）
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Attr.ApiUpConfig.Extension">
+            <summary>
+            文件扩展
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Attr.ApiUpConfig.MaxSize">
+            <summary>
+            最大文件大小
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.BasicApiModular">
+            <summary>
+            模块的基类
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.BasicGlobal">
+            <summary>
+            全局事件器
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.BasicGlobal.ServiceClose">
+            <summary>
+            服务关闭事件
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.BasicGlobal.ServiceStarted">
+            <summary>
+            服务启动完成
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.BasicGlobal.ServiceStarting">
+            <summary>
+            服务正在启动
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Config.GatewayConfig.MaxRequstLength">
+            <summary>
+            最大请求长度
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Config.GatewayConfig.UpConfig">
+            <summary>
+            上传配置
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Config.GatewayConfig.CrossDomain">
+            <summary>
+            跨域配置
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Config.GatewayConfig.ApiRouteFormat">
+            <summary>
+             Api 接口路径生成格式
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Config.GatewayConfig.ApiTemplate">
+            <summary>
+            Api响应模板
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Config.GatewayConfig.GatewayUri">
+            <summary>
+            网关地址
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Config.ModularConfig.ApiRouteFormat">
+            <summary>
+             Api 接口路径生成格式
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.Helper.ApiHelper.GetAccreditId(HttpService.Interface.IHttpRequest)">
+            <summary>
+            获取授权Id
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IApiController.ServiceName">
+            <summary>
+            服务名
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IApiController.UserState">
+            <summary>
+            用户状态
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IApiController.Request">
+            <summary>
+            请求
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IApiController.Install(HttpApiGateway.Interface.IRouteConfig)">
+            <summary>
+            安装方法
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Interface.IApiGateway">
+            <summary>
+            API网关
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Interface.IApiModular">
+            <summary>
+            HttpApi模块
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IApiModular.ServiceName">
+            <summary>
+            模块服务名
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IApiModular.Config">
+            <summary>
+            模块配置
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IApiModular.InitModular">
+            <summary>
+            初始化模块
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Interface.IApiResponseTemplate">
+            <summary>
+            响应模板
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IApiResponseTemplate.GetErrorResponse(System.String)">
+            <summary>
+            获取错误响应
+            </summary>
+            <param name="error"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IApiResponseTemplate.GetResponse">
+            <summary>
+            获取成功响应
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IApiResponseTemplate.GetResponse(System.Object,System.Object)">
+            <summary>
+            获取分页响应
+            </summary>
+            <param name="result"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IApiResponseTemplate.GetResponse(System.Object)">
+            <summary>
+            获取成功响应
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IApiService.IsEnd">
+            <summary>
+            是否已截止响应
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IApiService.UrlReferrer">
+            <summary>
+            请求来源
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IApiService.ServiceName">
+            <summary>
+            当前所在模块名
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IApiService.AccreditId">
+            <summary>
+            授权码
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IApiService.UserState">
+            <summary>
+            用户状态
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Interface.IGatewayConfig">
+            <summary>
+            网关配置
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IGatewayConfig.MaxRequstLength">
+            <summary>
+            最大请求长度
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IGatewayConfig.UpConfig">
+            <summary>
+            上传配置
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IGatewayConfig.GatewayUri">
+            <summary>
+            网关地址
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IGatewayConfig.ApiRouteFormat">
+            <summary>
+            生成的API路由格式
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IGatewayConfig.ApiTemplate">
+            <summary>
+            API响应模板
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IGatewayConfig.CrossDomain">
+            <summary>
+            跨域配置
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IGlobal.ReceiveRequest(HttpApiGateway.Interface.IApiService)">
+            <summary>
+            接收请求
+            </summary>
+            <param name="service"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IGlobal.ServiceStarted">
+            <summary>
+            服务启动完成
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IGlobal.ServiceStarting">
+            <summary>
+            服务正在启动
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IGlobal.ServiceClose">
+            <summary>
+            服务关闭事件
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Interface.IHttpApi">
+            <summary>
+            HttpApi 
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IHttpApi.ApiName">
+            <summary>
+            Api地址
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IHttpApi.ApiUri">
+            <summary>
+            Api地址
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Interface.IModularConfig">
+            <summary>
+            模块配置
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IModularConfig.ApiRouteFormat">
+            <summary>
+              Api 接口地址生成格式
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IModularConfig.RegUserState``1">
+            <summary>
+            注册用户状态对象
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IModularConfig.GetAccredit(System.String,RpcClient.Interface.IUserState@,System.String@)">
+            <summary>
+            获取用户授权状态
+            </summary>
+            <param name="accreditId">状态吗</param>
+            <param name="state">授权状态</param>
+            <param name="error">错误信息</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="T:HttpApiGateway.Interface.IResponse">
+            <summary>
+            响应
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IResponse.InitResponse(HttpApiGateway.Interface.IApiService)">
+            <summary>
+            初始化响应
+            </summary>
+            <param name="service">网关模块</param>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IResponse.Verification(HttpApiGateway.Interface.IApiService)">
+            <summary>
+            检查响应数据
+            </summary>
+            <param name="service">网关模块</param>
+            <returns>是否验证通过</returns>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IResponse.WriteStream(HttpApiGateway.Interface.IApiService)">
+            <summary>
+            写入流
+            </summary>
+            <param name="service">网关模块</param>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IRouteConfig.IsAccredit">
+            <summary>
+            是否需要授权
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IRouteConfig.Name">
+            <summary>
+            路由名
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Interface.IRouteConfig.Prower">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IRouteConfig.SetFileUp(HttpApiGateway.Interface.CheckFile,HttpApiGateway.Interface.CheckFileSize)">
+            <summary>
+            设置文件上传的委托
+            </summary>
+            <param name="checkFile"></param>
+            <param name="checkSize"></param>
+        </member>
+        <member name="M:HttpApiGateway.Interface.IRouteConfig.SetCacheVer(HttpApiGateway.Interface.CheckCache)">
+            <summary>
+            设置缓存
+            </summary>
+            <param name="cache"></param>
+        </member>
+        <member name="P:HttpApiGateway.Model.ResultBody.ParamName">
+            <summary>
+            返回的参数名
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiFuncBody.IsAccredit">
+            <summary>
+            是否需登陆
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiFuncBody.Method">
+            <summary>
+            方法体
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiFuncBody.Prower">
+            <summary>
+            访问接口所需权限
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiFuncBody.UpConfig">
+            <summary>
+            上传配置
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiFuncBody.PostParam">
+            <summary>
+            请求参数类型
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiFuncBody.Results">
+            <summary>
+            返回类型
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiFuncBody.IsPaging">
+            <summary>
+            是否为分页请求
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiFuncBody.Source">
+            <summary>
+            源类型
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiFuncBody.ApiUri">
+            <summary>
+            接口地址
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiFuncBody.ApiType">
+            <summary>
+            接口类型
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiPostParam.Name">
+            <summary>
+            参数名
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiPostParam.PostType">
+            <summary>
+            POST的数据类型
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiPostParam.ReceiveMethod">
+            <summary>
+            数据接收方式
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.ApiPostParam.ParamIndex">
+            <summary>
+            参数索引
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.CacheSet.IsNoCache">
+            <summary>
+            是否禁用缓存
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.CacheSet.Etag">
+            <summary>
+            缓存的Etag
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.CacheSet.CacheTime">
+            <summary>
+            缓存时间
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.CacheSet.ToUpdateTime">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.CrossDomainConfig.AllowCredentials">
+            <summary>
+            允许跨域
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.CrossDomainConfig.AllowUrlReferrer">
+            <summary>
+            跨域限定允许访问来源
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.CrossDomainConfig.AllowHead">
+            <summary>
+            跨域限定头部
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.CrossDomainConfig.MaxAge">
+            <summary>
+            有效时间
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.CrossDomainConfig.Method">
+            <summary>
+            允许的请求方式 ,号分隔
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.FuncParam.Name">
+            <summary>
+            属性名称
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.FuncParam.AttrName">
+            <summary>
+            符合命名的属性名（首字母大写）
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.FuncParam.ReceiveMethod">
+            <summary>
+            接收方式
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.FuncParam.ParamType">
+            <summary>
+            参数类型
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.FuncParam.IsBasicType">
+            <summary>
+            是否为基础类型(datetime,int,long,Uri等)
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.FuncParam.DataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Model.PagingParam`1">
+            <summary>
+            分页参数
+            </summary>
+            <typeparam name="T">参数</typeparam>
+        </member>
+        <member name="P:HttpApiGateway.Model.PagingParam`1.Param">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.RouteConfig.IsAccredit">
+            <summary>
+            是否验证
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.RouteConfig.Prower">
+            <summary>
+            验证权限
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Model.UpConfig">
+            <summary>
+            上传配置
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.UpConfig.SingleFileSize">
+            <summary>
+            单文件上传大小
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.UpConfig.FileExtension">
+            <summary>
+            允许的扩展
+            </summary>
+        </member>
+        <member name="P:HttpApiGateway.Model.UpConfig.LimitFileNum">
+            <summary>
+            限定一次请求上传文件数量（0 无限制）
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Response.ApiErrorResponse">
+            <summary>
+            Api网关错误响应
+            </summary>
+        </member>
+        <member name="T:HttpApiGateway.Response.ApiResponseTemplate">
+            <summary>
+            Api网关响应模板
+            </summary>
+        </member>
+    </members>
+</doc>

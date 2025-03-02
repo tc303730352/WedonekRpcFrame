@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+ <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wedonek.Demo.Service\Wedonek.Demo.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LocalConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

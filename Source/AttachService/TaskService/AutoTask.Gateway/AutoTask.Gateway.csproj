@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EmitMapper.Core" Version="1.0.8" />
+  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Basic\WeDonekRpc.Client\WeDonekRpc.Client.csproj" />
+		<ProjectReference Include="..\..\..\Basic\WeDonekRpc.Helper\WeDonekRpc.Helper.csproj" />
+		<ProjectReference Include="..\..\..\Gateway\WeDonekRpc.HttpApiGateway\WeDonekRpc.HttpApiGateway.csproj" />
+		<ProjectReference Include="..\..\..\StoreService\Store\RpcStore.RemoteModel\RpcStore.RemoteModel.csproj" />
+		<ProjectReference Include="..\RpcTaskModel\RpcTaskModel.csproj" />
+	</ItemGroup>
+</Project>

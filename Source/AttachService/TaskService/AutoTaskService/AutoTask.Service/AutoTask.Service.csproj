@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EmitMapper.Core" Version="1.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Basic\WeDonekRpc.CacheModular\WeDonekRpc.CacheModular.csproj" />
+    <ProjectReference Include="..\..\..\..\Gateway\WeDonekRpc.Modular\WeDonekRpc.Modular.csproj" />
+    <ProjectReference Include="..\AutoTask.Collect\AutoTask.Collect.csproj" />
+    <ProjectReference Include="..\AutoTask.Model\AutoTask.Model.csproj" />
+  </ItemGroup>
+
+</Project>

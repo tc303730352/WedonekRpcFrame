@@ -1,0 +1,22 @@
+{
+    "rpc": {
+        "RpcServer": [ "127.0.0.1" ],
+        "RpcAppId": "9cc83d72ba2a4b9f94493325c3acf4ee",
+        "RpcAppSecret": "a375982219934630aabb646e41e0ef14",
+        "RpcSystemType": "demo.gateway",
+        "LocalMac": "7c:b2:7d:ea:fd:df"
+    },
+    "gateway": {
+        "http": {
+            "server": {
+                "Url": "http://127.0.0.1:8080/",
+                "RealRequestUri": "http://127.0.0.1:8080/"
+            }
+        },
+        "WebSocketDemo": {
+            "socket": {
+                "Port": 1254
+            }
+        }
+    }
+}

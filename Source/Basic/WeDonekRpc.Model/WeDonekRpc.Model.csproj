@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Title>Rpc客户端实体</Title>
+	  <Copyright>MIT</Copyright>
+	  <PackageProjectUrl>https://gitee.com/tc303730352/WedonekRpcFrame</PackageProjectUrl>
+	  <RepositoryUrl>https://gitee.com/tc303730352/WedonekRpcFrame</RepositoryUrl>
+	  <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Tran\Interface\**" />
+    <EmbeddedResource Remove="Tran\Interface\**" />
+    <None Remove="Tran\Interface\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+   <ItemGroup>
+    <ProjectReference Include="..\WeDonekRpc.Helper\WeDonekRpc.Helper.csproj" />
+  </ItemGroup>
+
+</Project>

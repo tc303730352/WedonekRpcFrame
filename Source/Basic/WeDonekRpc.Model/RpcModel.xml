@@ -1,0 +1,1414 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RpcModel</name>
+    </assembly>
+    <members>
+        <member name="T:RpcModel.AccreditDatum">
+            <summary>
+            授权信息
+            </summary>
+        </member>
+        <member name="P:RpcModel.AccreditDatum.ApplyId">
+            <summary>
+            申请的ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.AccreditDatum.RoleType">
+            <summary>
+            角色类型
+            </summary>
+        </member>
+        <member name="P:RpcModel.AccreditDatum.StateVer">
+            <summary>
+            授权版本号
+            </summary>
+        </member>
+        <member name="P:RpcModel.AccreditDatum.State">
+            <summary>
+            状态值
+            </summary>
+        </member>
+        <member name="P:RpcModel.AccreditDatum.Accredit">
+            <summary>
+            授权信息
+            </summary>
+        </member>
+        <member name="T:RpcModel.AccreditRes">
+            <summary>
+            授权信息
+            </summary>
+        </member>
+        <member name="P:RpcModel.AccreditRes.AccreditId">
+            <summary>
+            授权凭证
+            </summary>
+        </member>
+        <member name="P:RpcModel.AccreditRes.CheckKey">
+            <summary>
+            校验KEY（单点）
+            </summary>
+        </member>
+        <member name="P:RpcModel.ApplyAccredit.ApplyId">
+            <summary>
+            申请ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.ApplyAccredit.RoleType">
+            <summary>
+            申请角色类型
+            </summary>
+        </member>
+        <member name="P:RpcModel.ApplyAccredit.AccreditRole">
+            <summary>
+            授权角色列表
+            </summary>
+        </member>
+        <member name="P:RpcModel.ApplyAccredit.State">
+            <summary>
+            授权用户状态
+            </summary>
+        </member>
+        <member name="T:RpcModel.ApplyAccreditRes">
+            <summary>
+            申请授权结果
+            </summary>
+        </member>
+        <member name="P:RpcModel.ApplyAccreditRes.StateVer">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="P:RpcModel.ApplyAccreditRes.Accredit">
+            <summary>
+            授权信息
+            </summary>
+        </member>
+        <member name="P:RpcModel.CheckAccredit.AccreditId">
+            <summary>
+            授权ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.CheckAccredit.IsRefresh">
+            <summary>
+            是否刷新授权时间
+            </summary>
+        </member>
+        <member name="P:RpcModel.GetAccredit.AccreditId">
+            <summary>
+            授权ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.SetAccredit.AccreditId">
+            <summary>
+            授权ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.SetAccredit.AccreditRole">
+            <summary>
+            授权角色列表
+            </summary>
+        </member>
+        <member name="P:RpcModel.SetUserState.IsCover">
+            <summary>
+            是否强制覆盖
+            </summary>
+        </member>
+        <member name="T:RpcModel.SetUserStateRes">
+            <summary>
+            修改授权状态结果
+            </summary>
+        </member>
+        <member name="P:RpcModel.SetUserStateRes.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:RpcModel.SetUserStateRes.StateVer">
+            <summary>
+            当前版本号
+            </summary>
+        </member>
+        <member name="P:RpcModel.SetUserStateRes.UserState">
+            <summary>
+            用户状态值
+            </summary>
+        </member>
+        <member name="T:RpcModel.BasicPage">
+            <summary>
+            分页查询
+            </summary>
+        </member>
+        <member name="P:RpcModel.BasicPage.Index">
+             <summary>
+            页码
+             </summary>
+        </member>
+        <member name="P:RpcModel.BasicPage.Size">
+            <summary>
+            每页大小
+            </summary>
+        </member>
+        <member name="P:RpcModel.BasicPage.NextId">
+            <summary>
+            每页最后一条记录唯一建(缓存用)
+            </summary>
+        </member>
+        <member name="T:RpcModel.BasicRemoteConfig">
+            <summary>
+            广播消息配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.BasicRemoteConfig.TransmitType">
+            <summary>
+            负载均衡的计算方式
+            </summary>
+        </member>
+        <member name="P:RpcModel.BasicRemoteConfig.IdentityColumn">
+            <summary>
+            标识列(计算负载均衡用,计算zoneIndex,hashcode的列名）
+            </summary>
+        </member>
+        <member name="P:RpcModel.BasicRemoteConfig.ZIndexBit">
+            <summary>
+            计算Index的索引位
+            </summary>
+        </member>
+        <member name="P:RpcModel.BasicRemoteConfig.IsSync">
+            <summary>
+            是否同步启动同步锁(解决客户端重复提交问题)
+            </summary>
+        </member>
+        <member name="P:RpcModel.BasicRemoteConfig.LockColumn">
+            <summary>
+            锁定用提供标识的列名(用于生成锁的唯一标识)
+            </summary>
+        </member>
+        <member name="P:RpcModel.BasicRemoteConfig.LockType">
+            <summary>
+            是否即刻重置锁状态
+            </summary>
+        </member>
+        <member name="P:RpcModel.BasicRemoteConfig.IsAllowRetry">
+            <summary>
+            是否允许重试
+            </summary>
+        </member>
+        <member name="P:RpcModel.BasicRemoteConfig.TransmitId">
+            <summary>
+            事务Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.BasicRes.ErrorMsg">
+            <summary>
+            是否错误
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastDatum.MsgKey">
+            <summary>
+            消息关键字
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastDatum.MsgBody">
+            <summary>
+            消息体
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastDatum.RegionId">
+            <summary>
+            限定服务区域Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastDatum.RpcMerId">
+            <summary>
+            集群Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastDatum.MsgConfig">
+            <summary>
+            消息配置
+            </summary>
+        </member>
+        <member name="T:RpcModel.BroadcastMsg">
+            <summary>
+            广播信息
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastMsg.IsCrossGroup">
+            <summary>
+            是否跨集群组
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastMsg.IsExclude">
+            <summary>
+            是否排除来源
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastMsg.MsgKey">
+            <summary>
+            消息关键字
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastMsg.MsgBody">
+            <summary>
+            消息体
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastMsg.TypeVal">
+            <summary>
+            广播范围
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastMsg.IsLimitOnly">
+            <summary>
+            限制接收者来源唯一
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastMsg.MsgConfig">
+            <summary>
+            消息配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastMsg.RpcMerId">
+            <summary>
+            限定的服务集群
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastMsg.RegionId">
+            <summary>
+            范围Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.BroadcastMsg.ServerId">
+            <summary>
+            广播的服务器ID
+            </summary>
+        </member>
+        <member name="T:RpcModel.RemoteSysConfig">
+            <summary>
+            远程系统配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.RemoteSysConfig.ConfigMd5">
+            <summary>
+            配置MD5
+            </summary>
+        </member>
+        <member name="P:RpcModel.RemoteSysConfig.ConfigData">
+            <summary>
+            配置列表
+            </summary>
+        </member>
+        <member name="T:RpcModel.DynamicModel">
+            <summary>
+            动态对象
+            </summary>
+        </member>
+        <member name="T:RpcModel.RemoteLockType">
+            <summary>
+            远程锁类型
+            </summary>
+        </member>
+        <member name="F:RpcModel.RemoteLockType.同步锁">
+            <summary>
+             只允许一个请求执行设定时间内所有请求返回相同结果
+            </summary>
+        </member>
+        <member name="F:RpcModel.RemoteLockType.排斥锁">
+            <summary>
+            只允许一个请求执行其它不是同服务的请求返回固定错误
+            </summary>
+        </member>
+        <member name="F:RpcModel.RemoteLockType.普通锁">
+            <summary>
+              只允许一个请求执行执行期间内所有请求返回这个执行请求的结果
+            </summary>
+        </member>
+        <member name="T:RpcModel.BalancedType">
+            <summary>
+            平衡方式
+            </summary>
+        </member>
+        <member name="T:RpcModel.TransmitType">
+            <summary>
+            转发方式
+            </summary>
+        </member>
+        <member name="T:RpcModel.ErrorManage.RefreshError">
+             <summary>
+            删除本地错误信息缓存
+             </summary>
+        </member>
+        <member name="P:RpcModel.IBasicPage.Index">
+            <summary>
+            页码
+            </summary>
+        </member>
+        <member name="P:RpcModel.IBasicPage.Size">
+            <summary>
+            每页大小
+            </summary>
+        </member>
+        <member name="P:RpcModel.IBasicPage.NextId">
+            <summary>
+            上一页的最后一条数据ID(第一页为空）
+            </summary>
+        </member>
+        <member name="T:RpcModel.IBasicRes">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="P:RpcModel.IBasicRes.ErrorMsg">
+            <summary>
+            错误信息码
+            </summary>
+        </member>
+        <member name="P:RpcModel.IBasicRes.IsError">
+            <summary>
+            是否错误
+            </summary>
+        </member>
+        <member name="T:RpcModel.IRemoteBroadcast">
+            <summary>
+            服务器广播配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteBroadcast.SysDictate">
+            <summary>
+            远程方法
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteBroadcast.TypeVal">
+            <summary>
+            服务器组
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteBroadcast.IsOnly">
+            <summary>
+            是否选择唯一的服务器进行广播
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteBroadcast.ServerId">
+            <summary>
+            服务器列表
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteBroadcast.RemoteConfig">
+            <summary>
+            远端通讯配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteBroadcast.BroadcastType">
+            <summary>
+            广播方式
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteBroadcast.IsExclude">
+            <summary>
+            是否排除来源
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteBroadcast.IsValidate">
+            <summary>
+            是否验证数据格式
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteBroadcast.IsCrossGroup">
+            <summary>
+            是否跨服务器组广播
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteBroadcast.RpcMerId">
+            <summary>
+            限定的服务器组
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteBroadcast.RegionId">
+            <summary>
+            区域Id
+            </summary>
+        </member>
+        <member name="M:RpcModel.IRemoteBroadcast.InitConfig(System.Type)">
+            <summary>
+            初始化广播配置
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="T:RpcModel.IRemoteConfig">
+            <summary>
+            RPC事件配置
+            </summary>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(System.String,RpcModel.IRemoteConfig)">
+            <summary>
+            RPC配置
+            </summary>
+            <param name="dicate">远程方法名</param>
+            <param name="config">配置项</param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(System.String,System.String,System.Boolean,RpcModel.BasicRemoteConfig,System.Int64)">
+            <summary>
+            RPC配置
+            </summary>
+            <param name="dictate">远程方法名</param>
+            <param name="sysType">服务器地址</param>
+            <param name="isReply">是否需要回复数据</param>
+            <param name="config">配置项</param>
+            <param name="filterServerId">过滤掉的服务器id</param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(RpcModel.BroadcastDatum)">
+            <summary>
+            通讯配置
+            </summary>
+            <param name="datum">广播资料</param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(RpcModel.BroadcastDatum,System.String,System.Int64)">
+            <summary>
+            通讯配置
+            </summary>
+            <param name="datum">广播资料</param>
+            <param name="sysType">节点类型</param>
+            <param name="filterServerId">筛掉的服务节点</param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor">
+            <summary>
+            RPC配置
+            </summary>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(System.String)">
+            <summary>
+            RPC配置
+            </summary>
+            <param name="sysType">服务节点类型值</param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(System.String,RpcModel.RemoteLockType)">
+            <summary>
+            RPC配置
+            </summary>
+            <param name="sysType">服务节点类型值</param>
+            <param name="lockType">锁类型</param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(System.String,System.String)">
+            <summary>
+            RPC配置
+            </summary>
+            <param name="dictate">远程方法名</param>
+            <param name="sysType">服务器地址</param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            RPC配置
+            </summary>
+            <param name="dictate">远程方法名</param>
+            <param name="sysType">服务器地址</param>
+            <param name="isReply">是否需要回复数据</param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(System.String,System.Boolean)">
+            <summary>
+            RPC配置
+            </summary>
+            <param name="dictate">远程方法名</param>
+            <param name="isReply">是否需要回复数据</param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            RPC配置
+            </summary>
+            <param name="dictate">远程方法名</param>
+            <param name="sysType">服务器地址</param>
+            <param name="isReply">是否需要回复数据</param>
+            <param name="isRetry">是否自动重试发送</param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            RPC配置
+            </summary>
+            <param name="dictate">远程方法名</param>
+            <param name="isReply">是否需要回复数据</param>
+            <param name="isRetry">是否自动重试发送</param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(System.String,System.String,RpcModel.RemoteLockType,System.Boolean,System.Boolean)">
+            <summary>
+            RPC配置
+            </summary>
+            <param name="dictate">远程方法名</param>
+            <param name="sysType">服务器地址</param>
+            <param name="lockType">锁类型</param>
+            <param name="isRetry">是否自动重试发送</param>
+            <param name="isReply">是否需要回复数据</param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.#ctor(System.String,RpcModel.RemoteLockType,System.Boolean,System.Boolean)">
+            <summary>
+            RPC配置
+            </summary>
+            <param name="dictate">远程方法名</param>
+            <param name="lockType">锁类型</param>
+            <param name="isRetry">是否自动重试发送</param>
+            <param name="isReply">是否需要回复数据</param>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.SystemType">
+            <summary>
+            目的地
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.FilterServerId">
+            <summary>
+            过滤掉不发送数据的服务器ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.SysDictate">
+            <summary>
+            指令
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.IsReply">
+            <summary>
+            指示此包是否回复
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.RegionId">
+            <summary>
+            限定服务区
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.TransmitType">
+            <summary>
+            负载均衡的计算方式
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.RpcMerId">
+            <summary>
+            所在集群Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.IdentityColumn">
+            <summary>
+            标识列(计算负载均衡用,计算zoneIndex,hashcode的列名）
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.IsSync">
+            <summary>
+            是否同步启动同步锁(解决客户端重复提交问题)
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.LockColumn">
+            <summary>
+            锁定用提供标识的列名(用于生成锁的唯一标识)
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.LockType">
+            <summary>
+            是否即刻重置锁状态
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.ZIndexBit">
+            <summary>
+            计算ZIndex的值
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.TransmitId">
+            <summary>
+            负载均衡ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.IsAllowRetry">
+            <summary>
+            是否允许重试
+            </summary>
+        </member>
+        <member name="P:RpcModel.IRemoteConfig.IsValidate">
+            <summary>
+            是否验证数据
+            </summary>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.InitConfig(System.Type)">
+            <summary>
+            初始化配置
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.GetIdentityVal``1(``0)">
+            <summary>
+            获取请求标识
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.GetLockIdVal(RpcModel.DynamicModel)">
+            <summary>
+            获取锁ID
+            </summary>
+            <param name="dic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RpcModel.IRemoteConfig.GetLockIdVal``1(``0)">
+            <summary>
+            获取请求的锁标识
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="P:RpcModel.IRemoteResult.RemoteServerId">
+            <summary>
+            回复的远程服务器Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.LimitConfigRes.LimitConfig">
+            <summary>
+            限流配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.LimitConfigRes.DictateLimit">
+            <summary>
+            节点限制
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerClientLimit.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerClientLimit.LimitType">
+            <summary>
+            限制类型
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerClientLimit.LimitNum">
+            <summary>
+            限制发送数量
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerClientLimit.LimitTime">
+            <summary>
+            限定窗口时间
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerClientLimit.TokenNum">
+            <summary>
+            限定令牌数
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerClientLimit.TokenInNum">
+            <summary>
+            每秒写入令牌数量
+            </summary>
+        </member>
+        <member name="T:RpcModel.Model.ServerDictateLimit">
+            <summary>
+            服务指令限流配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerDictateLimit.Dictate">
+            <summary>
+            限流指令
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerDictateLimit.LimitType">
+            <summary>
+            限流类型
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerDictateLimit.LimitNum">
+            <summary>
+            最大流量
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerDictateLimit.LimitTime">
+            <summary>
+            窗口大小（秒）
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerDictateLimit.BucketSize">
+            <summary>
+            桶大小
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerDictateLimit.BucketOutNum">
+            <summary>
+            桶溢出速度
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerDictateLimit.TokenNum">
+            <summary>
+            令牌最大数
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerDictateLimit.TokenInNum">
+            <summary>
+            每秒添加令牌数
+            </summary>
+        </member>
+        <member name="T:RpcModel.Model.ServerLimitConfig">
+            <summary>
+            服务限流配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerLimitConfig.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerLimitConfig.LimitType">
+            <summary>
+            限流类型
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerLimitConfig.LimitNum">
+            <summary>
+            最大流量
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerLimitConfig.LimitTime">
+            <summary>
+            窗口大小
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerLimitConfig.IsEnableBucket">
+            <summary>
+            操过限制的时候是否启用桶
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerLimitConfig.BucketSize">
+            <summary>
+            桶大小
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerLimitConfig.BucketOutNum">
+            <summary>
+            桶溢出速度
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerLimitConfig.TokenNum">
+            <summary>
+            令牌总量
+            </summary>
+        </member>
+        <member name="P:RpcModel.Model.ServerLimitConfig.TokenInNum">
+            <summary>
+            令牌每秒新增数
+            </summary>
+        </member>
+        <member name="P:RpcModel.MsgSource.SourceGroupId">
+            <summary>
+            服务组ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.MsgSource.GroupTypeVal">
+            <summary>
+            服务组值
+            </summary>
+        </member>
+        <member name="P:RpcModel.MsgSource.SystemType">
+            <summary>
+            服务节点类型值
+            </summary>
+        </member>
+        <member name="P:RpcModel.MsgSource.SystemTypeId">
+            <summary>
+            服务节点类型ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.MsgSource.SourceServerId">
+            <summary>
+            服务节点ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.MsgSource.RpcMerId">
+            <summary>
+            服务集群ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.MsgSource.RegionId">
+            <summary>
+            所在区域Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.QueueRemoteMsg.Msg">
+            <summary>
+            队列消息
+            </summary>
+        </member>
+        <member name="P:RpcModel.QueueRemoteMsg.Type">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="P:RpcModel.QueueRemoteMsg.IsExclude">
+            <summary>
+            是否排除来源
+            </summary>
+        </member>
+        <member name="P:RpcModel.RefreshRpc.TokenId">
+            <summary>
+            授权的Token
+            </summary>
+        </member>
+        <member name="P:RpcModel.RefreshRpc.EventKey">
+            <summary>
+            事件Key
+            </summary>
+        </member>
+        <member name="P:RpcModel.RpcServerConfig.ServerId">
+            <summary>
+            服务器ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.RpcServerConfig.ServerIp">
+            <summary>
+            服务端Ip
+            </summary>
+        </member>
+        <member name="P:RpcModel.RpcServerConfig.ServerPort">
+            <summary>
+            服务端端口
+            </summary>
+        </member>
+        <member name="P:RpcModel.RpcServerConfig.PublicKey">
+            <summary>
+            公钥Key
+            </summary>
+        </member>
+        <member name="P:RpcModel.RpcServerConfig.GroupTypeVal">
+            <summary>
+            所属服务组
+            </summary>
+        </member>
+        <member name="P:RpcModel.RpcServerConfig.GroupId">
+            <summary>
+            服务组Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.RpcServerConfig.SystemType">
+            <summary>
+            节点类型ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.RpcServerConfig.ServiceState">
+            <summary>
+            服务状态
+            </summary>
+        </member>
+        <member name="P:RpcModel.RpcServerConfig.RegionId">
+            <summary>
+            所属区域
+            </summary>
+        </member>
+        <member name="P:RpcModel.RpcServerConfig.ConfigPrower">
+            <summary>
+            配置权限值
+            </summary>
+        </member>
+        <member name="T:RpcModel.ServerConfig">
+            <summary>
+            服务节点配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.ServerConfig.ServerId">
+            <summary>
+            节点Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.ServerConfig.IsTransmit">
+            <summary>
+            是否启用负载均衡
+            </summary>
+        </member>
+        <member name="P:RpcModel.ServerConfig.Transmit">
+            <summary>
+            负载均衡配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.ServerConfig.Weight">
+            <summary>
+            权重
+            </summary>
+        </member>
+        <member name="T:RpcModel.ServerTransmit">
+            <summary>
+            负载配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.ServerTransmit.TransmitType">
+            <summary>
+            负载类型
+            </summary>
+        </member>
+        <member name="P:RpcModel.ServerTransmit.TransmitId">
+            <summary>
+            负载ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.ServerTransmit.Value">
+            <summary>
+            固定值
+            </summary>
+        </member>
+        <member name="P:RpcModel.ServerTransmit.Range">
+            <summary>
+            负载范围值列表
+            </summary>
+        </member>
+        <member name="P:RpcModel.ApplyAccessToken.AppId">
+            <summary>
+            授权AppId
+            </summary>
+        </member>
+        <member name="P:RpcModel.ApplyAccessToken.Secret">
+            <summary>
+            授权密钥
+            </summary>
+        </member>
+        <member name="P:RpcModel.ApplyAccessToken.ServerId">
+            <summary>
+            连接服务器ID
+            </summary>
+        </member>
+        <member name="T:RpcModel.Server.GetServerLimit">
+            <summary>
+            获取节点限制
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.GetServerLimit.AccessToken">
+            <summary>
+            获取TokenId
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.ProcessDatum.Pid">
+            <summary>
+            进程PID
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.ProcessDatum.PName">
+            <summary>
+            进程名
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.ProcessDatum.StartTime">
+            <summary>
+            进程启动时间
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.ProcessDatum.WorkMemory">
+            <summary>
+            占用内存
+            </summary>
+        </member>
+        <member name="T:RpcModel.Server.RemoteState">
+            <summary>
+            远程服务状态
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.RemoteState.ServerId">
+            <summary>
+            链接的服务节点Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.RemoteState.ConNum">
+            <summary>
+            链接数
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.RemoteState.AvgTime">
+            <summary>
+            平均响应时间
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.RemoteState.SendNum">
+            <summary>
+            Ping包发送量
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.RemoteState.State">
+            <summary>
+            当前节点链接状态
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.RemoteState.ErrorNum">
+            <summary>
+            发生Socket错误数
+            </summary>
+        </member>
+        <member name="T:RpcModel.Server.RunState">
+            <summary>
+            远程系统状态
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.RunState.ConNum">
+            <summary>
+            链接数
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.RunState.Memory">
+            <summary>
+            占用内存
+            </summary>
+        </member>
+        <member name="P:RpcModel.Server.RunState.CpuRunTime">
+            <summary>
+            CPU占用时间
+            </summary>
+        </member>
+        <member name="T:RpcModel.GetRemoteServer">
+            <summary>
+            获取远程服务器
+            </summary>
+        </member>
+        <member name="T:RpcModel.GetRemoteServerRes">
+            <summary>
+            获取远程服务器配置
+            </summary>
+        </member>
+        <member name="M:RpcModel.GetRemoteServerRes.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RpcModel.GetRemoteServerRes.ServerConfig">
+            <summary>
+            服务器配置
+            </summary>
+        </member>
+        <member name="T:RpcModel.GetServerList">
+            <summary>
+            获取节点服务列表
+            </summary>
+        </member>
+        <member name="P:RpcModel.GetServerList.SystemType">
+            <summary>
+            节点类型
+            </summary>
+        </member>
+        <member name="P:RpcModel.GetServerList.RegionId">
+            <summary>
+            节点所在区域
+            </summary>
+        </member>
+        <member name="P:RpcModel.GetServerList.RpcMerId">
+            <summary>
+            集群Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.GetServerList.LimitRegionId">
+            <summary>
+            限定使用区域
+            </summary>
+        </member>
+        <member name="T:RpcModel.ReduceInRank">
+            <summary>
+            降级配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.ReduceInRank.IsEnable">
+            <summary>
+            是否启动降级
+            </summary>
+        </member>
+        <member name="P:RpcModel.ReduceInRank.LimitNum">
+            <summary>
+            触发限制错误数
+            </summary>
+        </member>
+        <member name="P:RpcModel.ReduceInRank.FusingErrorNum">
+            <summary>
+            链接失败触发熔断次数
+            </summary>
+        </member>
+        <member name="P:RpcModel.ReduceInRank.RefreshTime">
+            <summary>
+            刷新统计数的时间(秒)
+            </summary>
+        </member>
+        <member name="P:RpcModel.ReduceInRank.BeginDuration">
+            <summary>
+            最短融断时长
+            </summary>
+        </member>
+        <member name="P:RpcModel.ReduceInRank.EndDuration">
+            <summary>
+            最长熔断时长
+            </summary>
+        </member>
+        <member name="T:RpcModel.RemoteServerLogin">
+            <summary>
+            远程服务器登陆
+            </summary>
+        </member>
+        <member name="P:RpcModel.RemoteServerLogin.SystemType">
+            <summary>
+            服务器类型
+            </summary>
+        </member>
+        <member name="P:RpcModel.RemoteServerLogin.ServerMac">
+            <summary>
+            服务器MAC
+            </summary>
+        </member>
+        <member name="P:RpcModel.RemoteServerLogin.ServerIndex">
+            <summary>
+            服务器编号
+            </summary>
+        </member>
+        <member name="P:RpcModel.RemoteServerLogin.Process">
+            <summary>
+            进程信息
+            </summary>
+        </member>
+        <member name="T:RpcModel.RpcServerLogin">
+            <summary>
+            RPC服务器登陆
+            </summary>
+        </member>
+        <member name="P:RpcModel.RpcServerLogin.AccessToken">
+            <summary>
+            获取TokenId
+            </summary>
+        </member>
+        <member name="P:RpcModel.RpcServerLogin.ServerLogin">
+            <summary>
+            远程服务登陆信息
+            </summary>
+        </member>
+        <member name="P:RpcModel.ServerConfigInfo.Reduce">
+            <summary>
+            降级配置
+            </summary>
+        </member>
+        <member name="P:RpcModel.ServerConfigInfo.ClientLimit">
+            <summary>
+            限流配置
+            </summary>
+        </member>
+        <member name="T:RpcModel.SysConfigData">
+            <summary>
+            系统配置项
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysConfigData.Name">
+            <summary>
+            配置名
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysConfigData.IsJson">
+            <summary>
+            是否为JSON格式
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysConfigData.Value">
+            <summary>
+            配置值
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.ExceptionMsg.Message">
+            <summary>
+            获取描述当前异常的消息
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.ExceptionMsg.StackTrace">
+            <summary>
+            获取调用堆栈上的即时框架字符串表示形式
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.ExceptionMsg.Source">
+            <summary>
+            获取或设置导致错误的应用程序或对象的名称
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.ExceptionMsg.HelpLink">
+            <summary>
+            获取或设置指向与此异常关联的帮助文件链接
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.ExceptionMsg.HResult">
+            <summary>
+            获取或设置 HRESULT（一个分配给特定异常的编码数字值）。
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.ExceptionMsg.Method">
+            <summary>
+            应发异常的方法
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.ExceptionMsg.Data">
+            <summary>
+            获取提供有关异常的其他用户定义信息的键/值对集合。
+            </summary>
+        </member>
+        <member name="T:RpcModel.SysError.SysErrorLog">
+            <summary>
+            系统错误日志
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.SysErrorLog.Title">
+            <summary>
+            错误标题
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.SysErrorLog.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.SysErrorLog.LogType">
+            <summary>
+            错误类型
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.SysErrorLog.LogGroup">
+            <summary>
+            日志类目
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.SysErrorLog.LogGrade">
+            <summary>
+            错误等级
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.SysErrorLog.ErrorCode">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.SysErrorLog.Exception">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:RpcModel.SysError.SysErrorLog.AddTime">
+            <summary>
+            添加时间
+            </summary>
+        </member>
+        <member name="P:RpcModel.TcpRemoteMsg.MsgBody">
+            <summary>
+            消息体
+            </summary>
+        </member>
+        <member name="P:RpcModel.TcpRemoteMsg.Source">
+            <summary>
+            消息来源
+            </summary>
+        </member>
+        <member name="P:RpcModel.TcpRemoteMsg.IsSync">
+            <summary>
+            是否加锁
+            </summary>
+        </member>
+        <member name="P:RpcModel.TcpRemoteMsg.LockId">
+            <summary>
+            锁ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.TcpRemoteMsg.IsReply">
+            <summary>
+            是否需要服务器回复
+            </summary>
+        </member>
+        <member name="P:RpcModel.TcpRemoteMsg.LockType">
+            <summary>
+            锁类型
+            </summary>
+        </member>
+        <member name="P:RpcModel.TcpRemoteMsg.ExpireTime">
+            <summary>
+            消息过期时间
+            </summary>
+        </member>
+        <member name="P:RpcModel.TcpRemoteMsg.TranId">
+            <summary>
+            事务Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.TcpRemoteMsg.TranServerId">
+            <summary>
+            事务协调服务ID
+            </summary>
+        </member>
+        <member name="P:RpcModel.TcpRemoteReply.MsgBody">
+            <summary>
+            消息体
+            </summary>
+        </member>
+        <member name="T:RpcModel.TransmitColumn">
+            <summary>
+            负载均衡配置
+            </summary>
+        </member>
+        <member name="M:RpcModel.TransmitColumn.#ctor(System.Int32,System.Int32)">
+            <summary>
+            负载均衡(负载均衡类型为ZoneIndex时有效)
+            </summary>
+            <param name="one">第一个字母位置</param>
+            <param name="two">第二个字母位置</param>
+        </member>
+        <member name="M:RpcModel.TransmitColumn.#ctor(RpcModel.TransmitType)">
+            <summary>
+            负载均衡
+            </summary>
+            <param name="type">负载均衡类型</param>
+        </member>
+        <member name="M:RpcModel.TransmitColumn.#ctor(System.Int32)">
+            <summary>
+            负载均衡
+            </summary>
+            <param name="id">负载均衡的组Id</param>
+        </member>
+        <member name="P:RpcModel.TransmitColumn.TransmitId">
+            <summary>
+            负载Id
+            </summary>
+        </member>
+        <member name="P:RpcModel.TransmitColumn.TransmitType">
+            <summary>
+            负载均衡类型
+            </summary>
+        </member>
+        <member name="P:RpcModel.TransmitColumn.ZIndexBit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RpcModel.Tran.ApplyTran.TranName">
+            <summary>
+            事务名
+            </summary>
+        </member>
+        <member name="P:RpcModel.Tran.ApplyTran.IsReg">
+            <summary>
+            是否为注册的事务
+            </summary>
+        </member>
+        <member name="P:RpcModel.Tran.ApplyTran.SubmitJson">
+            <summary>
+            提交的数据
+            </summary>
+        </member>
+        <member name="P:RpcModel.Tran.ApplyTran.OverTime">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:RpcModel.Tran.Model.TranRollback.TranName">
+            <summary>
+            事务名
+            </summary>
+        </member>
+        <member name="P:RpcModel.Tran.Model.TranRollback.SubmitJson">
+            <summary>
+            提交的数据
+            </summary>
+        </member>
+        <member name="P:RpcModel.Tran.Model.TranRollback.Extend">
+            <summary>
+            扩展字段
+            </summary>
+        </member>
+        <member name="P:RpcModel.Tran.Model.TranRollback.TranId">
+            <summary>
+            事务Id
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RpcStoreApp": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

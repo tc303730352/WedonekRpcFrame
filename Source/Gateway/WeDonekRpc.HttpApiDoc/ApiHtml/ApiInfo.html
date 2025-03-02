@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>API详细</title>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="col-xs-12">
+            <div class="row" id="ApiData">
+            </div>
+        </div>
+    </div>
+    <script id="ApiInfo" type="text/html">
+        <h1>API详细</h1>
+        <p>地址:&nbsp;&nbsp;{{BasicSet.Uri}}</p>
+        <p>请求方式:&nbsp;&nbsp;{{BasicSet.RequestMethod}}</p>
+        <p>说明:&nbsp;&nbsp;{{BasicSet.Show}}</p>
+        <p>是否需要登陆:&nbsp;&nbsp;{{BasicSet.IsAccredit?"是":"否"}}</p>
+        <p>所需权限:&nbsp;&nbsp;{{BasicSet.Prower}}</p>
+        <p></p>
+        {{if BasicSet.Header != null && BasicSet.Header.length>0  }}
+        <p></p>
+        <h2>请求头</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>说明</th>
+                    <th>值</th>
+                    <th>是否可为空</th>
+                    <th>长度说明</th>
+                    <th>格式说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{each BasicSet.Header as a}}
+                <tr>
+                    <td>{{a.key}}</td>
+                    <td>{{a.show}}</td>
+                    <td>{{a.value}}</td>
+                    <td>
+                        {{if a.IsNull}}
+                        是
+                        {{else}}
+                        否
+                        {{/if}}
+                    </td>
+                    <td>{{a.LenShow}}</td>
+                    <td>{{a.Format}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{/if}}
+        {{if BasicSet.ApiType ==1}}
+        <p></p>
+        <h2>上传限制</h2>
+        <p>限制大小:&nbsp;&nbsp;<%=FormatUpMaxSize(UpConfig.MaxSize) %></p>
+        <p>限制文件后缀:&nbsp;&nbsp;{{UpConfig.Extension== ""?"无限制":UpConfig.Extension}}</p>
+        <p>允许上传的文件数量:&nbsp;&nbsp;{{UpConfig.LimitFileNum}}</p>
+        {{/if}}
+        {{if GetParam != null }}
+        <p></p>
+        <h2>GET 参数</h2>
+        <p>
+            格式示例：{{BasicSet.Uri+"?"+GetStr}}
+        </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>基础类型</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>说明</th>
+                    <th>是否空</th>
+                    <th>长度或范围</th>
+                    <th>格式</th>
+                    <th>其它验证</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{each GetParam}}
+                <tr>
+                    <td>{{$value.ParamName}}</td>
+                    <td>{{$value.ParamType}}</td>
+                    <td>
+                        {{each $value.ElementType as val}}
+                        {{if val.ElementType==1}}
+                        <p><a href="ApiClassInfo.html?id={{val.Id}}">{{val.ElementName}}</a><p>
+                            {{else if val.ElementType==2}}
+                        <p><a href="ApiEnumInfo.html?id={{val.Id}}">{{val.ElementName}}</a><p>
+                            {{else}}
+                        <p>{{val.ElementName}}<p>
+                            {{/if}}
+                            {{/each}}
+                    </td>
+                    <td>{{$value.DefValue}}</td>
+                    <td>{{$value.ParamShow}}</td>
+                    <td>
+                        {{if $value.NullCheck == null || $value.NullCheck.IsAllowNull}}
+                        是
+                        {{else}}
+                        <p>否</p>
+                        <p>说明:{{$value.NullCheck.Show}}</p>
+                        <p>返回错误ID:{{$value.NullCheck.ErrorId}}</p>
+                        <p>返回错误ID:{{$value.NullCheck.ErrorCode}}</p>
+                        {{/if}}
+                    </td>
+                    <td>
+                        {{if $value.LenFormat.length !=0}}
+                        {{each $value.LenFormat as val }}
+                        <p>说明：{{val.LenShow}}</p>
+                        <p>返回错误ID：{{val.ErrorId}}</p>
+                        <p>返回错误Code：{{val.ErrorCode}}</p>
+                        {{/each}}
+                        {{/if}}
+                    </td>
+                    <td>
+                        {{if $value.DataFormat.length != 0}}
+                        {{each $value.DataFormat as val}}
+                        <p>类型：{{val.FormatTitle}}</p>
+                        {{if val.FormatShow != null}}
+                        <p>说明：{{val.FormatShow}}</p>
+                        {{/if}}
+                        {{if val.FormatRegex != null}}
+                        <p>正则表达式：{{val.FormatRegex}}</p>
+                        {{/if}}
+                        <p>返回错误ID：{{val.ErrorId}}</p>
+                        <p>返回错误Code：{{val.ErrorCode}}</p>
+                        {{/each}}
+                        {{/if}}
+                    </td>
+                    <td>
+                        {{if $value.OtherFormat.length !=0}}
+                        {{each $value.OtherFormat as val}}
+                        <p>说明：{{val.Show}}</p>
+                        <p>返回错误ID：{{val.ErrorId}}</p>
+                        <p>返回错误Code：{{val.ErrorCode}}</p>
+                        {{/each}}
+                        {{/if}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{/if}}
+        <p></p>
+        {{if SubmitBody != null }}
+        <h2>JSON结构说明</h2>
+        <p>
+            参数格式： {{if SubmitBody.DataType==1}}
+            JSON 数组
+            {{else if(SubmitBody.DataType==0)}}
+            JSON 对象
+            {{else if(SubmitBody.DataType==2)}}
+            数据字典key=value
+            {{/if}}
+        </p>
+        <p>格式示例：{{JsonStr}}</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>基础类型</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>说明</th>
+                    <th>是否空</th>
+                    <th>长度或范围</th>
+                    <th>格式</th>
+                    <th>其它验证</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{each SubmitBody.ProList}}
+                <tr>
+                    <td>{{$value.ParamName}}</td>
+                    <td>{{$value.ParamType}}</td>
+                    <td>
+                        {{each $value.ElementType as val}}
+                        {{if val.ElementType==1}}
+                        <p><a href="ApiClassInfo.html?id={{val.Id}}">{{val.ElementName}}</a><p>
+                            {{else if val.ElementType==2}}
+                        <p><a href="ApiEnumInfo.html?id={{val.Id}}">{{val.ElementName}}</a><p>
+                            {{else}}
+                        <p>{{val.ElementName}}<p>
+                            {{/if}}
+                            {{/each}}
+                    </td>
+                    <td>{{$value.DefValue}}</td>
+                    <td>{{$value.ParamShow}}</td>
+                    <td>
+                        {{if $value.NullCheck == null || $value.NullCheck.IsAllowNull}}
+                        是
+                        {{else}}
+                        <p>否</p>
+                        <p>说明:{{$value.NullCheck.Show}}</p>
+                        <p>返回错误ID:{{$value.NullCheck.ErrorId}}</p>
+                        <p>返回错误ID:{{$value.NullCheck.ErrorCode}}</p>
+                        {{/if}}
+                    </td>
+                    <td>
+                        {{if $value.LenFormat.length !=0}}
+                        {{each $value.LenFormat as val }}
+                        <p>说明：{{val.LenShow}}</p>
+                        <p>返回错误ID：{{val.ErrorId}}</p>
+                        <p>返回错误Code：{{val.ErrorCode}}</p>
+                        {{/each}}
+                        {{/if}}
+                    </td>
+                    <td>
+                        {{if $value.DataFormat.length != 0}}
+                        {{each $value.DataFormat as val}}
+                        <p>类型：{{val.FormatTitle}}</p>
+                        {{if val.FormatShow != null}}
+                        <p>说明：{{val.FormatShow}}</p>
+                        {{/if}}
+                        {{if val.FormatRegex != null}}
+                        <p>正则表达式：{{val.FormatRegex}}</p>
+                        {{/if}}
+                        <p>返回错误ID：{{val.ErrorId}}</p>
+                        <p>返回错误Code：{{val.ErrorCode}}</p>
+                        {{/each}}
+                        {{/if}}
+                    </td>
+                    <td>
+                        {{if $value.OtherFormat.length !=0}}
+                        {{each $value.OtherFormat as val}}
+                        <p>说明：{{val.Show}}</p>
+                        <p>返回错误ID：{{val.ErrorId}}</p>
+                        <p>返回错误Code：{{val.ErrorCode}}</p>
+                        {{/each}}
+                        {{/if}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{/if}}
+        <h2>返回数据</h2>
+        <p>
+            数据格式：<%=GetReturnTypeName(ReturnBody.ReturnType) %>
+        </p>
+        <p>
+            说明：{{ReturnBody.Show}}
+        </p>
+        {{if ReturnBody.Pros.length!=0}}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>基础类型</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{each ReturnBody.Pros}}
+                <tr>
+                    <td>{{$value.ParamName}}</td>
+                    <td>{{$value.ParamType}}</td>
+                    <td>
+                        {{each $value.ElementType as val}}
+                        {{if val.ElementType==1}}
+                        <p><a href="ApiClassInfo.html?id={{val.Id}}">{{val.ElementName}}</a><p>
+                            {{else if val.ElementType==2}}
+                        <p><a href="ApiEnumInfo.html?id={{val.Id}}">{{val.ElementName}}</a><p>
+                            {{/if}}
+                            {{/each}}
+                    </td>
+                    <td>{{$value.DefValue}}</td>
+                    <td>{{$value.ParamShow}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{/if}}
+    </script>
+    <script src="js/jquery.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/basic.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/art-template.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/ApiInfo.js" charset="utf-8" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EmitMapper.Core" Version="1.0.8" />
+    <PackageReference Include="LinqKit.Core" Version="1.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Basic\WeDonekRpc.Helper\WeDonekRpc.Helper.csproj" />
+    <ProjectReference Include="..\..\..\..\Basic\WeDonekRpc.Model\WeDonekRpc.Model.csproj" />
+    <ProjectReference Include="..\..\..\..\Tools\WeDonekRpc.SqlSugar\WeDonekRpc.SqlSugar.csproj" />
+    <ProjectReference Include="..\AutoTask.Model\AutoTask.Model.csproj" />
+  </ItemGroup>
+
+</Project>

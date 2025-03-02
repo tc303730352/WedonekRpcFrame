@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>API枚举结构</title>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="col-xs-10 col-xs-offset-1">
+            <div class="row" id="ApiData">
+            </div>
+        </div>
+    </div>
+    <script id="ApiInfo" type="text/html">
+        <h1>{{EnumName}} 类结构</h1>
+        <p></p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>值</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{each Values}}
+                <tr>
+                    <td>{{$value.Name}}</td>
+                    <td>{{$value.Value}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script>
+    <script src="js/jquery.min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/basic.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/art-template.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/ApiEnumInfo.js" charset="utf-8" type="text/javascript"></script>
+</body>
+</html>

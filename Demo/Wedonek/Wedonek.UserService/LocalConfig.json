@@ -1,0 +1,18 @@
+{
+    "rpc": {
+        "RpcServer": [ "127.0.0.1" ],
+        "RpcAppId": "9cc83d72ba2a4b9f94493325c3acf4ee",
+        "RpcAppSecret": "a375982219934630aabb646e41e0ef14",
+        "RpcSystemType": "demo.user",
+        "LocalMac": "7c:b2:7d:ea:fd:df",
+        "ContainerType": 0
+    },
+    "db": {
+        "SqlSugar": [
+            {
+                "ConfigId": "default",
+                "ConnectionString": "Data Source=127.0.0.1;Initial Catalog=demoOrder;Persist Security Info=True;User ID=sa;Password=tc426831;Max Pool Size = 1024"
+            }
+        ]
+    }
+}

@@ -1,0 +1,2719 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Store.Gatewary.Modular</name>
+    </assembly>
+    <members>
+        <member name="T:Store.Gatewary.Modular.Api.AutoRetryTaskApi">
+            <summary>
+            自动重试服务
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.AutoRetryTaskApi.Cancel(System.Int64[])">
+            <summary>
+            取消任务
+            </summary>
+            <param name="ids">任务ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.AutoRetryTaskApi.Get(System.Int64)">
+            <summary>
+            获取任务详细
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.AutoRetryTaskApi.Query(WeDonekRpc.HttpApiGateway.Model.PagingParam{RpcStore.RemoteModel.RetryTask.Model.RetryTaskQuery})">
+            <summary>
+            查询重试任务日志
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.AutoRetryTaskApi.Reset(WeDonekRpc.HttpApiGateway.Model.LongParam{System.String})">
+            <summary>
+            重置任务
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.BroadcastErrorLogApi">
+            <summary>
+            广播错误日志
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.BroadcastErrorLogApi.Get(System.Int64)">
+            <summary>
+            获取广播错误日志
+            </summary>
+            <param name="id"></param>
+            <returns>广播错误日志</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.BroadcastErrorLogApi.QueryBroadcastLog(Store.Gatewary.Modular.Model.BroadcastErrorLog.UI_QueryBroadcastLog)">
+            <summary>
+            查询广播错误日志
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ClientLimitApi">
+            <summary>
+            服务节点限流配置
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ClientLimitApi.Delete(System.Int64)">
+            <summary>
+            删除服务节点限流配置
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ClientLimitApi.GetAll(System.Int64)">
+            <summary>
+            获取所有客户端限制
+            </summary>
+            <param name="serverId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ClientLimitApi.Get(System.Int64,System.Int64)">
+            <summary>
+            获取服务节点限流配置
+            </summary>
+            <param name="rpcMerId">参数</param>
+            <param name="serverId">节点ID</param>
+            <returns>服务节点限流配置</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ClientLimitApi.Sync(RpcStore.RemoteModel.ClientLimit.Model.ClientLimitDatum)">
+            <summary>
+            添加或设置服务节点限流配置
+            </summary>
+            <param name="datum">限流配置</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ContainerGroupApi">
+            <summary>
+            容器组
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ContainerGroupApi.Add(RpcStore.RemoteModel.ContainerGroup.Model.ContainerGroupAdd)">
+            <summary>
+            添加
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ContainerGroupApi.Delete(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ContainerGroupApi.Get(System.Int64)">
+            <summary>
+            获取详细
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ContainerGroupApi.GetItems(System.Nullable{System.Int32})">
+            <summary>
+            获取所有容器组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ContainerGroupApi.Query(WeDonekRpc.HttpApiGateway.Model.PagingParam{RpcStore.RemoteModel.ContainerGroup.Model.ContainerGroupQuery})">
+            <summary>
+            查询容器组
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ContainerGroupApi.Set(WeDonekRpc.HttpApiGateway.Model.LongParam{RpcStore.RemoteModel.ContainerGroup.Model.ContainerGroupSet})">
+            <summary>
+            修改容器信息
+            </summary>
+            <param name="set"></param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ControlApi">
+            <summary>
+            服务中心
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ControlApi.Add(RpcStore.RemoteModel.Control.Model.RpcControlDatum)">
+            <summary>
+            添加服务中心
+            </summary>
+            <param name="datum">中控服务资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ControlApi.Delete(System.Int32)">
+            <summary>
+            删除服务中心
+            </summary>
+            <param name="id">服务中心ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ControlApi.Get(System.Int32)">
+            <summary>
+            获取服务中心信息
+            </summary>
+            <param name="id">服务中心ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ControlApi.Query(WeDonekRpc.Model.BasicPage)">
+            <summary>
+            查询服务中心
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ControlApi.Set(Store.Gatewary.Modular.Model.Control.UI_SetControl)">
+            <summary>
+            修改服务中心资料
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.DictateLimitApi">
+            <summary>
+            服务节点指令限流配置 
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictateLimitApi.Add(RpcStore.RemoteModel.DictateLimit.Model.DictateLimitAdd)">
+            <summary>
+            添加服务节点指令限流配置
+            </summary>
+            <param name="datum">指令限流配置</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictateLimitApi.Delete(System.Int64)">
+            <summary>
+            删除指令限流配置
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictateLimitApi.Get(System.Int64)">
+            <summary>
+            获取指令限流配置
+            </summary>
+            <param name="id">数据ID</param>
+            <returns>指令限流配置</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictateLimitApi.Query(Store.Gatewary.Modular.Model.DictateLimit.UI_QueryDictateLimit)">
+            <summary>
+            查询指令限流配置
+            </summary>
+            <param name="param">参数</param>
+            <returns>指令限流配置</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictateLimitApi.Set(Store.Gatewary.Modular.Model.DictateLimit.UI_SetDictateLimit)">
+            <summary>
+            设置指令限流配置
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.DictateNodeApi">
+            <summary>
+            广播指令路由节点管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictateNodeApi.Add(RpcStore.RemoteModel.DictateNode.Model.DictateNodeAdd)">
+            <summary>
+            添加广播指令路由节点
+            </summary>
+            <param name="datum">路由节点信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictateNodeApi.Delete(System.Int64)">
+            <summary>
+            删除广播指令路由节点
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictateNodeApi.GetAll">
+            <summary>
+            获取所有广播指令节点路由
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictateNodeApi.Get(System.Int64)">
+            <summary>
+            获取广播指令路由
+            </summary>
+            <param name="id">数据ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictateNodeApi.Gets(System.Nullable{System.Int64})">
+            <summary>
+            获取广播路由节点
+            </summary>
+            <param name="parentId">父级ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictateNodeApi.GetTree">
+            <summary>
+            获取所有广播指令节点路由树形结构
+            </summary>
+            <returns>树节点</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictateNodeApi.SetDictateName(Store.Gatewary.Modular.Model.DictateNode.UI_SetDictateName)">
+            <summary>
+            设置广播指令节点路由名称
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.DictItemApi">
+            <summary>
+            字典项
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictItemApi.GetTrees(System.String)">
+            <summary>
+            获取字典项树形列表
+            </summary>
+            <param name="code">字典code</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.DictItemApi.GetDictItem(System.String)">
+            <summary>
+            获取字典项列表
+            </summary>
+            <param name="code">字典code</param>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.EnvironmentApi">
+            <summary>
+            服务节点环境
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.EnvironmentApi.Get(System.Int64)">
+            <summary>
+            获取服务节点环境变量
+            </summary>
+            <param name="serverId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ErrorApi">
+            <summary>
+            错误管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ErrorApi.Get(System.String)">
+            <summary>
+            获取错误信息
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ErrorApi.Query(Store.Gatewary.Modular.Model.Error.UI_QueryError)">
+            <summary>
+            查询已有错误信息
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ErrorApi.SetMsg(RpcStore.RemoteModel.Error.Model.ErrorSet)">
+            <summary>
+            设置错误信息
+            </summary>
+            <param name="datum">错误信息</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ErrorApi.Sync(RpcStore.RemoteModel.Error.Model.ErrorDatum)">
+            <summary>
+            同步错误信息（有修改，无添加）
+            </summary>
+            <param name="datum"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.EventSwitchApi">
+            <summary>
+            服务事件
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.EventSwitchApi.Add(RpcStore.RemoteModel.ServerEventSwitch.Model.EventSwitchAdd)">
+            <summary>
+            添加服务事件
+            </summary>
+            <param name="datum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.EventSwitchApi.Delete(System.Int64)">
+            <summary>
+            删除服务事件
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.EventSwitchApi.Get(System.Int64)">
+            <summary>
+            获取服务事件
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.EventSwitchApi.Query(WeDonekRpc.HttpApiGateway.Model.PagingParam{RpcStore.RemoteModel.ServerEventSwitch.Model.EventSwitchQuery})">
+            <summary>
+            查询服务事件
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.EventSwitchApi.Update(WeDonekRpc.HttpApiGateway.Model.LongParam{RpcStore.RemoteModel.ServerEventSwitch.Model.EventSwitchSet})">
+            <summary>
+            修改服务事件
+            </summary>
+            <param name="set"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.EventSwitchApi.SetIsEnable(WeDonekRpc.HttpApiGateway.Model.LongParam{System.Boolean})">
+            <summary>
+            设置是否启用
+            </summary>
+            <param name="set"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.IdentityApi">
+            <summary>
+            身份标识管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.IdentityApi.AddApp(RpcStore.RemoteModel.Identity.Model.IdentityDatum)">
+            <summary>
+            添加身份标识
+            </summary>
+            <param name="datum">身份标识资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.IdentityApi.DeleteApp(System.Int64)">
+            <summary>
+            删除身份标识
+            </summary>
+            <param name="id">标识ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.IdentityApi.GetApp(System.Int64)">
+            <summary>
+            获取身份标识
+            </summary>
+            <param name="id">数据ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.IdentityApi.Query(Store.Gatewary.Modular.Model.Identity.UI_QueryIdentity)">
+            <summary>
+            查询身份标识
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.IdentityApi.Set(Store.Gatewary.Modular.Model.Identity.UI_SetIdentity)">
+            <summary>
+            修改身份标识
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.IdentityApi.SetIsEnable(Store.Gatewary.Modular.Model.Identity.UI_SetIdentityIsEnable)">
+            <summary>
+            设置身份标识启用状态
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.IpBlackApi">
+            <summary>
+            网关IP黑名单管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.IpBlackApi.AddIpBack(Store.Gatewary.Modular.Model.IpBlack.IpBlackAddData)">
+            <summary>
+            添加Ip黑名单
+            </summary>
+            <param name="datum">Ip黑名单</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.IpBlackApi.DropIpBack(System.Int64)">
+            <summary>
+            删除Ip黑名单
+            </summary>
+            <param name="id">黑名单ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.IpBlackApi.GetIpBack(System.Int64)">
+            <summary>
+            获取Ip黑名单
+            </summary>
+            <param name="id">数据ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.IpBlackApi.Query(Store.Gatewary.Modular.Model.IpBlack.UI_QueryIpBlack)">
+            <summary>
+            查询Ip黑名单
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.IpBlackApi.Set(Store.Gatewary.Modular.Model.IpBlack.UI_SetIpBlack)">
+            <summary>
+            修改Ip黑名单
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.IpBlackApi.SetRemark(Store.Gatewary.Modular.Model.IpBlack.UI_SetIpBlackRemark)">
+            <summary>
+            修改Ip黑名单备注
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.LimitConfigApi">
+            <summary>
+            服务节点限流配置
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.LimitConfigApi.Delete(System.Int64)">
+            <summary>
+            删除服务节点全局限流配置
+            </summary>
+            <param name="serverId">服务节点ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.LimitConfigApi.Get(System.Int64)">
+            <summary>
+            获取服务节点全局限流配置
+            </summary>
+            <param name="serverId">服务节点ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.LimitConfigApi.Sync(RpcStore.RemoteModel.LimitConfig.Model.LimitConfigDatum)">
+            <summary>
+            同步服务节点全局限流配置(添加或修改)
+            </summary>
+            <param name="config">全局限流配置</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.MerApi">
+            <summary>
+            服务集群管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.MerApi.Add(RpcStore.RemoteModel.Mer.Model.RpcMerAdd)">
+            <summary>
+            添加服务集群
+            </summary>
+            <param name="datum">集群资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.MerApi.GetItems">
+            <summary>
+            获取集群列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.MerApi.Delete(System.Int64)">
+            <summary>
+            删除服务集群
+            </summary>
+            <param name="rpcMerId">集群ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.MerApi.Get(System.Int64)">
+            <summary>
+            获取服务集群资料
+            </summary>
+            <param name="rpcMerId">服务集群ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.MerApi.Query(Store.Gatewary.Modular.Model.Mer.UI_QueryMer)">
+            <summary>
+            查询服务集群
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.MerApi.Set(Store.Gatewary.Modular.Model.Mer.UI_SetMer)">
+            <summary>
+            修改服务集群资料
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.MerConfigApi">
+            <summary>
+            服务集群配置管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.MerConfigApi.Set(RpcStore.RemoteModel.MerConfig.Model.MerConfigArg)">
+            <summary>
+            添加集群系统类别配置
+            </summary>
+            <param name="config">集群系统类别配置</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.MerConfigApi.Delete(System.Int64)">
+            <summary>
+            删除集群配置
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.MerConfigApi.Get(System.Int64,System.Int64)">
+            <summary>
+            获取单个集群配置
+            </summary>
+            <param name="id">数据ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.MerConfigApi.GetByMerId(System.Int64)">
+            <summary>
+            获取集群下的所有配置
+            </summary>
+            <param name="rpcMerId">集群ID</param>
+            <returns>服务集群配置</returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.PublicSchemeApi">
+            <summary>
+            发布方案
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.PublicSchemeApi.Add(RpcStore.RemoteModel.ServerPublic.Model.PublicSchemeAdd)">
+            <summary>
+            新增方案
+            </summary>
+            <param name="add"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.PublicSchemeApi.Delete(System.Int64)">
+            <summary>
+            删除方案
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.PublicSchemeApi.SetIsEnable(Store.Gatewary.Modular.Model.SetIsEnable{System.Int64})">
+            <summary>
+            禁用方案
+            </summary>
+            <param name="set"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.PublicSchemeApi.Get(System.Int64)">
+            <summary>
+            获取方案详细
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.PublicSchemeApi.Query(WeDonekRpc.HttpApiGateway.Model.PagingParam{RpcStore.RemoteModel.ServerPublic.Model.PublicSchemeQuery})">
+            <summary>
+            查询方案列表
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.PublicSchemeApi.Set(WeDonekRpc.HttpApiGateway.Model.LongParam{RpcStore.RemoteModel.ServerPublic.Model.PublicScheme})">
+            <summary>
+            设置方案信息
+            </summary>
+            <param name="set"></param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ReduceInRankApi">
+            <summary>
+            服务节点降级配置
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ReduceInRankApi.Delete(System.Int64)">
+            <summary>
+            删除服务节点降级配置
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ReduceInRankApi.Get(System.Int64,System.Int64)">
+            <summary>
+            获取集群下某个服务节点降级配置
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ReduceInRankApi.Sync(RpcStore.RemoteModel.ReduceInRank.Model.ReduceInRankAdd)">
+            <summary>
+            服务节点降级配置
+            </summary>
+            <param name="datum">降级配置</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.RegionApi">
+            <summary>
+            机房管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.RegionApi.Add(RpcStore.RemoteModel.ServerRegion.Model.RegionDatum)">
+            <summary>
+            添加机房
+            </summary>
+            <param name="add"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.RegionApi.CheckName(System.String)">
+            <summary>
+            检查机房名
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.RegionApi.Delete(System.Int32)">
+            <summary>
+            删除机房
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.RegionApi.Get(System.Int32)">
+            <summary>
+            获取机房信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.RegionApi.GetList">
+            <summary>
+            获取机房列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.RegionApi.Query(WeDonekRpc.Model.BasicPage)">
+            <summary>
+            查询机房信息
+            </summary>
+            <param name="paging"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.RegionApi.Update(WeDonekRpc.HttpApiGateway.Model.IntParam{RpcStore.RemoteModel.ServerRegion.Model.RegionDatum})">
+            <summary>
+            修改机房信息
+            </summary>
+            <param name="set"></param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ResourceApi">
+            <summary>
+            服务资源
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ResourceApi.Get(System.Int64)">
+            <summary>
+            获取服务资源信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ResourceApi.Query(Store.Gatewary.Modular.Model.Resource.UI_QueryResource)">
+            <summary>
+            查询资源信息
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ResourceModularApi">
+            <summary>
+            资源模块
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ResourceModularApi.GetBasicModular(Store.Gatewary.Modular.Model.ResourceModular.UI_GetBasicModular)">
+            <summary>
+            获取资源模块
+            </summary>
+            <param name="param">参数</param>
+            <returns>资源模块</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ResourceModularApi.QueryModular(Store.Gatewary.Modular.Model.ResourceModular.UI_QueryModular)">
+            <summary>
+            查询资源模块
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ResourceModularApi.SetModularRemark(Store.Gatewary.Modular.Model.ResourceModular.UI_SetModularRemark)">
+            <summary>
+            设置资源模块备注信息
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ResourceShieldApi">
+            <summary>
+            网关资源屏蔽管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ResourceShieldApi.CancelResourceShieId(System.Int64)">
+            <summary>
+            取消资源屏蔽
+            </summary>
+            <param name="resourceId">资源ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ResourceShieldApi.CancelShieId(System.Int64)">
+            <summary>
+            取消屏蔽
+            </summary>
+            <param name="id">取消屏蔽</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ResourceShieldApi.Query(Store.Gatewary.Modular.Model.ResourceShield.UI_QueryResourceShield)">
+            <summary>
+            查询屏蔽的资源信息
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ResourceShieldApi.AddResourceShieId(RpcStore.RemoteModel.ResourceShield.Model.ResourceShieldAdd)">
+            <summary>
+            屏蔽已有资源
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ResourceShieldApi.AddShield(RpcStore.RemoteModel.ResourceShield.Model.ShieldAddDatum)">
+            <summary>
+            新增屏蔽(添加或修改)
+            </summary>
+            <param name="datum">需要屏蔽的资料</param>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.RunStateApi">
+            <summary>
+            服务节点运行状态
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.RunStateApi.Get(System.Int64)">
+            <summary>
+            获取服务节点运行状态
+            </summary>
+            <param name="serverId">服务节点ID</param>
+            <returns>运行状态</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.RunStateApi.Query(WeDonekRpc.Model.BasicPage)">
+            <summary>
+            查询服务节点运行状态
+            </summary>
+            <param name="param">参数</param>
+            <returns>运行状态</returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ServerBindApi">
+            <summary>
+            集群绑定的服务节点关系管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerBindApi.GetContainerGroup(RpcStore.RemoteModel.ServerBind.Model.BindGetParam)">
+            <summary>
+            获取集群中的容器组
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerBindApi.Delete(System.Int64)">
+            <summary>
+            删除集群绑定的服务节点关系
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerBindApi.GetServerBindVer(System.Int64,System.Nullable{System.Boolean})">
+            <summary>
+            获取服务节点版本
+            </summary>
+            <param name="rpcMerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerBindApi.GetItems(RpcStore.RemoteModel.ServerBind.Model.ServerBindQueryParam)">
+            <summary>
+            获取服务节点项
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerBindApi.GetGroupAndType(RpcStore.RemoteModel.ServerBind.Model.BindGetParam)">
+            <summary>
+            获取拥有的组别和服务类别
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerBindApi.CheckIsBind(RpcStore.RemoteModel.ServerBind.Model.BindServer)">
+            <summary>
+            检查是否绑定
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerBindApi.Query(Store.Gatewary.Modular.Model.ServerBind.UI_QueryBindServer)">
+            <summary>
+            查询集群绑定的服务节点
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerBindApi.SetBindServer(RpcStore.RemoteModel.ServerBind.Model.BindServer)">
+            <summary>
+            修改集群绑定的服务节点列表
+            </summary>
+            <param name="bind">绑定信息</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerBindApi.SaveWeight(RpcStore.RemoteModel.ServerBind.Model.SaveWeight)">
+            <summary>
+            设置绑定的服务节点负载均衡时的权重
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ServerConfigApi">
+            <summary>
+            服务节点管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerConfigApi.AddServer(RpcStore.RemoteModel.ServerConfig.Model.ServerConfigAdd)">
+            <summary>
+            新增服务节点
+            </summary>
+            <param name="datum">节点资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerConfigApi.GetServerDatum(System.Int64)">
+            <summary>
+            获取服务节点资料
+            </summary>
+            <param name="serverId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerConfigApi.DeleteServer(System.Int64)">
+            <summary>
+            删除节点
+            </summary>
+            <param name="serverId">服务节点ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerConfigApi.GetServer(System.Int64)">
+            <summary>
+            获取服务节点资料
+            </summary>
+            <param name="serverId">服务节点ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerConfigApi.QueryServer(Store.Gatewary.Modular.Model.ServerConfig.UI_QueryServer)">
+            <summary>
+            查询服务节点
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerConfigApi.GetItems(RpcStore.RemoteModel.ServerConfig.Model.ServerConfigQuery)">
+            <summary>
+            获取服务项
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerConfigApi.SetServer(Store.Gatewary.Modular.Model.ServerConfig.UI_SetServer)">
+            <summary>
+            修改服务节点资料
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerConfigApi.SetVerNum(WeDonekRpc.HttpApiGateway.Model.LongParam{System.Int32})">
+            <summary>
+            设置服务节点版本号
+            </summary>
+            <param name="param"></param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerConfigApi.SetServiceState(Store.Gatewary.Modular.Model.ServerConfig.UI_SetServiceState)">
+            <summary>
+            设置服务节点状态
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ServerCurConfigApi">
+            <summary>
+            服务节点当前配置信息
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerCurConfigApi.Get(System.Int64)">
+            <summary>
+            获取服务节点的配置信息
+            </summary>
+            <param name="serverId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ServerGroupApi">
+            <summary>
+            服务组管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerGroupApi.Add(RpcStore.RemoteModel.ServerGroup.Model.ServerGroupAdd)">
+            <summary>
+            添加服务组
+            </summary>
+            <param name="group">服务组资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerGroupApi.GetGroupAndType(System.Nullable{WeDonekRpc.Model.RpcServerType})">
+            <summary>
+            获取服务组和类别
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerGroupApi.CheckGroupTypeVal(System.String)">
+            <summary>
+            检查服务组类型值是否重复
+            </summary>
+            <param name="typeVal">类别值</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerGroupApi.Delete(System.Int64)">
+            <summary>
+            删除服务组
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerGroupApi.GetAll">
+            <summary>
+            获取所有服务组别
+            </summary>
+            <returns>服务组</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerGroupApi.Get(System.Int64)">
+            <summary>
+            获取服务组信息
+            </summary>
+            <param name="id">数据ID</param>
+            <returns>服务组</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerGroupApi.Set(Store.Gatewary.Modular.Model.ServerGroup.UI_SetServerGroup)">
+            <summary>
+            修改服务组名字
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ServerTypeApi">
+            <summary>
+            服务类别管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerTypeApi.Add(RpcStore.RemoteModel.ServerType.Model.ServerTypeAdd)">
+            <summary>
+            添加服务类别
+            </summary>
+            <param name="datum">类别资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerTypeApi.CheckVal(System.String)">
+            <summary>
+            检查类别值是否重复
+            </summary>
+            <param name="typeVal">类别值</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerTypeApi.Delete(System.Int64)">
+            <summary>
+            删除类别
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerTypeApi.Get(System.Int64)">
+            <summary>
+            获取服务类别资料
+            </summary>
+            <param name="id">数据ID</param>
+            <returns>服务类型</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerTypeApi.GetByGroup(System.Int64)">
+            <summary>
+            获取服务组下的类别
+            </summary>
+            <param name="groupId"></param>
+            <returns>服务类型</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerTypeApi.Query(Store.Gatewary.Modular.Model.ServerType.UI_QueryServerType)">
+            <summary>
+            查询服务类别
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerTypeApi.Set(Store.Gatewary.Modular.Model.ServerType.UI_SetServerType)">
+            <summary>
+            修改节点类型资料
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.ServerVerApi">
+            <summary>
+            服务集群内节点类型版本控制
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerVerApi.GetVerList(System.Int64)">
+            <summary>
+            获取服务集群中的节点版本信息
+            </summary>
+            <param name="rpcMerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.ServerVerApi.SetCurrentVer(Store.Gatewary.Modular.Model.ServerVer.ServerVerSet)">
+            <summary>
+            设置正式版本号
+            </summary>
+            <param name="set"></param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.SignalStateApi">
+            <summary>
+            服务节点和各节点之间的通信状态
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SignalStateApi.Get(System.Int64)">
+            <summary>
+            获取服务节点和各节点之间的通信状态
+            </summary>
+            <param name="serverId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.StoreApi">
+            <summary>
+            后台管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.StoreApi.Login(Store.Gatewary.Modular.Model.StoreLogin)">
+            <summary>
+            用户登陆
+            </summary>
+            <param name="login"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.StoreApi.CheckLogin">
+            <summary>
+            检查登陆状态
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.StoreApi.LoginOut">
+            <summary>
+            退出登陆
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.SysConfigApi">
+            <summary>
+            系统配置管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SysConfigApi.Add(RpcStore.RemoteModel.SysConfig.Model.SysConfigAdd)">
+            <summary>
+            新增配置
+            </summary>
+            <param name="config">配置资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SysConfigApi.GetBasicConfig(RpcStore.RemoteModel.SysConfig.Model.BasicGetParam)">
+            <summary>
+            获取基础配置
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SysConfigApi.SetBasicConfig(RpcStore.RemoteModel.SysConfig.Model.BasicConfigSet)">
+            <summary>
+            设置通用配置
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SysConfigApi.Delete(System.Int64)">
+            <summary>
+            删除配置
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SysConfigApi.Get(System.Int64)">
+            <summary>
+            获取系统配置
+            </summary>
+            <param name="id">配置ID</param>
+            <returns>配置资料</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SysConfigApi.Query(Store.Gatewary.Modular.Model.SysConfig.UI_QuerySysConfig)">
+            <summary>
+            查询系统配置
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SysConfigApi.Set(Store.Gatewary.Modular.Model.SysConfig.UI_SetSysConfig)">
+            <summary>
+            修改配置
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SysConfigApi.SetIsEnable(Store.Gatewary.Modular.Model.SysConfig.UI_SetSysConfigIsEnable)">
+            <summary>
+            设置配置的启用状态
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.SysEventConfigApi">
+            <summary>
+            系统事件配置
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SysEventConfigApi.Get(System.Int32)">
+            <summary>
+            获取配置详细
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SysEventConfigApi.GetItems">
+            <summary>
+            获取事件配置项
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.SysLogApi">
+            <summary>
+            系统日志查询
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SysLogApi.Get(System.Int64)">
+            <summary>
+            获取系统日志详细
+            </summary>
+            <param name="id">数据ID</param>
+            <returns>系统日志数据</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SysLogApi.Query(Store.Gatewary.Modular.Model.SysLog.UI_QuerySysLog)">
+            <summary>
+            查询日志
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.SystemEventLogApi">
+            <summary>
+            系统事件日志
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SystemEventLogApi.Query(WeDonekRpc.HttpApiGateway.Model.PagingParam{RpcStore.RemoteModel.SysEventLog.Model.SysEventLogQuery})">
+            <summary>
+            查询事件日志
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.SystemEventLogApi.Get(System.Int64)">
+            <summary>
+            获取事件日志详细
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.TraceApi">
+            <summary>
+            链路跟踪信息查询(主表）
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TraceApi.Query(Store.Gatewary.Modular.Model.Trace.UI_QueryTrace)">
+            <summary>
+            查询链路信息
+            </summary>
+            <param name="param">参数</param>
+            <returns></returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.TraceLogApi">
+            <summary>
+            链路日志查询(明细)
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TraceLogApi.GetTraceByTraceId(System.String)">
+            <summary>
+            获取单个链路下的日志
+            </summary>
+            <param name="traceId">链路ID</param>
+            <returns>链路日志</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TraceLogApi.Get(System.Int64)">
+            <summary>
+            获取单个链路日志详细
+            </summary>
+            <param name="id">数据ID</param>
+            <returns>链路日志</returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.TranApi">
+            <summary>
+            事务查询
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TranApi.Get(System.Int64)">
+            <summary>
+            获取事务详细
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TranApi.GetTree(System.Int64)">
+            <summary>
+            获取事务日志树形列表
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TranApi.Query(Store.Gatewary.Modular.Model.Tran.UI_QueryTran)">
+            <summary>
+            查询事务日志
+            </summary>
+            <param name="param">参数</param>
+            <returns>事务日志</returns>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.TransmitSchemeApi">
+            <summary>
+            负载均衡方案管理
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TransmitSchemeApi.Add(RpcStore.RemoteModel.TransmitScheme.Model.TransmitSchemeAdd)">
+            <summary>
+            新增方案
+            </summary>
+            <param name="datum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TransmitSchemeApi.Delete(System.Int64)">
+            <summary>
+            删除方案
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TransmitSchemeApi.Get(System.Int64)">
+            <summary>
+            获取方案信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TransmitSchemeApi.GetDetailed(System.Int64)">
+            <summary>
+            获取负载方案详细
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TransmitSchemeApi.Query(WeDonekRpc.HttpApiGateway.Model.PagingParam{RpcStore.RemoteModel.TransmitScheme.Model.TransmitSchemeQuery})">
+            <summary>
+            查询方案列表
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TransmitSchemeApi.SetItem(WeDonekRpc.HttpApiGateway.Model.LongParam{RpcStore.RemoteModel.TransmitScheme.Model.TransmitDatum[]})">
+            <summary>
+            设置负载项
+            </summary>
+            <param name="set"></param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TransmitSchemeApi.Set(WeDonekRpc.HttpApiGateway.Model.LongParam{RpcStore.RemoteModel.TransmitScheme.Model.TransmitSchemeSet})">
+            <summary>
+            修改方案信息
+            </summary>
+            <param name="set"></param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.TransmitSchemeApi.SetIsEnable(Store.Gatewary.Modular.Model.SetIsEnable{System.Int64})">
+            <summary>
+            设置方案启用状态
+            </summary>
+            <param name="set"></param>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Api.VisitCensusApi">
+            <summary>
+            服务节点的访问统计
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.VisitCensusApi.Query(Store.Gatewary.Modular.Model.VisitCensus.UI_QueryVisitCensus)">
+            <summary>
+            查询服务节点访问统计
+            </summary>
+            <param name="param">参数</param>
+            <returns>服务节点的访问统计</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.VisitCensusApi.Reset(System.Int64)">
+            <summary>
+            重置服务节点的访问统计
+            </summary>
+            <param name="serverId">服务节点ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Api.VisitCensusApi.SetShow(Store.Gatewary.Modular.Model.VisitCensus.UI_SetVisitCensusShow)">
+            <summary>
+            设置服务节点的访问统计备注信息
+            </summary>
+            <param name="param">参数</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IBroadcastErrorLogService.GetBroadcastErrorLog(System.Int64)">
+            <summary>
+            获取广播错误日志
+            </summary>
+            <param name="id"></param>
+            <returns>广播错误日志</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IBroadcastErrorLogService.QueryBroadcastLog(RpcStore.RemoteModel.BroadcastErrorLog.Model.BroadcastErrorQuery,System.String,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询广播错误日志
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="lang">返回错误语言类型</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IClientLimitService.DeleteClientLimit(System.Int64)">
+            <summary>
+            删除服务节点限流配置
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IClientLimitService.GetClientLimit(System.Int64,System.Int64)">
+            <summary>
+            获取服务节点限流配置
+            </summary>
+            <param name="rpcMerId">集群ID</param>
+            <param name="serverId">服务节点ID</param>
+            <returns>服务节点限流配置</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IClientLimitService.SyncClientLimit(RpcStore.RemoteModel.ClientLimit.Model.ClientLimitDatum)">
+            <summary>
+            添加或设置服务节点限流配置
+            </summary>
+            <param name="datum">限流配置</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IControlService.AddControl(RpcStore.RemoteModel.Control.Model.RpcControlDatum)">
+            <summary>
+            添加服务中心
+            </summary>
+            <param name="datum">中控服务资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IControlService.DeleteControl(System.Int32)">
+            <summary>
+            删除服务中心
+            </summary>
+            <param name="id">服务中心ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IControlService.GetControl(System.Int32)">
+            <summary>
+            获取服务中心信息
+            </summary>
+            <param name="id">服务中心ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IControlService.QueryControl(WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询服务中心
+            </summary>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IControlService.SetControl(System.Int32,RpcStore.RemoteModel.Control.Model.RpcControlDatum)">
+            <summary>
+            修改服务中心资料
+            </summary>
+            <param name="id">服务中心ID</param>
+            <param name="datum">服务中心资料</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IDictateLimitService.AddDictateLimit(RpcStore.RemoteModel.DictateLimit.Model.DictateLimitAdd)">
+            <summary>
+            添加服务节点指令限流配置
+            </summary>
+            <param name="datum">指令限流配置</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IDictateLimitService.DeleteDictateLimit(System.Int64)">
+            <summary>
+            删除指令限流配置
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IDictateLimitService.GetDictateLimit(System.Int64)">
+            <summary>
+            获取指令限流配置
+            </summary>
+            <param name="id">数据ID</param>
+            <returns>指令限流配置</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IDictateLimitService.QueryDictateLimit(RpcStore.RemoteModel.DictateLimit.Model.DictateLimitQuery,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询指令限流配置
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns>指令限流配置</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IDictateLimitService.SetDictateLimit(System.Int64,RpcStore.RemoteModel.DictateLimit.Model.DictateLimitSet)">
+            <summary>
+            设置指令限流配置
+            </summary>
+            <param name="id">数据ID</param>
+            <param name="datum">指令限流资料</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IDictateNodeService.AddDictateNode(RpcStore.RemoteModel.DictateNode.Model.DictateNodeAdd)">
+            <summary>
+            添加广播指令路由节点
+            </summary>
+            <param name="datum">路由节点信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IDictateNodeService.DeleteDictateNode(System.Int64)">
+            <summary>
+            删除广播指令路由节点
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IDictateNodeService.GetAllDictateNode">
+            <summary>
+            获取所有广播指令节点路由
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IDictateNodeService.GetDictateNode(System.Int64)">
+            <summary>
+            获取广播指令路由
+            </summary>
+            <param name="id">数据ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IDictateNodeService.GetDictateNodes(System.Nullable{System.Int64})">
+            <summary>
+            获取广播路由节点
+            </summary>
+            <param name="parentId">父级ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IDictateNodeService.GetDictateNodeTree">
+            <summary>
+            获取所有广播指令节点路由树形结构
+            </summary>
+            <returns>树节点</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IDictateNodeService.SetDictateName(System.Int64,System.String)">
+            <summary>
+            设置广播指令节点路由名称
+            </summary>
+            <param name="id">数据ID</param>
+            <param name="name">名称</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IErrorService.GetError(System.String)">
+            <summary>
+            获取错误信息
+            </summary>
+            <param name="code">错误码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IErrorService.QueryError(RpcStore.RemoteModel.Error.Model.ErrorQuery,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询已有错误信息
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IErrorService.SetErrorMsg(RpcStore.RemoteModel.Error.Model.ErrorSet)">
+            <summary>
+            设置错误信息
+            </summary>
+            <param name="datum">错误信息</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IErrorService.SyncError(RpcStore.RemoteModel.Error.Model.ErrorDatum)">
+            <summary>
+            同步错误信息（有修改，无添加）
+            </summary>
+            <param name="datum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IIdentityService.AddIdentityApp(RpcStore.RemoteModel.Identity.Model.IdentityDatum)">
+            <summary>
+            添加身份标识
+            </summary>
+            <param name="datum">身份标识资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IIdentityService.DeleteIdentityApp(System.Int64)">
+            <summary>
+            删除身份标识
+            </summary>
+            <param name="id">标识ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IIdentityService.GetIdentityApp(System.Int64)">
+            <summary>
+            获取身份标识
+            </summary>
+            <param name="id">数据ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IIdentityService.QueryIdentity(RpcStore.RemoteModel.Identity.Model.IdentityQuery,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询身份标识
+            </summary>
+            <param name="query">查询信息</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IIdentityService.SetIdentity(System.Int64,RpcStore.RemoteModel.Identity.Model.IdentityDatum)">
+            <summary>
+            修改身份标识
+            </summary>
+            <param name="id">数据ID</param>
+            <param name="datum">身份标识资料</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IIdentityService.SetIdentityIsEnable(System.Int64,System.Boolean)">
+            <summary>
+            设置身份标识启用状态
+            </summary>
+            <param name="id">数据ID</param>
+            <param name="isEnable">是否启用</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IIpBlackService.AddIpBack(Store.Gatewary.Modular.Model.IpBlack.IpBlackAddData)">
+            <summary>
+            添加Ip黑名单
+            </summary>
+            <param name="datum">Ip黑名单</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IIpBlackService.DropIpBack(System.Int64)">
+            <summary>
+            删除Ip黑名单
+            </summary>
+            <param name="id">黑名单ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IIpBlackService.GetIpBack(System.Int64)">
+            <summary>
+            获取Ip黑名单
+            </summary>
+            <param name="id">数据ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IIpBlackService.QueryIpBlack(RpcStore.RemoteModel.IpBlack.Model.IpBlackQuery,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询Ip黑名单
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IIpBlackService.SetIpBlack(System.Int64,RpcStore.RemoteModel.IpBlack.Model.IpBlackSet)">
+            <summary>
+            修改Ip黑名单
+            </summary>
+            <param name="id">Ip黑名单ID</param>
+            <param name="datum">黑名单资料</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IIpBlackService.SetIpBlackRemark(System.Int64,System.String)">
+            <summary>
+            修改Ip黑名单备注
+            </summary>
+            <param name="id">数据ID</param>
+            <param name="remark">备注</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ILimitConfigService.DeleteLimitConfig(System.Int64)">
+            <summary>
+            删除服务节点全局限流配置
+            </summary>
+            <param name="serverId">服务节点ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ILimitConfigService.GetLimitConfig(System.Int64)">
+            <summary>
+            获取服务节点全局限流配置
+            </summary>
+            <param name="serverId">服务节点ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ILimitConfigService.SyncLimitConfig(RpcStore.RemoteModel.LimitConfig.Model.LimitConfigDatum)">
+            <summary>
+            同步服务节点全局限流配置(添加或修改)
+            </summary>
+            <param name="config">全局限流配置</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IMerConfigService.SetMerConfig(RpcStore.RemoteModel.MerConfig.Model.MerConfigArg)">
+            <summary>
+            添加集群系统类别配置
+            </summary>
+            <param name="config">集群系统类别配置</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IMerConfigService.DeleteMerConfig(System.Int64)">
+            <summary>
+            删除集群配置
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IMerConfigService.GetMerConfig(System.Int64,System.Int64)">
+            <summary>
+            获取单个集群配置
+            </summary>
+            <param name="id">数据ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IMerConfigService.GetMerConfigByMerId(System.Int64)">
+            <summary>
+            获取集群下的所有配置
+            </summary>
+            <param name="rpcMerId">集群ID</param>
+            <returns>服务集群配置</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IMerService.AddMer(RpcStore.RemoteModel.Mer.Model.RpcMerAdd)">
+            <summary>
+            添加服务集群
+            </summary>
+            <param name="datum">集群资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IMerService.DeleteMer(System.Int64)">
+            <summary>
+            删除服务集群
+            </summary>
+            <param name="rpcMerId">集群ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IMerService.GetMer(System.Int64)">
+            <summary>
+            获取服务集群资料
+            </summary>
+            <param name="rpcMerId">服务集群ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IMerService.QueryMer(System.String,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询服务集群
+            </summary>
+            <param name="name">集群名</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IMerService.SetMer(System.Int64,RpcStore.RemoteModel.Mer.Model.RpcMerSet)">
+            <summary>
+            修改服务集群资料
+            </summary>
+            <param name="rpcMerId">集群ID</param>
+            <param name="datum">集群资料</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IReduceInRankService.DeleteReduceInRank(System.Int64)">
+            <summary>
+            删除服务节点降级配置
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IReduceInRankService.GetReduceInRank(System.Int64,System.Int64)">
+            <summary>
+            获取集群下某个服务节点降级配置
+            </summary>
+            <param name="rpcMerId">集群ID</param>
+            <param name="serverId">服务节点ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IReduceInRankService.SyncReduceInRank(RpcStore.RemoteModel.ReduceInRank.Model.ReduceInRankAdd)">
+            <summary>
+            服务节点降级配置
+            </summary>
+            <param name="datum">降级配置</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IResourceModularService.GetBasicModular(System.Int64,System.String)">
+            <summary>
+            获取资源模块
+            </summary>
+            <param name="rpcMerId">集群ID</param>
+            <param name="systemType">节点系统类型</param>
+            <returns>资源模块</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IResourceModularService.QueryModular(RpcStore.RemoteModel.ResourceModular.Model.ModularQuery,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询资源模块
+            </summary>
+            <param name="query">模块查询参数</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IResourceModularService.SetModularRemark(System.Int64,System.String)">
+            <summary>
+            设置资源模块备注信息
+            </summary>
+            <param name="id">数据ID</param>
+            <param name="remark">备注</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IResourceService.QueryResource(RpcStore.RemoteModel.Resource.Model.ResourceQuery,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询资源信息
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IResourceShieldService.CancelResourceShieId(System.Int64)">
+            <summary>
+            取消资源屏蔽
+            </summary>
+            <param name="resourceId">资源ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IResourceShieldService.CancelShieId(System.Int64)">
+            <summary>
+            取消屏蔽
+            </summary>
+            <param name="id">取消屏蔽</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IResourceShieldService.Query(RpcStore.RemoteModel.ResourceShield.Model.ResourceShieldQuery,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询屏蔽的资源信息
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IRunStateService.GetRunState(System.Int64)">
+            <summary>
+            获取服务节点运行状态
+            </summary>
+            <param name="serverId">服务节点ID</param>
+            <returns>运行状态</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IRunStateService.QueryRunState(WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询服务节点运行状态
+            </summary>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns>运行状态</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerBindService.DeleteServerBind(System.Int64)">
+            <summary>
+            删除集群绑定的服务节点关系
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerBindService.Query(System.Int64,RpcStore.RemoteModel.ServerBind.Model.BindQueryParam,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询集群绑定的服务节点
+            </summary>
+            <param name="rpcMerId">集群ID</param>
+            <param name="query">查询参数</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerBindService.SetBindServer(RpcStore.RemoteModel.ServerBind.Model.BindServer)">
+            <summary>
+            修改集群绑定的服务节点列表
+            </summary>
+            <param name="bind">绑定信息</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerBindService.SaveWeight(RpcStore.RemoteModel.ServerBind.Model.SaveWeight)">
+            <summary>
+            设置绑定的服务节点负载均衡时的权重
+            </summary>
+            <param name="id">数据ID</param>
+            <param name="weight">负载均衡权重</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerConfigService.AddServer(RpcStore.RemoteModel.ServerConfig.Model.ServerConfigAdd)">
+            <summary>
+            新增服务节点
+            </summary>
+            <param name="datum">节点资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerConfigService.DeleteServer(System.Int64)">
+            <summary>
+            删除节点
+            </summary>
+            <param name="serverId">服务节点ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerConfigService.GetServer(System.Int64)">
+            <summary>
+            获取服务节点资料
+            </summary>
+            <param name="serverId">服务节点ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerConfigService.GetServerDatum(System.Int64)">
+            <summary>
+            获取服务节点资料
+            </summary>
+            <param name="serverId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerConfigService.QueryServer(RpcStore.RemoteModel.ServerConfig.Model.ServerConfigQuery,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询服务节点
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerConfigService.SetServer(System.Int64,RpcStore.RemoteModel.ServerConfig.Model.ServerConfigSet)">
+            <summary>
+            修改服务节点资料
+            </summary>
+            <param name="serverId">服务节点</param>
+            <param name="datum">修改的资料</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerConfigService.SetServiceState(System.Int64,WeDonekRpc.Model.RpcServiceState)">
+            <summary>
+            设置服务节点状态
+            </summary>
+            <param name="serviceId">节点ID</param>
+            <param name="state">状态</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerGroupService.AddServerGroup(RpcStore.RemoteModel.ServerGroup.Model.ServerGroupAdd)">
+            <summary>
+            添加服务组
+            </summary>
+            <param name="group">服务组资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerGroupService.CheckGroupTypeVal(System.String)">
+            <summary>
+            检查服务组类型值是否重复
+            </summary>
+            <param name="typeVal">类别值</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerGroupService.DeleteServerGroup(System.Int64)">
+            <summary>
+            删除服务组
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerGroupService.GetAllServerGroup">
+            <summary>
+            获取所有服务组别
+            </summary>
+            <returns>服务组</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerGroupService.GetServerGroup(System.Int64)">
+            <summary>
+            获取服务组信息
+            </summary>
+            <param name="id">数据ID</param>
+            <returns>服务组</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerGroupService.SetServerGroup(System.Int64,System.String)">
+            <summary>
+            修改服务组名字
+            </summary>
+            <param name="id">服务组ID</param>
+            <param name="name">名字</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerTypeService.AddServerType(RpcStore.RemoteModel.ServerType.Model.ServerTypeAdd)">
+            <summary>
+            添加服务类别
+            </summary>
+            <param name="datum">类别资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerTypeService.CheckServerTypeVal(System.String)">
+            <summary>
+            检查类别值是否重复
+            </summary>
+            <param name="typeVal">类别值</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerTypeService.DeleteServerType(System.Int64)">
+            <summary>
+            删除类别
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerTypeService.GetServerType(System.Int64)">
+            <summary>
+            获取服务类别资料
+            </summary>
+            <param name="id">数据ID</param>
+            <returns>服务类型</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerTypeService.GetServerTypeByGroup(System.Int64)">
+            <summary>
+            获取服务组下的类别
+            </summary>
+            <param name="groupId"></param>
+            <returns>服务类型</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerTypeService.QueryServerType(RpcStore.RemoteModel.ServerType.Model.ServerTypeQuery,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询服务类别
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IServerTypeService.SetServerType(System.Int64,RpcStore.RemoteModel.ServerType.Model.ServerTypeSet)">
+            <summary>
+            修改节点类型资料
+            </summary>
+            <param name="id">数据ID</param>
+            <param name="datum">类别资料</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ISignalStateService.GetSignalState(System.Int64)">
+            <summary>
+            获取服务节点和各节点之间的通信状态
+            </summary>
+            <param name="serverId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ISysConfigService.AddSysConfig(RpcStore.RemoteModel.SysConfig.Model.SysConfigAdd)">
+            <summary>
+            新增配置
+            </summary>
+            <param name="config">配置资料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ISysConfigService.DeleteSysConfig(System.Int64)">
+            <summary>
+            删除配置
+            </summary>
+            <param name="id">数据ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ISysConfigService.GetSysConfig(System.Int64)">
+            <summary>
+            获取系统配置
+            </summary>
+            <param name="id">配置ID</param>
+            <returns>配置资料</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ISysConfigService.QuerySysConfig(RpcStore.RemoteModel.SysConfig.Model.QuerySysParam,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询系统配置
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ISysConfigService.SetSysConfig(System.Int64,RpcStore.RemoteModel.SysConfig.Model.SysConfigSet)">
+            <summary>
+            修改配置
+            </summary>
+            <param name="id">数据ID</param>
+            <param name="configSet">配置值</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ISysConfigService.SetSysConfigIsEnable(System.Int64,System.Boolean)">
+            <summary>
+            设置配置的启用状态
+            </summary>
+            <param name="id">数据ID</param>
+            <param name="isEnable">是否启用</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ISysLogService.GetSysLog(System.Int64)">
+            <summary>
+            获取系统日志详细
+            </summary>
+            <param name="id">数据ID</param>
+            <returns>系统日志数据</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ISysLogService.QuerySysLog(RpcStore.RemoteModel.SysLog.Model.SysLogQuery,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询日志
+            </summary>
+            <param name="query"></param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ITraceLogService.GetTraceByTraceId(System.String)">
+            <summary>
+            获取单个链路下的日志
+            </summary>
+            <param name="traceId">链路ID</param>
+            <returns>链路日志</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ITraceLogService.GetTraceLog(System.Int64)">
+            <summary>
+            获取单个链路日志详细
+            </summary>
+            <param name="id">数据ID</param>
+            <returns>链路日志</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.ITraceService.QueryTrace(RpcStore.RemoteModel.Trace.Model.TraceQuery,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询链路信息
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IVisitCensusService.QueryVisitCensus(RpcStore.RemoteModel.VisitCensus.Model.VisitCensusQuery,WeDonekRpc.Model.IBasicPage,System.Int32@)">
+            <summary>
+            查询服务节点访问统计
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="paging">分页参数</param>
+            <param name="count">数据总数</param>
+            <returns>服务节点的访问统计</returns>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IVisitCensusService.ResetVisitCensus(System.Int64)">
+            <summary>
+            重置服务节点的访问统计
+            </summary>
+            <param name="serverId">服务节点ID</param>
+        </member>
+        <member name="M:Store.Gatewary.Modular.Interface.IVisitCensusService.SetVisitCensusShow(System.Int64,System.String)">
+            <summary>
+            设置服务节点的访问统计备注信息
+            </summary>
+            <param name="id">数据ID</param>
+            <param name="show">备注说明</param>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.Id">
+            <summary>
+            日志Id
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.ErrorCode">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.MsgKey">
+            <summary>
+            消息Key
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.MsgBody">
+            <summary>
+            消息体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.ServerId">
+            <summary>
+            服务节点Id
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.SysTypeVal">
+            <summary>
+            系统类型
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.ApiVer">
+            <summary>
+            api版本号
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.SystemType">
+            <summary>
+            来源服务类型
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.MsgSource">
+            <summary>
+            消息源
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.BroadcastType">
+            <summary>
+            广播方式
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.RouteKey">
+            <summary>
+            路由健
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.RpcMerId">
+            <summary>
+            集群Id
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.BroadcastLogData.AddTime">
+            <summary>
+            添加时间
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.BroadcastErrorLog.UI_QueryBroadcastLog">
+            <summary>
+            查询广播错误日志 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.UI_QueryBroadcastLog.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.BroadcastErrorLog.UI_QueryBroadcastLog.Lang">
+            <summary>
+            返回错误语言类型
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ClientLimit.UI_GetClientLimit">
+            <summary>
+            获取服务节点限流配置 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ClientLimit.UI_GetClientLimit.RpcMerId">
+            <summary>
+            集群ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ClientLimit.UI_GetClientLimit.ServerId">
+            <summary>
+            服务节点ID
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.Control.UI_SetControl">
+            <summary>
+            修改服务中心资料 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Control.UI_SetControl.Id">
+            <summary>
+            服务中心ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Control.UI_SetControl.Datum">
+            <summary>
+            服务中心资料
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.DictateLimit.UI_QueryDictateLimit">
+            <summary>
+            查询指令限流配置 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.DictateLimit.UI_QueryDictateLimit.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.DictateLimit.UI_SetDictateLimit">
+            <summary>
+            设置指令限流配置 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.DictateLimit.UI_SetDictateLimit.Id">
+            <summary>
+            数据ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.DictateLimit.UI_SetDictateLimit.Datum">
+            <summary>
+            指令限流资料
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.DictateNode.UI_SetDictateName">
+            <summary>
+            设置广播指令节点路由名称 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.DictateNode.UI_SetDictateName.Id">
+            <summary>
+            数据ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.DictateNode.UI_SetDictateName.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.Error.UI_GetError">
+            <summary>
+            获取错误信息 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Error.UI_GetError.ErrorId">
+            <summary>
+            错误ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Error.UI_GetError.Lang">
+            <summary>
+            语言类型
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.Error.UI_QueryError">
+            <summary>
+            查询已有错误信息 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Error.UI_QueryError.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.Identity.UI_QueryIdentity">
+            <summary>
+            查询身份标识 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Identity.UI_QueryIdentity.Query">
+            <summary>
+            查询信息
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.Identity.UI_SetIdentity">
+            <summary>
+            修改身份标识 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Identity.UI_SetIdentity.Id">
+            <summary>
+            数据ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Identity.UI_SetIdentity.Datum">
+            <summary>
+            身份标识资料
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.Identity.UI_SetIdentityIsEnable">
+            <summary>
+            设置身份标识启用状态 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Identity.UI_SetIdentityIsEnable.Id">
+            <summary>
+            数据ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Identity.UI_SetIdentityIsEnable.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.IpBlack.IpBlackAddData.RpcMerId">
+            <summary>
+            集群Id
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.IpBlack.IpBlackAddData.SystemType">
+            <summary>
+            系统类别
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.IpBlack.IpBlackAddData.IpType">
+            <summary>
+            Ip类型
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.IpBlack.IpBlackAddData.Ip">
+            <summary>
+            起始IP
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.IpBlack.IpBlackAddData.EndIp">
+            <summary>
+            截止IP
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.IpBlack.IpBlackAddData.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.IpBlack.UI_QueryIpBlack">
+            <summary>
+            查询Ip黑名单 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.IpBlack.UI_QueryIpBlack.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.IpBlack.UI_SetIpBlack">
+            <summary>
+            修改Ip黑名单 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.IpBlack.UI_SetIpBlack.Id">
+            <summary>
+            Ip黑名单ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.IpBlack.UI_SetIpBlack.Datum">
+            <summary>
+            黑名单资料
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.IpBlack.UI_SetIpBlackRemark">
+            <summary>
+            修改Ip黑名单备注 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.IpBlack.UI_SetIpBlackRemark.Id">
+            <summary>
+            数据ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.IpBlack.UI_SetIpBlackRemark.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.LoginResult.AccreditId">
+            <summary>
+            授权ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.LoginResult.UserName">
+            <summary>
+            账号名
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.LoginResult.UserHead">
+            <summary>
+            用户头像
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.LoginResult.Prower">
+            <summary>
+            登陆权限
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.Mer.UI_QueryMer">
+            <summary>
+            查询服务集群 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Mer.UI_QueryMer.Name">
+            <summary>
+            集群名
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.Mer.UI_SetMer">
+            <summary>
+            修改服务集群资料 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Mer.UI_SetMer.RpcMerId">
+            <summary>
+            集群ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Mer.UI_SetMer.Datum">
+            <summary>
+            集群资料
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ReduceInRank.UI_GetReduceInRank">
+            <summary>
+            获取集群下某个服务节点降级配置 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ReduceInRank.UI_GetReduceInRank.RpcMerId">
+            <summary>
+            集群ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ReduceInRank.UI_GetReduceInRank.ServerId">
+            <summary>
+            服务节点ID
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ResourceModular.UI_GetBasicModular">
+            <summary>
+            获取资源模块 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ResourceModular.UI_GetBasicModular.RpcMerId">
+            <summary>
+            集群ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ResourceModular.UI_GetBasicModular.SystemType">
+            <summary>
+            节点系统类型
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ResourceModular.UI_QueryModular">
+            <summary>
+            查询资源模块 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ResourceModular.UI_QueryModular.Query">
+            <summary>
+            模块查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ResourceModular.UI_SetModularRemark">
+            <summary>
+            设置资源模块备注信息 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ResourceModular.UI_SetModularRemark.Id">
+            <summary>
+            数据ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ResourceModular.UI_SetModularRemark.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ResourceShield.UI_QueryResourceShield">
+            <summary>
+            查询屏蔽的资源信息 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ResourceShield.UI_QueryResourceShield.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ResourceShield.UI_ResourceShieId">
+            <summary>
+            屏蔽已有资源 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ResourceShield.UI_ResourceShieId.ResourceId">
+            <summary>
+            资源ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ResourceShield.UI_ResourceShieId.BeOverTime">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ResourceShield.UI_ResourceShieId.ServerId">
+            <summary>
+            服务节点
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.Resource.UI_QueryResource">
+            <summary>
+            查询资源信息 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Resource.UI_QueryResource.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ServerBind.UI_QueryBindServer">
+            <summary>
+            查询集群绑定的服务节点 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerBind.UI_QueryBindServer.RpcMerId">
+            <summary>
+            集群ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerBind.UI_QueryBindServer.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ServerBind.UI_SetBindServerWeight">
+            <summary>
+            设置绑定的服务节点负载均衡时的权重 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerBind.UI_SetBindServerWeight.Weight">
+            <summary>
+            负载均衡权重
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ServerConfig.UI_QueryServer">
+            <summary>
+            查询服务节点 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerConfig.UI_QueryServer.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ServerConfig.UI_SetServer">
+            <summary>
+            修改服务节点资料 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerConfig.UI_SetServer.ServerId">
+            <summary>
+            服务节点
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerConfig.UI_SetServer.Datum">
+            <summary>
+            修改的资料
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ServerConfig.UI_SetServiceState">
+            <summary>
+            设置服务节点状态 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerConfig.UI_SetServiceState.ServiceId">
+            <summary>
+            节点ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerConfig.UI_SetServiceState.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ServerGroup.UI_QueryServerGroup">
+            <summary>
+            查询服务组 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerGroup.UI_QueryServerGroup.Name">
+            <summary>
+            名字
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ServerGroup.UI_SetServerGroup">
+            <summary>
+            修改服务组名字 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerGroup.UI_SetServerGroup.Id">
+            <summary>
+            服务组ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerGroup.UI_SetServerGroup.Name">
+            <summary>
+            名字
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ServerType.UI_QueryServerType">
+            <summary>
+            查询服务类别 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerType.UI_QueryServerType.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.ServerType.UI_SetServerType">
+            <summary>
+            修改节点类型资料 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerType.UI_SetServerType.Id">
+            <summary>
+            数据ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.ServerType.UI_SetServerType.Datum">
+            <summary>
+            类别资料
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.SetIsEnable`1.Id">
+            <summary>
+            数据ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.SetIsEnable`1.IsEnable">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.StoreUser.Pwd">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.StoreUser.Head">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.StoreUser.Introduction">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.StoreUser.Prower">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.SysConfig.UI_QuerySysConfig">
+            <summary>
+            查询系统配置 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.SysConfig.UI_QuerySysConfig.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.SysConfig.UI_SetSysConfig">
+            <summary>
+            修改配置 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.SysConfig.UI_SetSysConfig.Id">
+            <summary>
+            数据ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.SysConfig.UI_SetSysConfig.ConfigSet">
+            <summary>
+            配置值
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.SysConfig.UI_SetSysConfigIsEnable">
+            <summary>
+            设置配置的启用状态 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.SysConfig.UI_SetSysConfigIsEnable.Id">
+            <summary>
+            数据ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.SysConfig.UI_SetSysConfigIsEnable.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.SysLog.UI_QuerySysLog">
+            <summary>
+            查询日志 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.SysLog.UI_QuerySysLog.Query">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.Trace.UI_QueryTrace">
+            <summary>
+            查询链路信息 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Trace.UI_QueryTrace.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.Tran.UI_QueryTran">
+            <summary>
+            查询事务日志 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Tran.UI_QueryTran.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.Tran.UI_QueryTranTree">
+            <summary>
+            查询事务返回树形结构 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.Tran.UI_QueryTranTree.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.VisitCensus.UI_QueryVisitCensus">
+            <summary>
+            查询服务节点访问统计 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.VisitCensus.UI_QueryVisitCensus.Query">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="T:Store.Gatewary.Modular.Model.VisitCensus.UI_SetVisitCensusShow">
+            <summary>
+            设置服务节点的访问统计备注信息 UI参数实体
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.VisitCensus.UI_SetVisitCensusShow.Id">
+            <summary>
+            数据ID
+            </summary>
+        </member>
+        <member name="P:Store.Gatewary.Modular.Model.VisitCensus.UI_SetVisitCensusShow.Show">
+            <summary>
+            备注说明
+            </summary>
+        </member>
+        <member name="M:Store.Gatewary.Modular.StoreApiModular.#ctor">
+            <summary>
+            后台API接口服务
+            </summary>
+        </member>
+    </members>
+</doc>

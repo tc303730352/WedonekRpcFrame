@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Title>Rpc缓存客户端</Title>
+	  <Copyright>MIT</Copyright>
+	  <PackageProjectUrl>https://gitee.com/tc303730352/WedonekRpcFrame</PackageProjectUrl>
+	  <RepositoryUrl>https://gitee.com/tc303730352/WedonekRpcFrame</RepositoryUrl>
+	  <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CSRedisCore" Version="3.8.803" />
+    <PackageReference Include="EnyimMemcachedCore" Version="3.3.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeDonekRpc.Helper\WeDonekRpc.Helper.csproj" />
+  </ItemGroup>
+
+</Project>

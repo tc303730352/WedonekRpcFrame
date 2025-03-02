@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div style="width:100%">
+        <p>服务器链接：<input type="text" id="serverUri" value="ws://127.0.0.1:1254/" /></p>
+        <p>授权码: <input type="text" id="accreditId" /></p>
+        <p><button onclick="conServer();">链接服务器</button></p>
+        <p>方法：<input type="text" id="func" /></p>
+        <p>包ID：<input type="text" id="pageId" /></p>
+        <p>内容：<input type="text" id="content" /></p>
+        <p><button onclick="sendData();">发送</button></p>
+        <div id="msg"></div>
+    </div>
+    <script type="text/javascript">
+        let webSocket
+        function conServer() {
+            const uri = document.getElementById("serverUri").value;
+            const accreditId = document.getElementById("accreditId").value;
+            webSocket = new WebSocket(uri +accreditId);
+            const msg = document.getElementById("msg");
+            webSocket.onopen = function () {
+                msg.innerHTML = msg.innerHTML+"<p>链接已打开！</p>"
+            }
+            webSocket.onclose = function (e) {
+                msg.innerHTML = msg.innerHTML + "<p>链接已关闭！</p>"
+            }
+            webSocket.onerror = function (e) {
+                console.log(e)
+                msg.innerHTML = msg.innerHTML + "<p>发生错误，error：" + e + "！</p>"
+            }
+            webSocket.onmessage = function (e) {
+                msg.innerHTML = msg.innerHTML + "<p>收到消息: " + e.data + "</p>"
+                var data;
+                eval("data=" + e.data);
+                if (data.errorcode == 0 && data.direct == "Authorization") {
+                    msg.innerHTML = msg.innerHTML + "<p>认证成功！</p>"
+                    ws.send("/api/user/Get\n123\n");
+                }
+            }
+        }
+        function sendData() {
+            const func = document.getElementById("func").value;
+            const pageId = document.getElementById("pageId").value;
+            const content = document.getElementById("content").value;
+            webSocket.send(func + "\n" + pageId + "\n" + content);
+        }
+    </script>
+</body>
+</html>

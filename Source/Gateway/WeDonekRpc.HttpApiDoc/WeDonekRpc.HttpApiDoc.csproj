@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Title>网关接口文档模块</Title>
+	  <Copyright>MIT</Copyright>
+	  <PackageProjectUrl>https://gitee.com/tc303730352/WedonekRpcFrame</PackageProjectUrl>
+	  <RepositoryUrl>https://gitee.com/tc303730352/WedonekRpcFrame</RepositoryUrl>
+	  <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="StaticFile\**" />
+    <EmbeddedResource Remove="StaticFile\**" />
+    <None Remove="StaticFile\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EmitMapper.Core" Version="1.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Basic\WeDonekRpc.Helper\WeDonekRpc.Helper.csproj" />
+    <ProjectReference Include="..\WeDonekRpc.ApiGateway\WeDonekRpc.ApiGateway.csproj" />
+    <ProjectReference Include="..\WeDonekRpc.HttpApiGateway\WeDonekRpc.HttpApiGateway.csproj" />
+    <ProjectReference Include="..\WeDonekRpc.HttpService\WeDonekRpc.HttpService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ApiHtml\ApiClassInfo.html" Pack="True">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ApiHtml\ApiEnumInfo.html" Pack="True">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ApiHtml\ApiGroup.html" Pack="True">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ApiHtml\ApiInfo.html" Pack="True">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ApiHtml\css\bootstrap.min.css" Pack="True">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ApiHtml\js\ApiClassInfo.js" Pack="True">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ApiHtml\js\ApiEnumInfo.js" Pack="True">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ApiHtml\js\ApiGroup.js" Pack="True">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ApiHtml\js\ApiInfo.js" Pack="True">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ApiHtml\js\art-template.js" Pack="True">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ApiHtml\js\basic.js" Pack="True">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ApiHtml\js\jquery.min.js" Pack="True">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

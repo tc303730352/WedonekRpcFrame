@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<EnablePreviewFeatures>true</EnablePreviewFeatures>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>Rpc客户端工具包</Title>
+		<Copyright>MIT</Copyright>
+		<PackageProjectUrl>https://gitee.com/tc303730352/WedonekRpcFrame</PackageProjectUrl>
+		<RepositoryUrl>https://gitee.com/tc303730352/WedonekRpcFrame</RepositoryUrl>
+		<Version>1.0.2</Version>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Collections.Pooled" Version="1.0.82" />
+		<PackageReference Include="Enums.NET" Version="5.0.0" />
+		<PackageReference Include="Mono.Posix.NETStandard" Version="1.0.0" />
+		<PackageReference Include="SixLabors.ImageSharp" Version="3.1.6" />
+		<PackageReference Include="ToolGood.Words.FirstPinyin" Version="3.1.0" />
+		<PackageReference Include="Yitter.IdGenerator" Version="1.0.14" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="Area.json" Pack="True" />
+		<None Update="Area.js">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Area.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="ErrorMsg_zh.xml">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

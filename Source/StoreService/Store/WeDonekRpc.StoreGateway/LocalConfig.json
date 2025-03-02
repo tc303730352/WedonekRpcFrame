@@ -1,0 +1,31 @@
+{
+  "gateway": {
+    "http": {
+        "server": {
+            "RealRequestUri": "http://127.0.0.1:86/",
+            "Url": "http://127.0.0.1:86/"
+        },
+        "up": {
+            "MemoryUpSize": 10485760
+        },
+        "gzip": {
+            "IsEnable": true,
+            "Extensions": [ ".js", ".css", ".jpg", ".gif", ".png", ".html" ],
+            "MinFileSzie": 1024,
+            "IsCacheFile": true,
+            "IsZipApiText": true,
+            "TextLength": 600
+        },
+        "log": {
+            "IsEnable": false
+        }
+    }
+  },
+  "rpc": {
+    "RpcSystemType": "sys.store",
+    "RpcServer": [ "127.0.0.1" ],
+    "RpcAppSecret": "c429d30e8ab14464b70ce926802ba7dd",
+    "RpcAppId": "4a96a64fa89e4fd387d9a881a6a539f9",
+    "LocalMac": "7c:b2:7d:ea:fd:df"
+  }
+}

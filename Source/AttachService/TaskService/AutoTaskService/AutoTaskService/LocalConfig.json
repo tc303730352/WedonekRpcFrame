@@ -1,0 +1,17 @@
+{
+  "rpc": {
+    "RpcServer": [ "127.0.0.1" ],
+    "RpcAppId": "4a96a64fa89e4fd387d9a881a6a539f9",
+    "RpcAppSecret": "c429d30e8ab14464b70ce926802ba7dd",
+    "RpcSystemType": "sys.task",
+    "LocalMac": "7c:b2:7d:ea:fd:df"
+  },
+  "db": {
+    "SqlSugar": [
+        {
+            "ConfigId": "default",
+            "ConnectionString": "Data Source=127.0.0.1;Initial Catalog=RpcExtendService;Persist Security Info=True;User ID=sa;Password=tc426831;Max Pool Size=1024;Encrypt=True;TrustServerCertificate=True;"
+        }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	 <EnablePreviewFeatures>True</EnablePreviewFeatures>
+	 <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	 <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	 <Title>Rpc客户端基础包</Title>
+	 <Copyright>MIT</Copyright>
+	 <PackageProjectUrl>https://gitee.com/tc303730352/WedonekRpcFrame</PackageProjectUrl>
+	 <RepositoryUrl>https://gitee.com/tc303730352/WedonekRpcFrame</RepositoryUrl>
+	  <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="8.2.0" />
+    <PackageReference Include="Confluent.Kafka" Version="2.8.0" />
+	  <PackageReference Include="EmitMapper.Core" Version="1.0.8" />
+	  <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BasicService\ExtendService\WeDonekRpc.ExtendModel\WeDonekRpc.ExtendModel.csproj" />
+    <ProjectReference Include="..\..\Socket\WeDonekRpc.IOSendInterface\WeDonekRpc.IOSendInterface.csproj" />
+    <ProjectReference Include="..\..\Socket\WeDonekRpc.TcpClient\WeDonekRpc.TcpClient.csproj" />
+    <ProjectReference Include="..\..\Socket\WeDonekRpc.TcpServer\WeDonekRpc.TcpServer.csproj" />
+    <ProjectReference Include="..\WeDonekRpc.Helper\WeDonekRpc.Helper.csproj" />
+    <ProjectReference Include="..\WeDonekRpc.Model\WeDonekRpc.Model.csproj" />
+  </ItemGroup>
+
+</Project>

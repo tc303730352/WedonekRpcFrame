@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Title>网关基础模块</Title>
+	  <Copyright>MIT</Copyright>
+	  <PackageProjectUrl>https://gitee.com/tc303730352/WedonekRpcFrame</PackageProjectUrl>
+	  <RepositoryUrl>https://gitee.com/tc303730352/WedonekRpcFrame</RepositoryUrl>
+	  <Version>1.0.2</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EmitMapper.Core" Version="1.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Basic\WeDonekRpc.Client\WeDonekRpc.Client.csproj" />
+    <ProjectReference Include="..\..\Basic\WeDonekRpc.Helper\WeDonekRpc.Helper.csproj" />
+    <ProjectReference Include="..\..\Basic\WeDonekRpc.Model\WeDonekRpc.Model.csproj" />
+    <ProjectReference Include="..\WeDonekRpc.Modular\WeDonekRpc.Modular.csproj" />
+  </ItemGroup>
+
+</Project>

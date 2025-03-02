@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<EnablePreviewFeatures>True</EnablePreviewFeatures>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>SqlSugar数据库操作类</Title>
+		<Copyright>MIT</Copyright>
+		<PackageProjectUrl>https://gitee.com/tc303730352/WedonekRpcFrame</PackageProjectUrl>
+		<RepositoryUrl>https://gitee.com/tc303730352/WedonekRpcFrame</RepositoryUrl>
+		<Version>1.0.1</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SqlSugarCore" Version="5.1.4.172" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Basic\WeDonekRpc.Helper\WeDonekRpc.Helper.csproj" />
+		<ProjectReference Include="..\..\Basic\WeDonekRpc.Model\WeDonekRpc.Model.csproj" />
+	</ItemGroup>
+
+</Project>

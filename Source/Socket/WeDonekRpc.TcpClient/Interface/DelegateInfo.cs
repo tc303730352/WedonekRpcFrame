@@ -1,0 +1,5 @@
+﻿
+namespace WeDonekRpc.TcpClient.Interface
+{
+    
+}

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EmitMapper.Core" Version="1.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Basic\WeDonekRpc.Client\WeDonekRpc.Client.csproj" />
+    <ProjectReference Include="..\..\..\Basic\WeDonekRpc.Model\WeDonekRpc.Model.csproj" />
+  </ItemGroup>
+
+</Project>

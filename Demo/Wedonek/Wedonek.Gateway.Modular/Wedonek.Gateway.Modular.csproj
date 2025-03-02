@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Source\Basic\WeDonekRpc.CacheClient\WeDonekRpc.CacheClient.csproj" />
+    <ProjectReference Include="..\..\..\Source\Basic\WeDonekRpc.CacheModular\WeDonekRpc.CacheModular.csproj" />
+    <ProjectReference Include="..\..\..\Source\Basic\WeDonekRpc.Client\WeDonekRpc.Client.csproj" />
+    <ProjectReference Include="..\..\..\Source\Basic\WeDonekRpc.Helper\WeDonekRpc.Helper.csproj" />
+    <ProjectReference Include="..\..\..\Source\Basic\WeDonekRpc.Model\WeDonekRpc.Model.csproj" />
+    <ProjectReference Include="..\..\..\Source\Gateway\WeDonekRpc.HttpApiDoc\WeDonekRpc.HttpApiDoc.csproj" />
+    <ProjectReference Include="..\..\..\Source\Gateway\WeDonekRpc.HttpApiGateway\WeDonekRpc.HttpApiGateway.csproj" />
+    <ProjectReference Include="..\Wedonek.Demo.RemoteModel\Wedonek.Demo.RemoteModel.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="File\22.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="WebDemo\BlockUp\BlockUpTools.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="WebDemo\BlockUp\FileBlockUp.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="WebDemo\BlockUp\spark-md5.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="WebDemo\websocket.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

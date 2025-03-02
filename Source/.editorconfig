@@ -1,0 +1,13 @@
+﻿[*.{cs,vb}]
+
+# IDE0003: 删除限定
+dotnet_diagnostic.IDE0003.severity = none
+
+# IDE0001: 简化名称
+dotnet_diagnostic.IDE0001.severity = silent
+
+# CA2252: 此 API 需要选择加入预览功能
+dotnet_diagnostic.CA2252.severity = none
+
+# CS8605: 取消装箱可能为 null 的值。
+dotnet_diagnostic.CS8605.severity = none

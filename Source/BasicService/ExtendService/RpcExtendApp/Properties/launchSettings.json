@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RpcExtendApp": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

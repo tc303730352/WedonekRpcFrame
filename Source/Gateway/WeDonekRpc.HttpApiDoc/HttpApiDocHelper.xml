@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HttpApiDocHelper</name>
+    </assembly>
+    <members>
+        <member name="T:HttpApiDocHelper.Api.ApiHelperController">
+            <summary>
+            API文档接口
+            </summary>
+        </member>
+        <member name="M:HttpApiDocHelper.Api.ApiHelperController.GetApi(System.String,HttpApiDocHelper.Model.ApiInfo@,System.String@)">
+            <summary>
+            获取Api信息
+            </summary>
+            <param name="id">API接口Id</param>
+            <param name="api">api信息</param>
+            <param name="error">错误信息</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:HttpApiDocHelper.Api.ApiHelperController.GetClass(System.String,HttpApiDocHelper.Model.ClassData@,System.String@)">
+            <summary>
+            获取类信息
+            </summary>
+            <param name="id">类Id</param>
+            <param name="data">类数据结构</param>
+            <param name="error">错误信息</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:HttpApiDocHelper.Api.ApiHelperController.GetApiList">
+            <summary>
+            获取Api列表
+            </summary>
+            <returns>Api接口列表</returns>
+        </member>
+        <member name="M:HttpApiDocHelper.Api.ApiHelperController.GetApiGroup">
+            <summary>
+            获取Api分组列表
+            </summary>
+            <returns>活动组列表</returns>
+        </member>
+        <member name="M:HttpApiDocHelper.Api.ApiHelperController.GetEnum(System.String,HttpApiDocHelper.Model.EnumShow@,System.String@)">
+            <summary>
+            获取枚举说明
+            </summary>
+            <param name="id">枚举Id</param>
+            <param name="api">说明信息</param>
+            <param name="error">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:HttpApiDocHelper.Api.ApiHelperController.DownPostman(System.Int32)">
+            <summary>
+            下载Postman配置
+            </summary>
+            <param name="id">活动组别Id</param>
+            <returns>PostMan配置文件</returns>
+        </member>
+        <member name="P:HttpApiDocHelper.Error.NullError.Show">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Interface.IApiTemplate.ErrorMsg">
+            <summary>
+            错误说明
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Interface.IApiTemplate.ErrorCode">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Interface.IApiTemplate.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Interface.IApiTemplate.Count">
+            <summary>
+            数据总量
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Interface.IApiTemplate.PagingData">
+            <summary>
+            分页数据
+            </summary>
+        </member>
+        <member name="T:HttpApiDocHelper.Model.ApiAttrShow">
+            <summary>
+            Api属性说明
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiAttrShow.AttrName">
+            <summary>
+            属性名
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiAttrShow.AttrType">
+            <summary>
+            属性类型
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiAttrShow.AttrShow">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiAttrShow.DefValue">
+            <summary>
+            默认值
+            </summary>
+        </member>
+        <member name="M:HttpApiDocHelper.Model.ApiGroup.GetHashCode">
+            <summary>
+            获取类的HashCode做比较
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HttpApiDocHelper.Model.ApiGroup.Equals(System.Object)">
+            <summary>
+            比较相等(根据路径URI)
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HttpApiDocHelper.Model.ApiInfo">
+            <summary>
+            Api接口信息
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiInfo.BasicSet">
+            <summary>
+            接口基础配置
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiInfo.SubmitBody">
+            <summary>
+            提交的数据
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiInfo.ReturnBody">
+            <summary>
+            返回的数据
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiInfo.JsonStr">
+            <summary>
+            数据示例
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiInfo.GetParam">
+            <summary>
+            GET参数
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiInfo.UpConfig">
+            <summary>
+            上传配置
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiModel.Id">
+            <summary>
+            APIId
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiModel.ApiType">
+            <summary>
+            接口类型
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiModel.Show">
+            <summary>
+            接口说明
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiModel.Uri">
+            <summary>
+            接口URI
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiModel.RequestMethod">
+            <summary>
+            请求方式
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiModel.GroupId">
+            <summary>
+            API组Id
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiModel.Header">
+            <summary>
+            请求头信息
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiModel.IsAccredit">
+            <summary>
+            是否需要登陆
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiModel.Prower">
+            <summary>
+            访问权限
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiPostBody.DataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiPostBody.IsClass">
+            <summary>
+            数组成员是否是类
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiPostBody.IsValidate">
+            <summary>
+            提交数据是否验证
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiPostBody.Show">
+            <summary>
+            数据说明
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiPostBody.ClassId">
+            <summary>
+            所属类ID
+            </summary>
+        </member>
+        <member name="P:HttpApiDocHelper.Model.ApiPostBody.ProList">
+            <summary>
+            属性列表
+            </summary>
+        </member>
+        <member name="F:HttpApiDocHelper.Model.RequestHeader.key">
+            <summary>
+            头部名称
+            </summary>
+        </member>
+        <member name="F:HttpApiDocHelper.Model.RequestHeader.show">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="F:HttpApiDocHelper.Model.RequestHeader.IsNull">
+            <summary>
+            是否为空
+            </summary>
+        </member>
+        <member name="F:HttpApiDocHelper.Model.RequestHeader.LenShow">
+            <summary>
+            长度说明
+            </summary>
+        </member>
+        <member name="F:HttpApiDocHelper.Model.RequestHeader.Format">
+            <summary>
+            格式说明
+            </summary>
+        </member>
+        <member name="F:HttpApiDocHelper.Model.RequestHeader.value">
+            <summary>
+            值
+            </summary>
+        </member>
+    </members>
+</doc>

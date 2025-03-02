@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="spark-md5.min.js"></script>
+    <script type="text/javascript" src="BlockUpTools.js"></script>
+</head>
+<body>
+    <div style="width:100%">
+        <p><input type="file" id="UpFile" /></p>
+        <p><input type="button"  onclick="_upFile();" /></p>
+        <p id="msg"></p>
+    </div>
+    <script type="text/javascript">
+        function _upFile() {
+            var msg = document.getElementById("msg");
+            var up = new blockUp({
+                file: document.getElementById("UpFile").files[0],
+                accreditId: "",
+                formData: { Extend:"111"},
+                upUri: "block/up",
+                upError: function (code, error) {
+                    alert(error);
+                },
+                upProgress=function (e) {
+                    if (e.state == 0) {
+                        msg.innerHTML = "准备中!";
+                    } else if (e.state == 1) {
+                        msg.innerHTML = "开始上传,进度：" + e.Progress.progress + "%";
+                    } else if (e.state == 2) {
+                        msg.innerHTML = "上传完成校验中";
+                    } else if (e.state == 3) {
+                        msg.innerHTML = "上传完成";
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

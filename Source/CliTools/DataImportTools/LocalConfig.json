@@ -1,0 +1,12 @@
+{
+    "db": {
+        "RpcService": {
+            "DbType": 1,
+            "ConnectionString": "Data Source=127.0.0.1;Initial Catalog=RpcService;Persist Security Info=True;User ID=sa;Password=tc426831;Max Pool Size = 1024"
+        },
+        "RpcExtendService": {
+            "DbType": 1,
+            "ConnectionString": "Data Source=127.0.0.1;Initial Catalog=RpcExtendService;Persist Security Info=True;User ID=sa;Password=tc426831;Max Pool Size = 1024"
+        }
+    }
+}

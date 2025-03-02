@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EmitMapper.Core" Version="1.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Gateway\WeDonekRpc.Modular\WeDonekRpc.Modular.csproj" />
+    <ProjectReference Include="..\RpcExtend.Collect\RpcExtend.Collect.csproj" />
+    <ProjectReference Include="..\RpcExtend.Model\RpcExtend.Model.csproj" />
+  </ItemGroup>
+
+</Project>

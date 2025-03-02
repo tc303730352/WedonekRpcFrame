@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Title>TCP客户端</Title>
+	  <Copyright>MIT</Copyright>
+	  <PackageProjectUrl>https://gitee.com/tc303730352/WedonekRpcFrame</PackageProjectUrl>
+	  <RepositoryUrl>https://gitee.com/tc303730352/WedonekRpcFrame</RepositoryUrl>
+	  <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Basic\WeDonekRpc.Helper\WedonekRpc.Helper.csproj" />
+    <ProjectReference Include="..\WeDonekRpc.IOSendInterface\WeDonekRpc.IOSendInterface.csproj" />
+    <ProjectReference Include="..\WeDonekRpc.IOBuffer\WeDonekRpc.IOBuffer.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,35 @@
+{
+    "redis": {
+        "ConConfig": {
+            "Connection": "127.0.0.1"
+        }
+    },
+    "memcached": {
+        "ServerIp": [ "127.0.0.1" ]
+    },
+    "rpc": {
+        "ServerIndex": 1,
+        "CacheType": 2
+    },
+    "local": {
+        "log": {
+            "IsConsole": true,
+            "LogGrade": 3
+        }
+    },
+    "db": {
+        "SqlSugar": [
+            {
+                "ConfigId": "default",
+                "IsAutoCloseConnection": true,
+                "ConnectionString": "Data Source=127.0.0.1;Initial Catalog=RpcService;Persist Security Info=True;User ID=sa;Password=tc426831;Max Pool Size=1024;Encrypt=True;TrustServerCertificate=True;"
+            }
+        ]
+    },
+    "sys": {
+        "ServerStateNotice": false,
+        "EmailList": [],
+        "EmailAccount": null,
+        "EmailPwd": null
+    }
+}

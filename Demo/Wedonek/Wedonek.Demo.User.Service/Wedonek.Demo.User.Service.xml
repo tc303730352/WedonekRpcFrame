@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wedonek.Demo.User.Service</name>
+    </assembly>
+    <members>
+        <member name="T:Wedonek.Demo.User.Service.Event.MsgEvent">
+            <summary>
+            接收广播消息
+            </summary>
+        </member>
+        <member name="M:Wedonek.Demo.User.Service.Event.MsgEvent.PlaceAnOrder(Wedonek.Demo.RemoteModel.Msg.PlaceAnOrder)">
+            <summary>
+            下单的消息广播
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="T:Wedonek.Demo.User.Service.Event.SubscribeEvent">
+            <summary>
+            订阅演示
+            </summary>
+        </member>
+        <member name="M:Wedonek.Demo.User.Service.Event.SubscribeEvent.UserGoOnline(Wedonek.Demo.RemoteModel.Subscribe.UserGoOnline)">
+            <summary>
+            订阅用户上线事件
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="T:Wedonek.Demo.User.Service.Event.UpDemoFileEvent">
+            <summary>
+            远程文件上传
+            </summary>
+        </member>
+        <member name="T:Wedonek.Demo.User.Service.Event.UserEvent">
+            <summary>
+            用户事件
+            </summary>
+        </member>
+        <member name="M:Wedonek.Demo.User.Service.Event.UserEvent.SetOrderNo(Wedonek.Demo.RemoteModel.User.SetOrderNo,RpcModular.IUserIdentity)">
+            <summary>
+            设置订单号
+            </summary>
+            <param name="set"></param>
+        </member>
+        <member name="M:Wedonek.Demo.User.Service.Event.UserEvent.LockUserMoney(Wedonek.Demo.RemoteModel.User.LockUserMoney)">
+            <summary>
+            锁定用户账号金额
+            </summary>
+            <param name="add"></param>
+        </member>
+        <member name="M:Wedonek.Demo.User.Service.Event.UserEvent.AddUser(Wedonek.Demo.RemoteModel.User.AddUser)">
+            <summary>
+            新建用户
+            </summary>
+            <param name="add"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.Demo.User.Service.Event.UserEvent.GetUser(Wedonek.Demo.RemoteModel.User.GetUser)">
+            <summary>
+            获取用户资料
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wedonek.Demo.User.Service.Event.UserEvent.UserLogin(Wedonek.Demo.RemoteModel.User.UserLogin)">
+            <summary>
+            用户登陆
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wedonek.Demo.User.Service.UserMoneyTccTran">
+            <summary>
+            用户金额TCC事务
+            </summary>
+        </member>
+    </members>
+</doc>

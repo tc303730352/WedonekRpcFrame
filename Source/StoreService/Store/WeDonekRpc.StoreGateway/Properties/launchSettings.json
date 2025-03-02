@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Wedonek.Gateway": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

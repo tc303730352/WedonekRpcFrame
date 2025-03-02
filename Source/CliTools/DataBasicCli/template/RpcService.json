@@ -1,0 +1,1160 @@
+﻿{
+    "Region": [
+        {
+            "Id": 1,
+            "RegionName": "默认",
+            "CountryId": 1,
+            "ProId": 510000,
+            "CityId": 510100,
+            "DistrictId": 510122,
+            "Address": "成都市",
+            "Contacts": "圈圈",
+            "IsDrop": false
+        }
+    ],
+    "Control": [
+        {
+            "Id": 1,
+            "ServerIp": "127.0.0.1",
+            "Port": 983,
+            "RegionId": 1,
+            "Show": "测试"
+        }
+    ],
+    "Dict": [
+        {
+            "DictCode": "001",
+            "DictName": "配置项说明"
+        },
+        {
+            "DictCode": "002",
+            "DictName": "日志组"
+        },
+        {
+            "DictCode": "003",
+            "DictName": "配置摸版"
+        }
+    ],
+    "DictItem": [
+        {
+            "DictCode": "002",
+            "ItemCode": "Basic",
+            "PrtItemCode": "root",
+            "ItemText": "基础日志组"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Cache",
+            "PrtItemCode": "root",
+            "ItemText": "缓存日志组"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "DataQueue",
+            "PrtItemCode": "Basic",
+            "ItemText": "数据队列日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "DataSyncClass",
+            "PrtItemCode": "Basic",
+            "ItemText": "同步类日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Def",
+            "PrtItemCode": "Basic",
+            "ItemText": "默认日志组"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "DelayDataSave",
+            "PrtItemCode": "Basic",
+            "ItemText": "数据延迟保存日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Gateway",
+            "PrtItemCode": "root",
+            "ItemText": "网关日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "http",
+            "PrtItemCode": "Gateway",
+            "ItemText": "Http日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "HttpGateway",
+            "PrtItemCode": "Gateway",
+            "ItemText": "Http网关日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Json",
+            "PrtItemCode": "Basic",
+            "ItemText": "JSON序列化和反序列化日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "LocalTask",
+            "PrtItemCode": "Basic",
+            "ItemText": "本地任务日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Memcached",
+            "PrtItemCode": "Cache",
+            "ItemText": "Memcached日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Pipe_Client",
+            "PrtItemCode": "Socket",
+            "ItemText": "Pipe客户端日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Redis",
+            "PrtItemCode": "Cache",
+            "ItemText": "Redis日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "RedisQueue",
+            "PrtItemCode": "Cache",
+            "ItemText": "Redis队列日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Rpc",
+            "PrtItemCode": "root",
+            "ItemText": "Rpc日志组"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Rpc_CentralMsg",
+            "PrtItemCode": "Rpc",
+            "ItemText": "中控消息日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Rpc_Config",
+            "PrtItemCode": "Rpc",
+            "ItemText": "配置日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Rpc_ConLog",
+            "PrtItemCode": "Rpc",
+            "ItemText": "链接日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Rpc_Kafka",
+            "PrtItemCode": "Rpc",
+            "ItemText": "Kafka日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Rpc_Log",
+            "PrtItemCode": "Rpc",
+            "ItemText": "普通日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Rpc_Msg",
+            "PrtItemCode": "Rpc",
+            "ItemText": "消息日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Rpc_Rabbitmq",
+            "PrtItemCode": "Rpc",
+            "ItemText": "Rabbitmq日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Rpc_RouteLog",
+            "PrtItemCode": "Rpc",
+            "ItemText": "路由日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Rpc_Trace",
+            "PrtItemCode": "Rpc",
+            "ItemText": "链路日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Socket",
+            "PrtItemCode": "root",
+            "ItemText": "通信组件日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Socket_Client",
+            "PrtItemCode": "Socket",
+            "ItemText": "Socket客户端日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "Socket_Server",
+            "PrtItemCode": "Socket",
+            "ItemText": "Socket服务端日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "SqlSugar",
+            "PrtItemCode": "root",
+            "ItemText": "SqlSugar日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "SqlSugar_DELETE",
+            "PrtItemCode": "SqlSugar",
+            "ItemText": "删除日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "SqlSugar_INSERT",
+            "PrtItemCode": "SqlSugar",
+            "ItemText": "新增数据日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "SqlSugar_SELECT",
+            "PrtItemCode": "SqlSugar",
+            "ItemText": "查询日志"
+        },
+        {
+            "DictCode": "002",
+            "ItemCode": "SqlSugar_UPDATE",
+            "PrtItemCode": "SqlSugar",
+            "ItemText": "修改日志"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "accreditFrom",
+            "PrtItemCode": "rpcassembly",
+            "ItemText": "登陆授权"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "apiShieldFrom",
+            "PrtItemCode": "gateway",
+            "ItemText": "Api接口屏蔽"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "cacheFrom",
+            "PrtItemCode": "rpc",
+            "ItemText": "缓存配置"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "cacheTimeFrom",
+            "PrtItemCode": "rpc",
+            "ItemText": "缓存时间"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "crossFrom",
+            "PrtItemCode": "gateway",
+            "ItemText": "跨域配置"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "gateway",
+            "PrtItemCode": "root",
+            "ItemText": "网关配置"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "gatewayIdentityFrom",
+            "PrtItemCode": "gateway",
+            "ItemText": "网关租户配置"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "http",
+            "PrtItemCode": "root",
+            "ItemText": "Http网关配置项"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "httpBasicFrom",
+            "PrtItemCode": "http",
+            "ItemText": "Http基础配置"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "httpFileFrom",
+            "PrtItemCode": "http",
+            "ItemText": "文件服务"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "httpGzipFrom",
+            "PrtItemCode": "http",
+            "ItemText": "Gzip压缩"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "httpLogFrom",
+            "PrtItemCode": "http",
+            "ItemText": "请求日志"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "IdempotentFrom",
+            "PrtItemCode": "gateway",
+            "ItemText": "重复请求"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "identityFrom",
+            "PrtItemCode": "rpcassembly",
+            "ItemText": "租户服务"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "idgeneratorFrom",
+            "PrtItemCode": "rpc",
+            "ItemText": "雪花算法"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "ipBlackFrom",
+            "PrtItemCode": "gateway",
+            "ItemText": "IP黑名单"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "ipLimitFrom",
+            "PrtItemCode": "gateway",
+            "ItemText": "IP限流"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "loacalConfigFrom",
+            "PrtItemCode": "local",
+            "ItemText": "本地配置管理"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "local",
+            "PrtItemCode": "root",
+            "ItemText": "节点本地配置项"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "localLogFrom",
+            "PrtItemCode": "local",
+            "ItemText": "本地日志管理"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "logFrom",
+            "PrtItemCode": "rpc",
+            "ItemText": "日志服务"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "message",
+            "PrtItemCode": "root",
+            "ItemText": "通信配置"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "nodeLimitFrom",
+            "PrtItemCode": "gateway",
+            "ItemText": "Api接口限流"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "pipeFrom",
+            "PrtItemCode": "message",
+            "ItemText": "Pipe隧道"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "resourceFrom",
+            "PrtItemCode": "rpcassembly",
+            "ItemText": "资源上传配置"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "rpc",
+            "PrtItemCode": "root",
+            "ItemText": "基础配置项"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "rpcassembly",
+            "PrtItemCode": "root",
+            "ItemText": "组件配置项"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "rpcBasicFrom",
+            "PrtItemCode": "rpc",
+            "ItemText": "Rpc基础配置"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "shieldForm",
+            "PrtItemCode": "rpcassembly",
+            "ItemText": "远程方法屏蔽"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "socketTcpFrom",
+            "PrtItemCode": "message",
+            "ItemText": "Tcp配置"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "threadPoolFrom",
+            "PrtItemCode": "rpc",
+            "ItemText": "线程池配置"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "trackFrom",
+            "PrtItemCode": "rpcassembly",
+            "ItemText": "链路配置"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "upConfigFrom",
+            "PrtItemCode": "gateway",
+            "ItemText": "文件上传"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "visitFrom",
+            "PrtItemCode": "rpcassembly",
+            "ItemText": "访问统计"
+        },
+        {
+            "DictCode": "003",
+            "ItemCode": "wholeLimItFrom",
+            "PrtItemCode": "gateway",
+            "ItemText": "全局限流"
+        }
+    ],
+    "RpcMer": [
+        {
+            "Id": 1,
+            "SystemName": "Rpc组件服务",
+            "AppId": "4a96a64fa89e4fd387d9a881a6a539f9",
+            "AppSecret": "c429d30e8ab14464b70ce926802ba7dd",
+            "AllowServerIp": "[\u0022*\u0022]",
+            "AddTime": "2021-03-25T16:58:00"
+        },
+        {
+            "Id": 2,
+            "SystemName": "Demo演示服务",
+            "AppId": "9cc83d72ba2a4b9f94493325c3acf4ee",
+            "AppSecret": "a375982219934630aabb646e41e0ef14",
+            "AllowServerIp": "[\u0022*\u0022]",
+            "AddTime": "2021-05-24T14:04:00"
+        }
+    ],
+    "Servers": [
+        {
+            "Id": 1,
+            "ServerName": "Rpr同步服务",
+            "ServerIp": "127.0.0.1",
+            "RemoteIp": "127.0.0.1",
+            "ServerPort": 835,
+            "RemotePort": 835,
+            "GroupId": 1,
+            "SystemType": 1,
+            "ServerMac": "7c:b2:7d:ea:fd:df",
+            "ServerIndex": 0,
+            "ServiceType": 1,
+            "HoldRpcMerId": 1,
+            "IsContainer": false,
+            "PublicKey": "6xy3#7a%ad",
+            "ServiceState": 0,
+            "IsEnablePipe": false,
+            "RegionId": 1,
+            "IsOnline": true,
+            "BindIndex": 1,
+            "ConfigPrower": 11,
+            "RecoveryLimit": 0,
+            "RecoveryTime": 0,
+            "ConIp": "127.0.0.1",
+            "ApiVer": 10003,
+            "VerNum": 0,
+            "LastOffliceDate": "2024-04-11T00:00:00",
+            "AddTime": "2023-12-24T20:07:00"
+        },
+        {
+            "Id": 2,
+            "ServerName": "RPC后台管理服务",
+            "ServerIp": "127.0.0.1",
+            "RemoteIp": "127.0.0.1",
+            "ServerPort": 834,
+            "RemotePort": 834,
+            "GroupId": 1,
+            "SystemType": 2,
+            "ServerMac": "7c:b2:7d:ea:fd:df",
+            "ServerIndex": 0,
+            "ServiceType": 2,
+            "HoldRpcMerId": 1,
+            "IsContainer": false,
+            "PublicKey": "6xy3#7a%ad",
+            "ServiceState": 0,
+            "IsEnablePipe": false,
+            "RegionId": 1,
+            "IsOnline": false,
+            "BindIndex": 1,
+            "ConfigPrower": 11,
+            "RecoveryLimit": 0,
+            "RecoveryTime": 0,
+            "ConIp": "127.0.0.1",
+            "ApiVer": 10003,
+            "VerNum": 0,
+            "LastOffliceDate": "2024-04-09T00:00:00",
+            "AddTime": "2021-05-08T18:05:00"
+        },
+        {
+            "Id": 3,
+            "ServerName": "自动任务服务",
+            "ServerIp": "127.0.0.1",
+            "RemoteIp": "127.0.0.1",
+            "ServerPort": 839,
+            "RemotePort": 839,
+            "GroupId": 1,
+            "SystemType": 3,
+            "ServerMac": "7c:b2:7d:ea:fd:df",
+            "ServerIndex": 0,
+            "ServiceType": 1,
+            "HoldRpcMerId": 1,
+            "IsContainer": false,
+            "PublicKey": "6xy3#7a%ad",
+            "ServiceState": 0,
+            "IsEnablePipe": false,
+            "RegionId": 1,
+            "IsOnline": true,
+            "BindIndex": 1,
+            "ConfigPrower": 11,
+            "RecoveryLimit": 0,
+            "RecoveryTime": 0,
+            "ConIp": "127.0.0.1",
+            "ApiVer": 10003,
+            "VerNum": 0,
+            "LastOffliceDate": "2024-04-11T00:00:00",
+            "AddTime": "2021-08-11T15:31:00"
+        },
+        {
+            "Id": 4,
+            "ServerName": "演示订单服务",
+            "ServerIp": "127.0.0.1",
+            "RemoteIp": "127.0.0.1",
+            "ServerPort": 837,
+            "RemotePort": 837,
+            "GroupId": 2,
+            "SystemType": 6,
+            "ServerMac": "7c:b2:7d:ea:fd:df",
+            "ServerIndex": 0,
+            "ServiceType": 1,
+            "HoldRpcMerId": 2,
+            "IsContainer": false,
+            "PublicKey": "6xy3#7a%ad",
+            "ServiceState": 0,
+            "IsEnablePipe": false,
+            "RegionId": 1,
+            "IsOnline": true,
+            "BindIndex": 1,
+            "ConfigPrower": 11,
+            "RecoveryLimit": 0,
+            "RecoveryTime": 0,
+            "ConIp": "127.0.0.1",
+            "ApiVer": 10003,
+            "VerNum": 0,
+            "LastOffliceDate": "2024-04-11T00:00:00",
+            "AddTime": "2021-03-25T18:43:00"
+        },
+        {
+            "Id": 5,
+            "ServerName": "演示用户服务",
+            "ServerIp": "127.0.0.1",
+            "RemoteIp": "127.0.0.1",
+            "ServerPort": 838,
+            "RemotePort": 838,
+            "GroupId": 2,
+            "SystemType": 5,
+            "ServerMac": "7c:b2:7d:ea:fd:df",
+            "ServerIndex": 0,
+            "ServiceType": 1,
+            "HoldRpcMerId": 2,
+            "IsContainer": false,
+            "PublicKey": "6xy3#7a%ad",
+            "ServiceState": 0,
+            "IsEnablePipe": false,
+            "RegionId": 1,
+            "IsOnline": true,
+            "BindIndex": 1,
+            "ConfigPrower": 11,
+            "RecoveryLimit": 0,
+            "RecoveryTime": 0,
+            "ConIp": "127.0.0.1",
+            "ApiVer": 10003,
+            "VerNum": 0,
+            "LastOffliceDate": "2024-04-11T00:00:00",
+            "AddTime": "2021-04-18T11:05:00"
+        },
+        {
+            "Id": 6,
+            "ServerName": "演示网关",
+            "ServerIp": "127.0.0.1",
+            "RemoteIp": "127.0.0.1",
+            "ServerPort": 836,
+            "RemotePort": 836,
+            "GroupId": 2,
+            "SystemType": 4,
+            "ServerMac": "7c:b2:7d:ea:fd:df",
+            "ServerIndex": 0,
+            "ServiceType": 2,
+            "HoldRpcMerId": 2,
+            "IsContainer": false,
+            "PublicKey": "6xy3#7a%ad",
+            "ServiceState": 0,
+            "IsEnablePipe": false,
+            "RegionId": 1,
+            "IsOnline": true,
+            "BindIndex": 1,
+            "ConfigPrower": 11,
+            "RecoveryLimit": 0,
+            "RecoveryTime": 0,
+            "ConIp": "127.0.0.1",
+            "ApiVer": 10003,
+            "VerNum": 0,
+            "LastOffliceDate": "2024-04-11T00:00:00",
+            "AddTime": "2021-03-25T18:42:00"
+        },
+        {
+            "Id": 7,
+            "ServerName": "RPC基础扩展服务",
+            "ServerIp": "127.0.0.1",
+            "RemoteIp": "127.0.0.1",
+            "ServerPort": 840,
+            "RemotePort": 840,
+            "GroupId": 1,
+            "SystemType": 7,
+            "ServerMac": "7c:b2:7d:ea:fd:df",
+            "ServerIndex": 0,
+            "ServiceType": 1,
+            "HoldRpcMerId": 1,
+            "IsContainer": false,
+            "PublicKey": "6xy3#7a%ad",
+            "ServiceState": 0,
+            "IsEnablePipe": false,
+            "RegionId": 1,
+            "IsOnline": true,
+            "BindIndex": 1,
+            "ConfigPrower": 11,
+            "RecoveryLimit": 0,
+            "RecoveryTime": 0,
+            "ConIp": "127.0.0.1",
+            "ApiVer": 10003,
+            "VerNum": 0,
+            "LastOffliceDate": "2024-04-10T00:00:00",
+            "AddTime": "2022-01-16T12:29:00"
+        },
+        {
+            "Id": 11,
+            "ServerName": "Rpc后台服务",
+            "ServerIp": "127.0.0.1",
+            "RemoteIp": "127.0.0.1",
+            "ServerPort": 843,
+            "RemotePort": 843,
+            "GroupId": 1,
+            "SystemType": 10,
+            "ServerMac": "7c:b2:7d:ea:fd:df",
+            "ServerIndex": 0,
+            "ServiceType": 1,
+            "HoldRpcMerId": 1,
+            "IsContainer": false,
+            "PublicKey": "6xy3#7a%ad",
+            "ServiceState": 0,
+            "IsEnablePipe": false,
+            "RegionId": 1,
+            "IsOnline": false,
+            "BindIndex": 1,
+            "ConfigPrower": 11,
+            "RecoveryLimit": 0,
+            "RecoveryTime": 0,
+            "ConIp": "127.0.0.1",
+            "ApiVer": 10003,
+            "VerNum": 0,
+            "LastOffliceDate": "2024-04-09T00:00:00",
+            "AddTime": "2023-05-27T16:54:00"
+        }
+    ],
+    "RemoteServerGroup": [
+        {
+            "Id": 1,
+            "RpcMerId": 1,
+            "ServerId": 1,
+            "RegionId": 1,
+            "SystemType": 1,
+            "TypeVal": "sys.sync",
+            "ServiceType": 1,
+            "Weight": 2,
+            "IsHold": true
+        },
+        {
+            "Id": 2,
+            "RpcMerId": 1,
+            "ServerId": 2,
+            "RegionId": 1,
+            "SystemType": 2,
+            "TypeVal": "sys.store",
+            "ServiceType": 2,
+            "Weight": 1,
+            "IsHold": true
+        },
+        {
+            "Id": 3,
+            "RpcMerId": 2,
+            "ServerId": 1,
+            "RegionId": 1,
+            "SystemType": 1,
+            "TypeVal": "sys.sync",
+            "ServiceType": 1,
+            "Weight": 1,
+            "IsHold": false
+        },
+        {
+            "Id": 4,
+            "RpcMerId": 2,
+            "ServerId": 6,
+            "RegionId": 1,
+            "SystemType": 4,
+            "TypeVal": "demo.gateway",
+            "ServiceType": 2,
+            "Weight": 1,
+            "IsHold": true
+        },
+        {
+            "Id": 5,
+            "RpcMerId": 2,
+            "ServerId": 4,
+            "RegionId": 1,
+            "SystemType": 6,
+            "TypeVal": "demo.order",
+            "ServiceType": 1,
+            "Weight": 1,
+            "IsHold": true
+        },
+        {
+            "Id": 6,
+            "RpcMerId": 2,
+            "ServerId": 5,
+            "RegionId": 1,
+            "SystemType": 5,
+            "TypeVal": "demo.user",
+            "ServiceType": 1,
+            "Weight": 1,
+            "IsHold": true
+        },
+        {
+            "Id": 8,
+            "RpcMerId": 1,
+            "ServerId": 7,
+            "RegionId": 1,
+            "SystemType": 7,
+            "TypeVal": "sys.extend",
+            "ServiceType": 1,
+            "Weight": 1,
+            "IsHold": true
+        },
+        {
+            "Id": 9,
+            "RpcMerId": 2,
+            "ServerId": 7,
+            "RegionId": 1,
+            "SystemType": 7,
+            "TypeVal": "sys.extend",
+            "ServiceType": 1,
+            "Weight": 1,
+            "IsHold": false
+        },
+        {
+            "Id": 12,
+            "RpcMerId": 1,
+            "ServerId": 3,
+            "RegionId": 1,
+            "SystemType": 3,
+            "TypeVal": "sys.task",
+            "ServiceType": 1,
+            "Weight": 1,
+            "IsHold": true
+        },
+        {
+            "Id": 13,
+            "RpcMerId": 2,
+            "ServerId": 3,
+            "RegionId": 1,
+            "SystemType": 3,
+            "TypeVal": "sys.task",
+            "ServiceType": 1,
+            "Weight": 1,
+            "IsHold": false
+        },
+        {
+            "Id": 18,
+            "RpcMerId": 1,
+            "ServerId": 11,
+            "RegionId": 1,
+            "SystemType": 10,
+            "TypeVal": "sys.store.service",
+            "ServiceType": 1,
+            "Weight": 1,
+            "IsHold": true
+        }
+    ],
+    "ServerType": [
+        {
+            "Id": 1,
+            "GroupId": 1,
+            "TypeVal": "sys.sync",
+            "SystemName": "RPC基础服务",
+            "DefPort": 835,
+            "ServiceType": 1,
+            "AddTime": "2021-01-26T12:01:00"
+        },
+        {
+            "Id": 2,
+            "GroupId": 1,
+            "TypeVal": "sys.store",
+            "SystemName": "后台API网关服务",
+            "DefPort": 834,
+            "ServiceType": 2,
+            "AddTime": "2021-05-24T14:01:00"
+        },
+        {
+            "Id": 3,
+            "GroupId": 1,
+            "TypeVal": "sys.task",
+            "SystemName": "自动任务服务",
+            "DefPort": 839,
+            "ServiceType": 1,
+            "AddTime": "2021-08-11T15:29:00"
+        },
+        {
+            "Id": 4,
+            "GroupId": 2,
+            "TypeVal": "demo.gateway",
+            "SystemName": "演示网关服务",
+            "DefPort": 836,
+            "ServiceType": 2,
+            "AddTime": "2021-05-24T13:58:00"
+        },
+        {
+            "Id": 5,
+            "GroupId": 2,
+            "TypeVal": "demo.user",
+            "SystemName": "演示用户服务",
+            "DefPort": 838,
+            "ServiceType": 1,
+            "AddTime": "2021-05-24T14:02:00"
+        },
+        {
+            "Id": 6,
+            "GroupId": 2,
+            "TypeVal": "demo.order",
+            "SystemName": "演示订单服务",
+            "DefPort": 837,
+            "ServiceType": 1,
+            "AddTime": "2021-05-24T13:59:00"
+        },
+        {
+            "Id": 7,
+            "GroupId": 1,
+            "TypeVal": "sys.extend",
+            "SystemName": "RPC基础扩展服务",
+            "DefPort": 840,
+            "ServiceType": 1,
+            "AddTime": "2022-01-16T12:28:00"
+        },
+        {
+            "Id": 10,
+            "GroupId": 1,
+            "TypeVal": "sys.store.service",
+            "SystemName": "后台管理服务",
+            "DefPort": 843,
+            "ServiceType": 1,
+            "AddTime": "2023-05-27T16:52:00"
+        }
+    ],
+    "ServerGroup": [
+        {
+            "Id": 1,
+            "TypeVal": "sys",
+            "GroupName": "系统服务节点"
+        },
+        {
+            "Id": 2,
+            "TypeVal": "demo",
+            "GroupName": "演示服务"
+        }
+    ],
+    "SysConfig": [
+        {
+            "Id": 1,
+            "RpcMerId": 0,
+            "ServiceType": 0,
+            "ServerId": 0,
+            "RegionId": 0,
+            "ContainerGroup": 0,
+            "VerNum": 0,
+            "SystemType": "",
+            "Name": "rpc:cache",
+            "ValueType": 1,
+            "Value": "{\u0022CacheType\u0022:1,\u0022Redis\u0022:{\u0022ConConfig\u0022:{\u0022Connection\u0022:\u0022127.0.0.1\u0022}},\u0022Memcached\u0022:{\u0022ServerIp\u0022:[\u0022127.0.0.1\u0022]}}",
+            "Show": "缓存配置",
+            "Prower": 10,
+            "ConfigType": 2,
+            "IsEnable": true,
+            "ToUpdateTime": "2024-02-23T20:56:56",
+            "TemplateKey": "cacheFrom"
+        },
+        {
+            "Id": 2,
+            "RpcMerId": 0,
+            "ServiceType": 0,
+            "ServerId": 0,
+            "RegionId": 0,
+            "ContainerGroup": 0,
+            "VerNum": 0,
+            "SystemType": "",
+            "Name": "local:log",
+            "ValueType": 1,
+            "Value": "{\u0022IsConsole\u0022:true,\u0022LogGrade\u0022:3,\u0022IsWriteFile\u0022:true,\u0022SaveDir\u0022:\u0022Log\u0022}",
+            "Show": "本地日志",
+            "Prower": 10,
+            "ConfigType": 1,
+            "IsEnable": true,
+            "ToUpdateTime": "2024-03-10T11:00:00",
+            "TemplateKey": "localLogFrom"
+        },
+        {
+            "Id": 3,
+            "RpcMerId": 0,
+            "ServiceType": 0,
+            "ServerId": 0,
+            "RegionId": 0,
+            "ContainerGroup": 0,
+            "VerNum": 0,
+            "SystemType": "sys.store",
+            "Name": "admin",
+            "ValueType": 1,
+            "Value": "{\u0022Pwd\u0022:\u0022123456\u0022,\u0022Head\u0022:\u0022http://150.138.77.150:10089/file/images/defhead.jpg\u0022,\u0022Prower\u0022:[\u0022admin\u0022]}",
+            "Show": "后台管理员信息",
+            "Prower": 0,
+            "ConfigType": 2,
+            "IsEnable": true,
+            "ToUpdateTime": "2024-01-20T20:10:00"
+        },
+        {
+            "Id": 4,
+            "RpcMerId": 0,
+            "ServiceType": 0,
+            "ServerId": 0,
+            "RegionId": 0,
+            "ContainerGroup": 0,
+            "VerNum": 0,
+            "SystemType": "",
+            "Name": "queue:QueueType",
+            "ValueType": 0,
+            "Value": "0",
+            "Show": "订阅和广播使用的队列类型",
+            "Prower": 0,
+            "ConfigType": 2,
+            "IsEnable": true,
+            "ToUpdateTime": "2022-02-09T15:35:00.477"
+        },
+        {
+            "Id": 5,
+            "RpcMerId": 0,
+            "ServiceType": 0,
+            "ServerId": 0,
+            "RegionId": 0,
+            "ContainerGroup": 0,
+            "VerNum": 0,
+            "SystemType": "",
+            "Name": "queue:Kafka",
+            "ValueType": 1,
+            "Value": "{\u0022Servers\u0022:[{\u0022ServerIp\u0022:\u0022127.0.0.1\u0022}]}",
+            "Show": "Kafka配置",
+            "Prower": 0,
+            "ConfigType": 2,
+            "IsEnable": true,
+            "ToUpdateTime": "2024-02-23T21:03:00"
+        },
+        {
+            "Id": 6,
+            "RpcMerId": 0,
+            "ServiceType": 0,
+            "ServerId": 0,
+            "RegionId": 0,
+            "ContainerGroup": 0,
+            "VerNum": 0,
+            "SystemType": "",
+            "Name": "queue:Rabbitmq",
+            "ValueType": 1,
+            "Value": "{\u0022UserName\u0022:\u0022guest\u0022,\u0022Pwd\u0022:\u0022guest\u0022,\u0022Servers\u0022:[{\u0022ServerIp\u0022:\u0022127.0.0.1\u0022}]}",
+            "Show": "Rabbitmq配置",
+            "Prower": 0,
+            "ConfigType": 2,
+            "IsEnable": true,
+            "ToUpdateTime": "2021-09-09T09:22:20.653"
+        },
+        {
+            "Id": 7,
+            "RpcMerId": 0,
+            "ServiceType": 0,
+            "ServerId": 0,
+            "RegionId": 0,
+            "ContainerGroup": 0,
+            "VerNum": 0,
+            "SystemType": "",
+            "Name": "rpcassembly:Track",
+            "ValueType": 1,
+            "Value": "{\u0022IsEnable\u0022:true,\u0022Trace128Bits\u0022:true,\u0022TraceType\u0022:0,\u0022TrackDepth\u0022:30,\u0022TrackRange\u0022:14,\u0022SamplingRate\u0022:10000,\u0022Local\u0022:{\u0022Dictate\u0022:\u0022SysTrace\u0022,\u0022SystemType\u0022:\u0022sys.extend\u0022},\u0022ZipkinTack\u0022:{\u0022PostUri\u0022:\u0022http://127.0.0.1:9411/api/v1/spans\u0022}}",
+            "Show": "链路跟踪配置",
+            "Prower": 10,
+            "ConfigType": 1,
+            "IsEnable": true,
+            "ToUpdateTime": "2024-02-14T19:26:48.713"
+        },
+        {
+            "Id": 8,
+            "RpcMerId": 0,
+            "ServiceType": 0,
+            "ServerId": 0,
+            "RegionId": 0,
+            "ContainerGroup": 0,
+            "VerNum": 0,
+            "SystemType": "",
+            "Name": "rpcassembly:Resource",
+            "ValueType": 1,
+            "Value": "{\u0022UpRange\u0022:6}",
+            "Show": "API资源收集配置",
+            "Prower": 0,
+            "ConfigType": 2,
+            "IsEnable": true,
+            "ToUpdateTime": "2021-09-09T09:54:28.04"
+        },
+        {
+            "Id": 9,
+            "RpcMerId": 0,
+            "ServiceType": 0,
+            "ServerId": 0,
+            "RegionId": 0,
+            "ContainerGroup": 0,
+            "VerNum": 0,
+            "SystemType": "",
+            "Name": "rpc:Log",
+            "ValueType": 1,
+            "Value": "{\u0022IsUpLog\u0022:true,\u0022ExcludeLogGroup\u0022:[],\u0022LogGradeLimit\u0022:3}",
+            "Show": "RPC日志配置",
+            "Prower": 10,
+            "ConfigType": 2,
+            "IsEnable": true,
+            "ToUpdateTime": "2024-02-23T21:11:07",
+            "TemplateKey": "logFrom"
+        },
+        {
+            "Id": 10,
+            "RpcMerId": 0,
+            "ServiceType": 0,
+            "ServerId": 0,
+            "RegionId": 0,
+            "ContainerGroup": 0,
+            "VerNum": 0,
+            "SystemType": "",
+            "Name": "SqlSugar:LogGrade",
+            "ValueType": 0,
+            "Value": "3",
+            "Show": "Sugar日志等级",
+            "Prower": 0,
+            "ConfigType": 2,
+            "IsEnable": true,
+            "ToUpdateTime": "2024-01-06T14:18:10"
+        },
+        {
+            "Id": 11,
+            "RpcMerId": 0,
+            "ServiceType": 0,
+            "ServerId": 0,
+            "RegionId": 0,
+            "ContainerGroup": 0,
+            "VerNum": 0,
+            "SystemType": "",
+            "Name": "rpcassembly:Visit",
+            "ValueType": 1,
+            "Value": "{\u0022IsEnable\u0022:true,\u0022Interval\u0022:60}",
+            "Show": "Visit访问配置",
+            "Prower": 0,
+            "ConfigType": 2,
+            "IsEnable": true,
+            "ToUpdateTime": "2024-01-22T11:16:18.693",
+            "TemplateKey": "visitFrom"
+        }
+    ],
+    "TransmitScheme": [
+        {
+            "Id": 1,
+            "SystemTypeId": 1,
+            "RpcMerId": 1,
+            "Scheme": "RemoteLock",
+            "TransmitType": 1,
+            "IsAuto": true,
+            "VerNum": 1,
+            "Show": "",
+            "IsEnable": true,
+            "AddTime": "2024-02-15T11:35:00"
+        },
+        {
+            "Id": 2,
+            "SystemTypeId": 1,
+            "RpcMerId": 1,
+            "Scheme": "RpcTran",
+            "TransmitType": 1,
+            "IsAuto": true,
+            "VerNum": 1,
+            "Show": "",
+            "IsEnable": true,
+            "AddTime": "2024-02-15T11:35:00"
+        },
+        {
+            "Id": 3,
+            "SystemTypeId": 1,
+            "RpcMerId": 1,
+            "Scheme": "Accredit",
+            "TransmitType": 1,
+            "IsAuto": true,
+            "VerNum": 1,
+            "Show": "",
+            "IsEnable": true,
+            "AddTime": "2024-02-15T11:35:00"
+        }
+    ],
+    "Errors": [
+        {
+            "Id": 509777198850181,
+            "ErrorCode": "accredit.Invalid",
+            "IsPerfect": false
+        }
+    ],
+    "ErrorLang": [
+    ]
+}

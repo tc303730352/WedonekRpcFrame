@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	  <EnablePreviewFeatures>True</EnablePreviewFeatures>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EmitMapper.Core" Version="1.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Basic\WeDonekRpc.Helper\WeDonekRpc.Helper.csproj" />
+    <ProjectReference Include="..\..\..\Tools\WeDonekRpc.SqlSugar\WeDonekRpc.SqlSugar.csproj" />
+    <ProjectReference Include="..\RpcCentral.Common\RpcCentral.Common.csproj" />
+    <ProjectReference Include="..\RpcCentral.Model\RpcCentral.Model.csproj" />
+  </ItemGroup>
+
+</Project>
