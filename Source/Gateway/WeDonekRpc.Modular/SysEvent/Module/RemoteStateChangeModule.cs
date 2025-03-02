@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using WeDonekRpc.Client;
 using WeDonekRpc.Client.Interface;
 using WeDonekRpc.Helper;
 using WeDonekRpc.Model;
@@ -42,6 +43,7 @@ namespace WeDonekRpc.Modular.SysEvent.Module
             {
                   { "remote_id", remote.ServerId.ToString() },
                   { "sourcestate", ev.OldState.ToString() },
+                   {"verNum",RpcClient.CurrentSource.VerNum.ToString() },
                   {"newstate",ev.CurState.ToString() }
              };
             if ( ev.CurState == UsableState.降级 )

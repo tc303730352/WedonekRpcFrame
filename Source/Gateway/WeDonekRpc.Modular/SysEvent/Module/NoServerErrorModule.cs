@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
+using WeDonekRpc.Client;
 using WeDonekRpc.Client.Interface;
 using WeDonekRpc.Helper;
 using WeDonekRpc.Model;
@@ -86,6 +87,7 @@ namespace WeDonekRpc.Modular.SysEvent.Module
             {
                   { "systemtype", sysType },
                   { "dictate", config.SysDictate },
+                   {"verNum",RpcClient.CurrentSource.VerNum.ToString() },
                    {"rpcmerid",config.RpcMerId.HasValue?config.RpcMerId.Value.ToString():string.Empty },
                    {"transmit",config.Transmit },
              };

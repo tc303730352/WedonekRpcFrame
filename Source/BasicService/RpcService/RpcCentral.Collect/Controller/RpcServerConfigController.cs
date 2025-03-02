@@ -10,7 +10,7 @@ namespace RpcCentral.Collect.Controller
     public class RpcServerConfigController : DataSyncClass
     {
         private readonly long _RpcMerId;
-        public RpcServerConfigController (long rpcMerId, long sysTypeId)
+        public RpcServerConfigController ( long rpcMerId, long sysTypeId )
         {
             this._RpcMerId = rpcMerId;
             this.SystemTypeId = sysTypeId;
@@ -25,10 +25,10 @@ namespace RpcCentral.Collect.Controller
         public long HoldRpcMerId { get; private set; }
         protected override void SyncData ()
         {
-            using (IocScope scope = UnityHelper.CreateTempScore())
+            using ( IocScope scope = UnityHelper.CreateTempScore() )
             {
                 RemoteConfig[] list = scope.Resolve<IServerGroupCollect>().GetRemoteServer(this._RpcMerId, this.SystemTypeId);
-                if (list.IsNull())
+                if ( list.IsNull() )
                 {
                     this._Server = new RpcServiceConfig[0];
                     this.IsNull = true;
@@ -58,30 +58,30 @@ namespace RpcCentral.Collect.Controller
             private set;
         }
 
-        public ServerConfig[] Gets (int regionId, int ver)
+        public ServerConfig[] Gets ( int regionId, int ver )
         {
             RpcServiceConfig[] services = this._Server.FindAll(c => c.RegionId == regionId && c.VerNum == ver);
-            if (services.IsNull())
+            if ( services.IsNull() )
             {
-                return null;
+                return Array.Empty<ServerConfig>();
             }
             return services.ConvertMap<RpcServiceConfig, ServerConfig>();
         }
-        public ServerConfig[] GetsNoRegion (int regionId, int ver)
+        public ServerConfig[] GetsNoRegion ( int regionId, int ver )
         {
             RpcServiceConfig[] services = this._Server.FindAll(c => c.RegionId != regionId && c.VerNum == ver);
-            if (services.IsNull())
+            if ( services.IsNull() )
             {
-                return null;
+                return Array.Empty<ServerConfig>();
             }
             return services.ConvertMap<RpcServiceConfig, ServerConfig>();
         }
-        public ServerConfig[] Gets (int ver)
+        public ServerConfig[] Gets ( int ver )
         {
             RpcServiceConfig[] services = this._Server.FindAll(c => c.VerNum == ver);
-            if (services.IsNull())
+            if ( services.IsNull() )
             {
-                return null;
+                return Array.Empty<ServerConfig>();
             }
             return services.ConvertMap<RpcServiceConfig, ServerConfig>();
         }
