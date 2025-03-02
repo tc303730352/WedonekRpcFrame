@@ -12,7 +12,7 @@ namespace RpcSync.Service.Accredit
         private const string _TimeConfigName = "sync:accredit:AccreditTime";
 
         private const int _DefTime = 86400;
-        public static void Refresh (this AccreditToken token, IRemoteServerGroupCollect remoteGroup, bool isInvalid = true)
+        public static void Refresh ( this AccreditToken token, IRemoteServerGroupCollect remoteGroup, bool isInvalid = true )
         {
             string[] sysType = remoteGroup.GetServerTypeVal(token.RpcMerId);
             new AccreditRefresh
@@ -26,14 +26,14 @@ namespace RpcSync.Service.Accredit
             int sec = RpcClient.Config.GetConfigVal<int>(_TimeConfigName, _DefTime);
             return new TimeSpan(0, 0, sec);
         }
-        public static string Merge (this UserState state, UserState other)
+        public static string Merge ( this UserState state, UserState other )
         {
             state.Prower = state.Prower.Add(other.Prower).Distinct();
-            if (other.Param.Count > 0)
+            if ( other.Param.Count > 0 )
             {
-                foreach (KeyValuePair<string, StateParam> i in other.Param)
+                foreach ( KeyValuePair<string, StateParam> i in other.Param )
                 {
-                    if (!state.Param.ContainsKey(i.Key))
+                    if ( !state.Param.ContainsKey(i.Key) )
                     {
                         state.Param.Add(i.Key, i.Value);
                     }
@@ -41,22 +41,22 @@ namespace RpcSync.Service.Accredit
             }
             return state.ToJson();
         }
-        public static TimeSpan? GetOverTime (this AccreditToken token)
+        public static TimeSpan? GetOverTime ( this AccreditToken token )
         {
             return GetAccreditTime(token.Expire);
         }
-        public static TimeSpan? GetAccreditTime (DateTime? expire)
+        public static TimeSpan? GetAccreditTime ( DateTime? expire )
         {
-            if (!expire.HasValue)
+            if ( !expire.HasValue )
             {
                 return AccreditHelper.GetDefAccreditTime();
             }
             DateTime now = DateTime.Now;
-            if (expire.Value <= now)
+            if ( expire.Value <= now )
             {
                 return null;
             }
-            return now - expire.Value;
+            return expire.Value - now;
         }
     }
 }
