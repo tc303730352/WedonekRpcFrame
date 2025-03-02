@@ -38,13 +38,20 @@ namespace ConsoleApp
             foreach ( string c in _Paths )
             {
                 string path = Path.Combine(dir.FullName, c.Replace("{type}", res));
-                if ( !File.Exists(path) )
+                FileInfo fileInfo = new FileInfo(path);
+                if ( !fileInfo.Exists )
                 {
                     Console.WriteLine("未找到程序（" + Path.GetFileNameWithoutExtension(path) + "）请先进行编译!");
                     return;
                 }
-                ProcessStartInfo start = new ProcessStartInfo(path);
+                ProcessStartInfo start = new ProcessStartInfo(fileInfo.FullName);
                 start.WindowStyle = ProcessWindowStyle.Normal;
+                start.RedirectStandardOutput = false;
+                start.RedirectStandardError = false;
+                start.RedirectStandardInput = false;
+                start.UseShellExecute = true;
+                start.CreateNoWindow = false;
+                start.WorkingDirectory = fileInfo.Directory.FullName;
                 using ( Process process = Process.Start(start) )
                 {
                     Console.WriteLine("程序：" + Path.GetFileNameWithoutExtension(path) + " 启动成功!");
