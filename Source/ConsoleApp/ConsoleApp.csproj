@@ -17,8 +17,4 @@
     <Deterministic>False</Deterministic>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Basic\WeDonekRpc.Helper\WeDonekRpc.Helper.csproj" />
-  </ItemGroup>
-
 </Project>
