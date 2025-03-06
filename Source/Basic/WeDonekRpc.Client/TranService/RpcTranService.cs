@@ -22,16 +22,31 @@ namespace WeDonekRpc.Client.TranService
     [Attr.ClassLifetimeAttr(Attr.ClassLifetimeType.SingleInstance)]
     internal class RpcTranService : IRpcTranService
     {
-        private static readonly AsyncLocal<ICurTranState> _SourceTran = new AsyncLocal<ICurTranState>();
+        private static readonly AsyncLocal<ICurTranState> _SourceTran = new AsyncLocal<ICurTranState>(_SourTranChange);
+
+
         internal static ICurTranState SourceTran => _SourceTran.Value;
-        private static readonly AsyncLocal<ICurTranState> _CurTran = new AsyncLocal<ICurTranState>();
+        private static readonly AsyncLocal<ICurTranState> _CurTran = new AsyncLocal<ICurTranState>(_CurTranChange);
 
         private static readonly ConcurrentDictionary<string, ITranTemplate> _Tran = new ConcurrentDictionary<string, ITranTemplate>();
 
 
         public bool IsExecTran => RpcTranService._SourceTran.Value != null;
 
-
+        private static void _CurTranChange ( AsyncLocalValueChangedArgs<ICurTranState> e )
+        {
+            if ( e.CurrentValue != null && e.CurrentValue.IsDispose )
+            {
+                _CurTran.Value = null;
+            }
+        }
+        private static void _SourTranChange ( AsyncLocalValueChangedArgs<ICurTranState> e )
+        {
+            if ( e.CurrentValue != null && e.CurrentValue.IsDispose )
+            {
+                _SourceTran.Value = null;
+            }
+        }
         static RpcTranService ()
         {
             RemoteSysEvent.AddEvent<TranRollback>("Rpc_TranRollback", _TranRollback);
@@ -212,21 +227,6 @@ namespace WeDonekRpc.Client.TranService
             throw new ErrorException(error);
         }
 
-        private static bool _BeginLocalTran ( ICurTranState cur, out string error )
-        {
-            try
-            {
-                cur.BeginTran();
-                error = null;
-                return true;
-            }
-            catch ( Exception e )
-            {
-                RpcLogSystem.AddErrorLog("启动事务错误", e);
-                error = "rpc.tran.begin.fail";
-                return false;
-            }
-        }
         internal static bool AddTranLog ( RemoteMsg msg, out ICurTranState cur, out string error )
         {
             if ( !_Tran.TryGetValue(msg.MsgKey, out ITranTemplate template) )
@@ -262,6 +262,21 @@ namespace WeDonekRpc.Client.TranService
             }
             cur = null;
             return false;
+        }
+        private static bool _BeginLocalTran ( ICurTranState cur, out string error )
+        {
+            try
+            {
+                cur.BeginTran();
+                error = null;
+                return true;
+            }
+            catch ( Exception e )
+            {
+                RpcLogSystem.AddErrorLog("启动事务错误", e);
+                error = "rpc.tran.begin.fail";
+                return false;
+            }
         }
         public static void SetTranExtend ( ICurTranState tran, string extend )
         {

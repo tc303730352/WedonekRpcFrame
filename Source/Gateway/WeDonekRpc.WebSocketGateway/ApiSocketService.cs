@@ -14,52 +14,50 @@ namespace WeDonekRpc.WebSocketGateway
     {
         private IAccredit _Accredit;
         private readonly IResponseTemplate _Template = null;
-        private readonly ISession _Session = null;
         private readonly IApiService _Service = null;
         private readonly IUserPage _Page = null;
         private readonly Encoding _RequestEncoding = null;
         private string _PostString = null;
         private readonly byte[] _Content = null;
-        private IUserState _UserState = null;
         private ICurrentModular _Modular;
         private NameValueCollection _Form = null;
 
-        public ApiSocketService (IUserPage page, byte[] content, IApiModular modular, IApiService service)
+        public ApiSocketService ( IUserPage page, byte[] content, IApiModular modular, IApiService service )
         {
             this._Content = content;
             this._Page = page;
             this._Service = service;
             this._RequestEncoding = modular.Config.RequestEncoding;
-            this._Session = new ClientSession(service.Session, modular);
+            this.Session = new ClientSession(service.Session, modular);
             this._Template = modular.Config.ResponseTemplate;
             this.ServiceName = modular.ServiceName;
         }
         /// <summary>
         /// 授权Id
         /// </summary>
-        public string AccreditId => this._Session.AccreditId;
+        public string AccreditId => this.Session.AccreditId;
         /// <summary>
         /// 身份标识
         /// </summary>
-        public string IdentityId => this._Session.IdentityId;
+        public string IdentityId => this.Session.IdentityId;
 
         public NameValueCollection Form
         {
             get
             {
-                if (this._Form == null)
+                if ( this._Form == null )
                 {
                     this._Form = [];
                     string[] str = this.PostString.Split('&');
-                    if (!str.IsNull())
+                    if ( !str.IsNull() )
                     {
                         str.ForEach(a =>
                         {
-                            if (a != string.Empty)
+                            if ( a != string.Empty )
                             {
                                 int index = a.IndexOf('=');
                                 int len = a.Length - 1;
-                                if (index != -1 && index != len)
+                                if ( index != -1 && index != len )
                                 {
                                     this._Form.Add(a.Substring(0, index), a.Substring(index + 1, len - index));
                                 }
@@ -70,9 +68,9 @@ namespace WeDonekRpc.WebSocketGateway
                 return this._Form;
             }
         }
-        public ISession Session => this._Session;
+        public ISession Session { get; } = null;
 
-        public IUserState UserState => this._UserState;
+        public IUserState UserState { get; private set; } = null;
 
         /// <summary>
         /// 请求头
@@ -89,10 +87,7 @@ namespace WeDonekRpc.WebSocketGateway
         {
             get
             {
-                if (this._PostString == null)
-                {
-                    this._PostString = this._RequestEncoding.GetString(this._Content);
-                }
+                this._PostString ??= this._RequestEncoding.GetString(this._Content);
                 return this._PostString;
             }
         }
@@ -107,22 +102,21 @@ namespace WeDonekRpc.WebSocketGateway
         {
             get
             {
-                if (this._Modular == null)
-                {
-                    this._Modular = RpcClient.Ioc.Resolve<ICurrentModular>(this.ServiceName);
-                }
+                this._Modular ??= RpcClient.Ioc.Resolve<ICurrentModular>(this.ServiceName);
                 return this._Modular;
             }
         }
 
-        public void ReplyError (string error)
+        public bool IsEnd { get; private set; }
+
+        public void ReplyError ( string error )
         {
             this.IsError = true;
             this.ErrorCode = error;
             string text = this._Template.GetErrorResponse(this._Page, error);
             this._Reply(text);
         }
-        public void ReplyError (ErrorException error)
+        public void ReplyError ( ErrorException error )
         {
             this.IsError = true;
             this.ErrorCode = error.ErrorCode;
@@ -130,10 +124,11 @@ namespace WeDonekRpc.WebSocketGateway
             this._Reply(text);
         }
 
-        private void _Reply (string text)
+        private void _Reply ( string text )
         {
             this.ResponseText = text;
             this._Service.Response.Write(text);
+            this.IsEnd = true;
         }
         public void Reply ()
         {
@@ -141,9 +136,9 @@ namespace WeDonekRpc.WebSocketGateway
             this._Reply(text);
         }
 
-        public void Reply (object result)
+        public void Reply ( object result )
         {
-            if (result == null)
+            if ( result == null )
             {
                 this.Reply();
                 return;
@@ -152,16 +147,16 @@ namespace WeDonekRpc.WebSocketGateway
             this._Reply(text);
         }
 
-        public void InitService (IApiModular modular)
+        public void InitService ( IApiModular modular )
         {
             this._Accredit = RpcClient.Ioc.Resolve<IAccredit>();
-            if (this._Session.IdentityId != null)
+            if ( this.Session.IdentityId != null )
             {
                 ApiGateway.GatewayServer.UserIdentity.SetIdentityId(this.IdentityId);
             }
-            if (this._Session.IsAccredit)
+            if ( this.Session.IsAccredit )
             {
-                this._UserState = this._Accredit.SetCurrentAccredit(this.AccreditId);
+                this.UserState = this._Accredit.SetCurrentAccredit(this.AccreditId);
             }
         }
 
@@ -169,6 +164,7 @@ namespace WeDonekRpc.WebSocketGateway
         {
             this._Accredit.ClearAccredit();
             ApiGateway.GatewayServer.UserIdentity.Clear();
+            this.IsEnd = true;
         }
     }
 }

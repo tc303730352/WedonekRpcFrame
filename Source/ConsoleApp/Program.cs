@@ -2,7 +2,6 @@
 
 namespace ConsoleApp
 {
-
     internal class Program
     {
         private static readonly string[] _Paths = new string[]

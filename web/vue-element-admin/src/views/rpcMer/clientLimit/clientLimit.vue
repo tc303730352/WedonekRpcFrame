@@ -28,7 +28,7 @@ export default {
   props: {
     serverId: {
       type: String,
-      default: 0
+      default: null
     },
     visible: {
       type: Boolean,

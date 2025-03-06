@@ -87,7 +87,7 @@ namespace WeDonekRpc.Modular.SysEvent.Module
             {
                   { "systemtype", sysType },
                   { "dictate", config.SysDictate },
-                   {"verNum",RpcClient.CurrentSource.VerNum.ToString() },
+                  {"verNum",RpcClient.CurrentSource.VerNum.ToString() },
                    {"rpcmerid",config.RpcMerId.HasValue?config.RpcMerId.Value.ToString():string.Empty },
                    {"transmit",config.Transmit },
              };

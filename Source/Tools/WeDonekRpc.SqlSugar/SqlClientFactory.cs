@@ -8,9 +8,9 @@ namespace WeDonekRpc.SqlSugar
         private readonly IDBConfig _Config;
         private SqlSugarClient _DbClient;
 
-        private static readonly AsyncLocal<ILocalTran> _Current = new AsyncLocal<ILocalTran>();
+        private static readonly ThreadLocal<ILocalTran> _Current = new ThreadLocal<ILocalTran>();
 
-        public SqlClientFactory (IDBConfig config)
+        public SqlClientFactory ( IDBConfig config )
         {
             this._Config = config;
         }
@@ -18,10 +18,7 @@ namespace WeDonekRpc.SqlSugar
         {
             get
             {
-                if (this._DbClient == null)
-                {
-                    this._DbClient = new SqlSugarClient(this._Config.Configs);
-                }
+                this._DbClient ??= new SqlSugarClient(this._Config.Configs);
                 return this._DbClient;
             }
         }
@@ -35,25 +32,25 @@ namespace WeDonekRpc.SqlSugar
             tran.BeginTran();
             _Current.Value = tran;
         }
-        public void CommitTran (ILocalTran client)
+        public void CommitTran ( ILocalTran client )
         {
-            if (_Current.Value != null)
+            if ( _Current.Value != null )
             {
                 _Current.Value.CommitTran();
                 _Current.Value = client;
             }
         }
-        public void RollbackTran (ILocalTran client)
+        public void RollbackTran ( ILocalTran client )
         {
-            if (_Current.Value != null)
+            if ( _Current.Value != null )
             {
                 _Current.Value.RollbackTran();
                 _Current.Value = client;
             }
         }
-        public SqlSugarProvider GetProvider (string name)
+        public SqlSugarProvider GetProvider ( string name )
         {
-            if (_Current.Value != null)
+            if ( _Current.Value != null )
             {
                 return _Current.Value.GetProvider(name);
             }
@@ -62,14 +59,14 @@ namespace WeDonekRpc.SqlSugar
 
 
 
-        public ISugarQueryable<T> GetQueryable<T> (string name)
+        public ISugarQueryable<T> GetQueryable<T> ( string name )
         {
             return this.DbClient.GetConnection(name).Queryable<T>();
         }
 
-        public static void PendingTran (ILocalTran tran)
+        public static void PendingTran ( ILocalTran tran )
         {
-            if (_Current.Value != null && _Current.Value.TranId == tran.TranId)
+            if ( _Current.Value != null && _Current.Value.TranId == tran.TranId )
             {
                 _Current.Value = null;
             }
@@ -77,7 +74,7 @@ namespace WeDonekRpc.SqlSugar
 
         public void Dispose ()
         {
-            if (_Current.Value != null)
+            if ( _Current.Value != null )
             {
                 _Current.Value.Dispose();
                 _Current.Value = null;

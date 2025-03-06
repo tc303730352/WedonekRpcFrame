@@ -27,10 +27,18 @@ namespace WeDonekRpc.Modular.Accredit
         /// <summary>
         /// 当前请求的AccreditId
         /// </summary>
-        private static readonly AsyncLocal<string> _AccreditId = new AsyncLocal<string>();
+        private static readonly AsyncLocal<AccreditIdLocal> _AccreditId = new AsyncLocal<AccreditIdLocal>(_AccreditIdChange);
         private static readonly Timer _ClearAccredit;
-        public string AccreditId => _AccreditId.Value;
+        public string AccreditId => _AccreditId.Value?.value;
 
+        protected static string _CurAccreditId => _AccreditId.Value?.value;
+        private static void _AccreditIdChange ( AsyncLocalValueChangedArgs<AccreditIdLocal> e )
+        {
+            if ( e.CurrentValue != null && e.CurrentValue.isEnd )
+            {
+                _AccreditId.Value = null;
+            }
+        }
         static AccreditService ()
         {
             RpcClient.Route.AddRoute<AccreditRefresh>("AccreditRefresh", _AccreditRefresh);
@@ -44,18 +52,34 @@ namespace WeDonekRpc.Modular.Accredit
 
         public virtual void ClearAccredit ()
         {
-            _AccreditId.Value = null;
+            if ( _AccreditId.Value != null )
+            {
+                _AccreditId.Value.isEnd = true;
+                _AccreditId.Value = null;
+            }
         }
-        public void SetAccreditId (string accreditId)
+        public void SetAccreditId ( string accreditId )
         {
-            _AccreditId.Value = accreditId;
+            AccreditIdLocal local = _AccreditId.Value;
+            if ( local != null && local.value != accreditId )
+            {
+                local.isEnd = true;
+            }
+            else if ( local != null )
+            {
+                return;
+            }
+            _AccreditId.Value = new AccreditIdLocal
+            {
+                value = accreditId
+            };
         }
         /// <summary>
         /// 
         /// </summary>
-        private static void _Clear (object state)
+        private static void _Clear ( object state )
         {
-            if (_AccreditList.IsEmpty)
+            if ( _AccreditList.IsEmpty )
             {
                 return;
             }
@@ -63,9 +87,9 @@ namespace WeDonekRpc.Modular.Accredit
             int time = HeartbeatTimeHelper.HeartbeatTime;
             keys.ForEach(a =>
             {
-                if (_AccreditList.TryGetValue(a, out UserAccreditDomain data))
+                if ( _AccreditList.TryGetValue(a, out UserAccreditDomain data) )
                 {
-                    if (!data.CheckStatus(time))
+                    if ( !data.CheckStatus(time) )
                     {
                         _ = _AccreditList.TryRemove(a, out data);
                     }
@@ -73,12 +97,12 @@ namespace WeDonekRpc.Modular.Accredit
             });
         }
 
-        private static void _AccreditRefresh (AccreditRefresh obj)
+        private static void _AccreditRefresh ( AccreditRefresh obj )
         {
             _ = _AccreditList.TryRemove(obj.AccreditId, out _);
         }
 
-        public void KickOutAccredit (string applyId)
+        public void KickOutAccredit ( string applyId )
         {
             new KickOutAccredit
             {
@@ -91,9 +115,9 @@ namespace WeDonekRpc.Modular.Accredit
         /// <param name="isInherit">是否继承</param>
         /// <param name="expire">授权过期时间(秒)</param>
         /// <returns>授权码</returns>
-        public string ApplyTempAccredit (bool isInherit, int? expire = null)
+        public string ApplyTempAccredit ( bool isInherit, int? expire = null )
         {
-            if (!this.AccreditId.IsNull())
+            if ( !this.AccreditId.IsNull() )
             {
                 throw new ErrorException("rpc.accredit.null");
             }
@@ -115,9 +139,9 @@ namespace WeDonekRpc.Modular.Accredit
         /// <param name="isInherit">是否继承父授权的角色和状态值</param>
         /// <param name="expire">授权过期时间</param>
         /// <returns>授权码</returns>
-        public string ApplyTempAccredit (string applyId, UserState state, bool isInherit, int? expire = null)
+        public string ApplyTempAccredit ( string applyId, UserState state, bool isInherit, int? expire = null )
         {
-            if (!this.AccreditId.IsNull())
+            if ( !this.AccreditId.IsNull() )
             {
                 throw new ErrorException("rpc.accredit.null");
             }
@@ -140,7 +164,7 @@ namespace WeDonekRpc.Modular.Accredit
         /// <param name="state">状态值(存储了权限和业务参数)</param>
         /// <param name="expire">授权过期时间(秒)</param>
         /// <returns></returns>
-        public string AddAccredit (string applyId, UserState state, int? expire = null)
+        public string AddAccredit ( string applyId, UserState state, int? expire = null )
         {
             MsgSource source = RpcClient.CurrentSource;
             string json = state == null ? null : JsonTools.Json(state);
@@ -156,21 +180,21 @@ namespace WeDonekRpc.Modular.Accredit
             return _AddAccredit(res.Accredit, json, res.StateVer);
         }
 
-        private static string _AddAccredit (AccreditRes res, string state, int stateVer)
+        private static string _AddAccredit ( AccreditRes res, string state, int stateVer )
         {
             UserAccreditDomain accredit = new UserAccreditDomain(stateVer, res, state);
             accredit = _AccreditList.GetOrAdd(accredit.AccreditId, accredit);
             return accredit.AccreditId;
         }
-        private static UserAccreditDomain _AddAccredit (AccreditDatum datum)
+        private static UserAccreditDomain _AddAccredit ( AccreditDatum datum )
         {
             UserAccreditDomain accredit = new UserAccreditDomain(datum);
             accredit = _AccreditList.GetOrAdd(accredit.AccreditId, accredit);
             return accredit;
         }
-        protected static UserAccreditDomain _GetAccredit (string accreditId)
+        protected static UserAccreditDomain _GetAccredit ( string accreditId )
         {
-            if (!_AccreditList.TryGetValue(accreditId, out UserAccreditDomain accredit))
+            if ( !_AccreditList.TryGetValue(accreditId, out UserAccreditDomain accredit) )
             {
                 AccreditDatum res = new GetAccredit
                 {
@@ -178,7 +202,7 @@ namespace WeDonekRpc.Modular.Accredit
                 }.Send();
                 return _AddAccredit(res);
             }
-            else if (accredit.IsError)
+            else if ( accredit.IsError )
             {
                 throw new ErrorException(accredit.Error);
             }
@@ -186,43 +210,44 @@ namespace WeDonekRpc.Modular.Accredit
             return accredit;
         }
 
-        public void ToUpdate (string accreditId, UserState state, int? expire = null)
+        public void ToUpdate ( string accreditId, UserState state, int? expire = null )
         {
             UserAccreditDomain accredit = _GetAccredit(accreditId);
             accredit.ToUpdate(state, expire);
         }
 
-        public UserAccreditDomain SetAccredit (string accreditId)
+        public UserAccreditDomain SetAccredit ( string accreditId )
         {
             UserAccreditDomain accredit = _GetAccredit(accreditId);
-            _AccreditId.Value = accredit.AccreditId;
+            this.SetAccreditId(accreditId);
             return accredit;
         }
-        public static void Cancel (string accreditId)
+
+        public static void Cancel ( string accreditId )
         {
             UserAccreditDomain accredit = _GetAccredit(accreditId);
             accredit.CancelAccredit();
         }
 
-        internal static bool SetUserState (string accreditId, IUserState state)
+        internal static bool SetUserState ( string accreditId, IUserState state )
         {
             UserAccreditDomain accredit = _GetAccredit(accreditId);
             return accredit.SetUserState(state);
         }
 
-        internal static IUserState SetUserState (string accreditId, UserState state, Func<IUserState, IUserState, IUserState> upFun)
+        internal static IUserState SetUserState ( string accreditId, UserState state, Func<IUserState, IUserState, IUserState> upFun )
         {
             UserAccreditDomain accredit = _GetAccredit(accreditId);
-            if (accredit.SetUserState(state, upFun))
+            if ( accredit.SetUserState(state, upFun) )
             {
                 return accredit.GetUserState(state.GetType());
             }
             return null;
         }
 
-        public void CheckAccredit (string accreditId)
+        public void CheckAccredit ( string accreditId )
         {
-            if (!_AccreditList.TryGetValue(accreditId, out UserAccreditDomain accredit))
+            if ( !_AccreditList.TryGetValue(accreditId, out UserAccreditDomain accredit) )
             {
                 AccreditDatum res = new GetAccredit
                 {
@@ -230,14 +255,14 @@ namespace WeDonekRpc.Modular.Accredit
                 }.Send();
                 accredit = _AddAccredit(res);
             }
-            if (accredit.IsError)
+            if ( accredit.IsError )
             {
                 throw new ErrorException(accredit.Error);
             }
         }
-        public bool CheckIsAccredit (string accreditId)
+        public bool CheckIsAccredit ( string accreditId )
         {
-            if (!_AccreditList.TryGetValue(accreditId, out UserAccreditDomain accredit))
+            if ( !_AccreditList.TryGetValue(accreditId, out UserAccreditDomain accredit) )
             {
                 AccreditDatum res = new GetAccredit
                 {

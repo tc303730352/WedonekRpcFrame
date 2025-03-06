@@ -66,7 +66,7 @@
           </el-card>
         </el-col>
         <el-col :lg="16">
-          <customConfigFrom ref="valueForm" />
+          <customConfigFrom ref="valueForm" :config-value-type.sync="valueType" />
         </el-col>
       </el-row>
     </el-form>
@@ -107,6 +107,7 @@ export default {
       region: [],
       container: [],
       systemType: {},
+      valueType: 1,
       groupType: [],
       servers: [],
       rules: {
@@ -207,30 +208,26 @@ export default {
     async save() {
       const value = await this.$refs.valueForm.getValue()
       if (value != null) {
-        let valueType = this.$refs.valueForm.configType
-        if (valueType == null) {
-          valueType = 1
-        }
         const that = this
         this.$refs['form'].validate((valid) => {
           if (valid) {
-            that.saveData(value, valueType)
+            that.saveData(value)
           }
         })
       }
     },
-    async saveData(value, valueType) {
+    async saveData(value) {
       await configApi.Add({
         RpcMerId: 0,
         Name: this.formData.Name,
         ServiceType: this.formData.ServiceType,
-        ValueType: valueType,
+        ValueType: this.valueType,
         ServerId: this.formData.ServerId,
         RegionId: this.formData.RegionId,
         SystemType: this.formData.SystemType,
         ContainerGroup: this.formData.ContainerGroup,
         VerNum: this.formatApiNum(),
-        Value: valueType === 1 ? JSON.stringify(value) : value,
+        Value: this.valueType === 1 ? JSON.stringify(value) : value,
         Prower: this.formData.Prower,
         Show: this.formData.Show,
         IsEnable: this.formData.IsEnableConfig,

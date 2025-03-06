@@ -2,7 +2,6 @@
 using System.Reflection;
 using WeDonekRpc.Client.Helper;
 using WeDonekRpc.Client.Interface;
-using WeDonekRpc.Client.Ioc;
 using WeDonekRpc.Client.Log;
 using WeDonekRpc.Client.Model;
 using WeDonekRpc.Client.Route;
@@ -36,27 +35,24 @@ namespace WeDonekRpc.Client.RouteDelegate
         {
             get
             {
-                if (this._Show == null)
-                {
-                    this._Show = XmlShowHelper.FindParamShow(this._Method);
-                }
+                this._Show ??= XmlShowHelper.FindParamShow(this._Method);
                 return this._Show;
             }
         }
 
         public MethodInfo Source => this._Method;
 
-        public RouteDelegate (string name, Delegate func)
+        public RouteDelegate ( string name, Delegate func )
         {
             this._Method = func.Method;
             this.IsSystemRoute = func.Method.Module.ScopeName == "WeDonekRpc.Client.dll";
             ParameterInfo[] param = this._Method.GetParameters();
-            this._ParamList = param.ConvertAll(a => RpcClientHelper.GetParamType(a));
+            this._ParamList = param.ConvertAll(RpcClientHelper.GetParamType);
             this.RouteName = name;
             this.TcpMsgEvent = new TcpMsgEvent(this._MsgEvent);
             this._IsParam = this._ParamList.IsExists(a => a.ParamType == FuncParamType.参数 || a.ParamType == FuncParamType.数据源 || a.ParamType == FuncParamType.源);
         }
-        public RouteDelegate (string name, Delegate func, string show) : this(name, func)
+        public RouteDelegate ( string name, Delegate func, string show ) : this(name, func)
         {
             this._Show = show;
         }
@@ -69,26 +65,23 @@ namespace WeDonekRpc.Client.RouteDelegate
             return true;
         }
 
-        private IBasicRes _MsgEvent (IMsg msg)
+        private IBasicRes _MsgEvent ( IMsg msg )
         {
-            using (IocScope scope = _Ioc.CreateScore())
+            if ( !RpcClientHelper.InitParam(msg, _Ioc, this._ParamList, out object[] arg, this._IsParam) )
             {
-                if (!RpcClientHelper.InitParam(msg, this._ParamList, out object[] arg, this._IsParam))
-                {
-                    return new BasicRes("public.param.null");
-                }
-                else
-                {
-                    return this._ExecFun(null, arg);
-                }
+                return new BasicRes("public.param.null");
+            }
+            else
+            {
+                return this._ExecFun(null, arg);
             }
         }
-        protected virtual IBasicRes _ExecFun (object source, object[] param)
+        protected virtual IBasicRes _ExecFun ( object source, object[] param )
         {
             try
             {
                 object res = this._Method.Invoke(source, param);
-                if (res == null)
+                if ( res == null )
                 {
                     return new BasicRes("rpc.result.null");
                 }
@@ -97,7 +90,7 @@ namespace WeDonekRpc.Client.RouteDelegate
                     return (IBasicRes)res;
                 }
             }
-            catch (Exception e)
+            catch ( Exception e )
             {
                 ErrorException ex = ErrorException.FormatError(e);
                 RpcLogSystem.AddReplyErrorLog(this._Method, this.RouteName, param, ex);

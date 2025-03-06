@@ -26,7 +26,7 @@
       </el-select>
     </el-form-item>
     <template v-if="formData.valueType == 1 && formData.templateKey != null">
-      <component :is="templateKey" ref="valueForm" :config-value="formData.value" :config-value-type="valueType" />
+      <component :is="templateKey" ref="valueForm" :config-value="formData.value" :config-value-type="formData.valueType" />
     </template>
     <el-form-item v-if="formData.valueType == 0 || (formData.valueType == 1 && formData.templateKey == null)" label="配置值" prop="value">
       <el-input v-model="formData.value" type="textarea" autosize maxlength="8000" show-word-limit placeholder="配置值" style="width: 100%;" />
@@ -85,7 +85,6 @@ export default {
       },
       sourceValue: null,
       templates: [],
-      valueType: 1,
       value: null,
       templateKey: null,
       rules: {
@@ -114,7 +113,6 @@ export default {
     async getValue() {
       const valid = await this.$refs['form'].validate()
       if (valid) {
-        this.valueType = this.formData.valueType
         if (this.formData.valueType === 1) {
           if (this.formData.templateKey !== null) {
             return await this.$refs.valueForm.getValue()
@@ -130,6 +128,7 @@ export default {
         this.templateKey = null
         this.formData.templateKey = null
       }
+      this.$emit('update:configValueType', this.formData.valueType)
     },
     chooseTemplete() {
       if (this.formData.templateKey === '') {
@@ -152,7 +151,6 @@ export default {
       }
     },
     reset() {
-      this.valueType = this.configValueType
       this.formData.valueType = this.configValueType
       if (this.configValueType === 0) {
         this.formData.value = this.configValue

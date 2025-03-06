@@ -13,7 +13,7 @@ namespace WeDonekRpc.WebSocketGateway.Model
         public CurrentService ()
         {
             IApiSocketService service = ApiHandler.ApiService.Value;
-            if (service != null)
+            if ( service != null )
             {
                 this.AccreditId = service.AccreditId;
                 this.Head = service.Head;
@@ -23,6 +23,7 @@ namespace WeDonekRpc.WebSocketGateway.Model
                 this.Session = service.Session;
                 this.UserState = service.UserState;
                 this.IsHasValue = true;
+                this.IsEnd = service.IsEnd;
             }
         }
         /// <summary>
@@ -49,12 +50,11 @@ namespace WeDonekRpc.WebSocketGateway.Model
         {
             get
             {
-                if (this._Modular == null)
-                {
-                    this._Modular = RpcClient.Ioc.Resolve<ICurrentModular>(this.ServiceName);
-                }
+                this._Modular ??= RpcClient.Ioc.Resolve<ICurrentModular>(this.ServiceName);
                 return this._Modular;
             }
         }
+
+        public bool IsEnd { get; }
     }
 }

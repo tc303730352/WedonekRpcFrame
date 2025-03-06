@@ -31,10 +31,7 @@ namespace WeDonekRpc.Client.Route
         {
             get;
         }
-        public MethodInfo Source
-        {
-            get => this._Method;
-        }
+        public MethodInfo Source => this._Method;
         public TcpMsgEvent TcpMsgEvent
         {
             get;
@@ -44,19 +41,16 @@ namespace WeDonekRpc.Client.Route
         {
             get
             {
-                if (this._Show == null)
-                {
-                    this._Show = XmlShowHelper.FindParamShow(this._Method);
-                }
+                this._Show ??= XmlShowHelper.FindParamShow(this._Method);
                 return this._Show;
             }
         }
 
-        public Route (string name, MethodInfo method)
+        public Route ( string name, MethodInfo method )
         {
             this.IsSystemRoute = method.Module.ScopeName == "WeDonekRpc.Client.dll";
             ParameterInfo[] param = method.GetParameters();
-            this._ParamList = param.ConvertAll(a => RpcClientHelper.GetParamType(a));
+            this._ParamList = param.ConvertAll(RpcClientHelper.GetParamType);
             this.RouteName = name;
             this._SourceType = method.DeclaringType;
             this._IsStatic = method.IsStatic;
@@ -73,20 +67,20 @@ namespace WeDonekRpc.Client.Route
         {
             return this._Method.ToString();
         }
-        private IBasicRes _MsgEvent (IMsg msg)
+        private IBasicRes _MsgEvent ( IMsg msg )
         {
-            if (!RpcClientHelper.InitParam(msg, this._ParamList, out object[] arg, this._IsParam))
+            if ( !RpcClientHelper.InitParam(msg, _Ioc, this._ParamList, out object[] arg, this._IsParam) )
             {
                 return new BasicRes("public.param.null");
             }
             object source = null;
-            if (!this._IsStatic)
+            if ( !this._IsStatic )
             {
                 source = _Ioc.Resolve(ConfigDic.RpcApiService, this._SourceType.FullName);
             }
             return this._ExecFun(source, arg);
         }
-        protected virtual IBasicRes _ExecFun (object source, object[] param)
+        protected virtual IBasicRes _ExecFun ( object source, object[] param )
         {
             return null;
         }

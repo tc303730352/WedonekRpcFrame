@@ -17,12 +17,19 @@ namespace WeDonekRpc.HttpApiGateway.Handler
         private readonly IApiRoute _Route = null;
         private static readonly IIocService _Ioc = RpcClient.Ioc;
         private IUpFileConfig _UpConfig;
-        public static AsyncLocal<IService> ApiService = new AsyncLocal<IService>();
+        public static AsyncLocal<IService> ApiService = new AsyncLocal<IService>(_ApiServiceChange);
         private IService _ApiService = null;
         private IocScope _Scope;
         public HttpApiHandler ( IApiRoute route ) : base(route.ApiUri, 99, route.IsRegex)
         {
             this._Route = route;
+        }
+        private static void _ApiServiceChange ( AsyncLocalValueChangedArgs<IService> e )
+        {
+            if ( e.CurrentValue != null && e.CurrentValue.IsEnd )
+            {
+                ApiService.Value = null;
+            }
         }
         public override void ExecError ( Exception error )
         {

@@ -6,29 +6,30 @@ namespace WeDonekRpc.Client.Tran
     internal class VirtuallyTransaction : IRpcVirtuallyTransaction
     {
         private ICurTranState _Tran;
-        private readonly CurTranState _TranState;
-        private readonly ITranSource _Body;
-        public VirtuallyTransaction (CurTranState state, string body)
+
+        public VirtuallyTransaction ( CurTranState state, string body )
         {
-            this._TranState = state;
-            this._Body = new TranSource(body);
+            this.TranState = state;
+            this.Body = new TranSource(body);
         }
 
-        public int RegionId => this._TranState.RegionId;
+        public int RegionId => this.TranState.RegionId;
 
-        public long RpcMerId => this._TranState.RpcMerId;
+        public long RpcMerId => this.TranState.RpcMerId;
 
         public ITranTemplate Template => this._Tran.Template;
 
-        public CurTranState Source => this._TranState;
+        public CurTranState Source => this.TranState;
 
         public long TranId => this._Tran.TranId;
 
-        public long OverTime => this._TranState.OverTime;
+        public long OverTime => this.TranState.OverTime;
 
-        public ITranSource Body => this._Body;
+        public ITranSource Body { get; }
 
-        public CurTranState TranState => this._TranState;
+        public CurTranState TranState { get; }
+
+        public bool IsDispose => this._Tran.IsDispose;
 
         public void BeginTran ()
         {
@@ -40,20 +41,20 @@ namespace WeDonekRpc.Client.Tran
             this._Tran?.Dispose();
         }
 
-        public bool Equals (ICurTran other)
+        public bool Equals ( ICurTran other )
         {
-            if (this._Tran == null)
+            if ( this._Tran == null )
             {
                 return false;
             }
             return other.TranId == this._Tran.TranId;
         }
 
-        public void InitTran (string tranName)
+        public void InitTran ( string tranName )
         {
-            if (this._Tran != null)
+            if ( this._Tran != null )
             {
-                this._Tran = RpcTranService.AddTranLog(this._TranState, this._Body, tranName);
+                this._Tran = RpcTranService.AddTranLog(this.TranState, this.Body, tranName);
             }
         }
     }

@@ -73,7 +73,7 @@ export default {
   props: {
     taskId: {
       type: String,
-      default: 0
+      default: null
     },
     isload: {
       type: Boolean,

@@ -42,28 +42,32 @@ namespace WeDonekRpc.Modular
         /// 设置权限
         /// </summary>
         /// <param name="prowers"></param>
-        void SetPrower (string[] prowers);
+        void SetPrower ( string[] prowers );
         /// <summary>
         /// 检查授权
         /// </summary>
         /// <param name="prower">权限值</param>
         /// <returns>是否授权</returns>
-        bool CheckPrower (string[] prower);
-
-        bool CheckPrower (string prower);
+        bool CheckPrower ( string[] prower );
+        /// <summary>
+        /// 检查权限
+        /// </summary>
+        /// <param name="prower"></param>
+        /// <returns></returns>
+        bool CheckPrower ( string prower );
         /// <summary>
         /// 获取自定义属性值
         /// </summary>
         /// <typeparam name="T">属性值类型</typeparam>
         /// <param name="name">属性名</param>
         /// <returns>属性值</returns>
-        T GetValue<T> (string name);
+        T GetValue<T> ( string name );
         /// <summary>
         /// 保存当前状态
         /// </summary>
         /// <param name="upFun">比对原始状态值</param>
         /// <returns>最新状态值</returns>
-        IUserState SaveState (Func<IUserState, IUserState, IUserState> upFun);
+        IUserState SaveState ( Func<IUserState, IUserState, IUserState> upFun );
         /// <summary>
         /// 保存状态
         /// </summary>

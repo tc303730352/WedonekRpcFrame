@@ -5,21 +5,21 @@ namespace WeDonekRpc.Helper.Lock
     {
         private int _UseNum = 0;
         private int _Time = int.MaxValue;
-        public DataLock():base()
+        public DataLock () : base()
         {
         }
-        internal bool IsNoUse(int time)
+        internal bool IsNoUse ( int time )
         {
-            return Interlocked.CompareExchange(ref _UseNum, 0, 0) == 0 && _Time < time;
+            return Interlocked.CompareExchange(ref this._UseNum, 0, 0) == 0 && this._Time < time;
         }
-        internal void AddUseNum()
+        internal void AddUseNum ()
         {
-            _Time = HeartbeatTimeHelper.HeartbeatTime;
-            Interlocked.Add(ref this._UseNum, 1);
+            this._Time = HeartbeatTimeHelper.HeartbeatTime;
+            _ = Interlocked.Add(ref this._UseNum, 1);
         }
-        public override void Dispose()
+        public override void Dispose ()
         {
-            Interlocked.Add(ref _UseNum, -1);
+            _ = Interlocked.Add(ref this._UseNum, -1);
             base.Dispose();
         }
     }

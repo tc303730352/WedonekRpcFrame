@@ -7,6 +7,10 @@ namespace WeDonekRpc.WebSocketGateway.Interface
     public interface IApiSocketService
     {
         /// <summary>
+        /// 是否已结束响应
+        /// </summary>
+        bool IsEnd { get; }
+        /// <summary>
         /// 授权码
         /// </summary>
         string AccreditId { get; }

@@ -6,6 +6,10 @@ namespace WeDonekRpc.Client.Interface
     internal interface ICurTranState : ICurTran, IDisposable
     {
         /// <summary>
+        /// 是否已销毁
+        /// </summary>
+        bool IsDispose { get; }
+        /// <summary>
         /// 服务区域Id
         /// </summary>
         int RegionId { get; }

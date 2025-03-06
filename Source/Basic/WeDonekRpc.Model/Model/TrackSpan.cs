@@ -21,9 +21,10 @@
         /// </summary>
         public long SpanId;
 
-        public string ToTraceId()
+        public bool IsEnd;
+        public string ToTraceId ()
         {
-            if (this.HighTraceId.HasValue)
+            if ( this.HighTraceId.HasValue )
             {
                 return string.Concat(this.HighTraceId.Value.ToString("x16"), this.TraceId.ToString("x16"));
             }

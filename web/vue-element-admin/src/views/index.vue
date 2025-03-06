@@ -27,7 +27,7 @@ export default {
         that.$router.replace({
           name: 'rpcMerList'
         })
-      }, 3000)
+      }, 200)
     }
   }
 }

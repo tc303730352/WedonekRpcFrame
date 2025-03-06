@@ -15,11 +15,28 @@ namespace WeDonekRpc.Client.Collect
         /// <summary>
         /// 跨度
         /// </summary>
-        private static readonly AsyncLocal<TrackSpan> _Span = new AsyncLocal<TrackSpan>();
+        private static readonly AsyncLocal<TrackSpan> _Span = new AsyncLocal<TrackSpan>(_spanChange);
+
+        private static void _spanChange ( AsyncLocalValueChangedArgs<TrackSpan> e )
+        {
+            if ( e.CurrentValue != null && e.CurrentValue.IsEnd )
+            {
+                _Span.Value = null;
+            }
+        }
+
         /// <summary>
         /// 当前跨度
         /// </summary>
-        private static readonly AsyncLocal<TrackSpan> _CurrentSpan = new AsyncLocal<TrackSpan>();
+        private static readonly AsyncLocal<TrackSpan> _CurrentSpan = new AsyncLocal<TrackSpan>(_curSpanChange);
+
+        private static void _curSpanChange ( AsyncLocalValueChangedArgs<TrackSpan> e )
+        {
+            if ( e.CurrentValue != null && e.CurrentValue.IsEnd )
+            {
+                _CurrentSpan.Value = null;
+            }
+        }
         /// <summary>
         /// 跨度ID
         /// </summary>
@@ -53,14 +70,14 @@ namespace WeDonekRpc.Client.Collect
         /// <param name="range"></param>
         /// <param name="spanId"></param>
         /// <returns></returns>
-        public bool CheckIsTrack (TrackRange range, out long spanId)
+        public bool CheckIsTrack ( TrackRange range, out long spanId )
         {
-            if (_Span.Value != null)
+            if ( _Span.Value != null )
             {
                 spanId = _ApplySpanId();
                 return true;
             }
-            else if (_Tack == null || !_Config.IsEnable || ( range & _Config.TrackRange ) != range)
+            else if ( _Tack == null || !_Config.IsEnable || ( range & _Config.TrackRange ) != range )
             {
                 spanId = 0;
                 return false;
@@ -74,23 +91,20 @@ namespace WeDonekRpc.Client.Collect
         {
             _Config = new TrackConfig(_Refresh);
         }
-        private static void _Refresh (TrackConfig config, string name)
+        private static void _Refresh ( TrackConfig config, string name )
         {
-            if (_Sampler == null || name == "SamplingRate")
+            if ( _Sampler == null || name == "SamplingRate" )
             {
                 _Sampler = new DefaultSampler(_ApplySpanId(), config.SamplingRate);
             }
-            if (name == "IsEnable")
+            if ( name == "IsEnable" )
             {
-                if (config.IsEnable)
+                if ( config.IsEnable )
                 {
                     _Tack?.Dispose();
                     _InitTrack(config);
                 }
-                if (EnableChange != null)
-                {
-                    EnableChange(config);
-                }
+                EnableChange?.Invoke(config);
             }
         }
 
@@ -99,26 +113,20 @@ namespace WeDonekRpc.Client.Collect
         /// </summary>
         public static void Init ()
         {
-            if (!RpcStateCollect.IsInit)
+            if ( !RpcStateCollect.IsInit )
             {
                 return;
             }
-            if (_Sampler == null)
-            {
-                _Sampler = new DefaultSampler(_ApplySpanId(), _Config.SamplingRate);
-            }
-            if (_Config.IsEnable && _Tack == null)
+            _Sampler ??= new DefaultSampler(_ApplySpanId(), _Config.SamplingRate);
+            if ( _Config.IsEnable && _Tack == null )
             {
                 _InitTrack(_Config);
             }
-            if (EnableChange != null)
-            {
-                EnableChange(_Config);
-            }
+            EnableChange?.Invoke(_Config);
         }
-        private static void _InitTrack (TrackConfig config)
+        private static void _InitTrack ( TrackConfig config )
         {
-            if (config.TraceType == TraceType.Zipkin)
+            if ( config.TraceType == TraceType.Zipkin )
             {
                 _Tack = new ZipkinTack(config.ZipkinTack);
             }
@@ -127,19 +135,27 @@ namespace WeDonekRpc.Client.Collect
                 _Tack = new LocalTack(config.Local);
             }
         }
-        internal static void ClearTrack (TrackSpan span)
+        internal static void ClearTrack ( TrackSpan span )
         {
-            if (span.ParentId.HasValue && span.SpanId != _Span.Value?.SpanId)
+            if ( span.ParentId.HasValue && span.SpanId != _Span.Value?.SpanId )
             {
-                _CurrentSpan.Value = null;
+                _SetCurSpan(null);
             }
             else
             {
-                _Span.Value = null;
-                _CurrentSpan.Value = null;
+                _SetTrack(null);
             }
         }
-        private TrackSpan _CreateTrack (long spanId)
+
+        private static void _SetCurSpan ( TrackSpan span )
+        {
+            if ( _CurrentSpan.Value != null )
+            {
+                _CurrentSpan.Value.IsEnd = true;
+            }
+            _CurrentSpan.Value = span;
+        }
+        private TrackSpan _CreateTrack ( long spanId )
         {
             return new TrackSpan
             {
@@ -148,7 +164,7 @@ namespace WeDonekRpc.Client.Collect
                 SpanId = spanId
             };
         }
-        private TrackSpan _CreateTrack (TrackSpan span, long spanId)
+        private TrackSpan _CreateTrack ( TrackSpan span, long spanId )
         {
             return new TrackSpan
             {
@@ -158,20 +174,23 @@ namespace WeDonekRpc.Client.Collect
                 ParentId = span.SpanId
             };
         }
-        public TrackSpan CreateTrack (long spanId)
+        public TrackSpan CreateTrack ( long spanId )
         {
-            if (_Span.Value == null)
+            if ( _Span.Value == null )
             {
                 TrackSpan span = this._CreateTrack(spanId);
-                _Span.Value = span;
-                _CurrentSpan.Value = span;
+                _SetTrack(span);
                 return span;
             }
-            _CurrentSpan.Value = this._CreateTrack(_Span.Value, spanId);
-            return _CurrentSpan.Value;
+            else
+            {
+                TrackSpan span = this._CreateTrack(_Span.Value, spanId);
+                _SetCurSpan(span);
+                return span;
+            }
         }
 
-        public void EndTrack (TrackBody track)
+        public void EndTrack ( TrackBody track )
         {
             DateTime now = DateTime.Now;
             track.Annotations[1].Time = now;
@@ -179,10 +198,10 @@ namespace WeDonekRpc.Client.Collect
             _Tack.AddTrace(track);
         }
 
-        public TrackSpan CreateAnswerTrack (TrackSpan span)
+        public TrackSpan CreateAnswerTrack ( TrackSpan span )
         {
             TrackSpan track = span == null ? this._CreateTrack(_ApplySpanId()) : this._CreateTrack(span, _ApplySpanId());
-            this.SetTrack(track);
+            _SetTrack(track);
             return track;
         }
         /// <summary>
@@ -198,12 +217,23 @@ namespace WeDonekRpc.Client.Collect
             return _Config.GetAnswerTemplate();
         }
 
-        public void SetTrack (TrackSpan track)
+        public void SetTrack ( TrackSpan track )
         {
+            _SetTrack(track);
+        }
+        private static void _SetTrack ( TrackSpan track )
+        {
+            if ( _Span.Value != null )
+            {
+                _Span.Value.IsEnd = true;
+            }
+            if ( _CurrentSpan.Value != null )
+            {
+                _CurrentSpan.Value.IsEnd = true;
+            }
             _Span.Value = track;
             _CurrentSpan.Value = track;
         }
-
         public long ApplySpanId ()
         {
             return _ApplySpanId();

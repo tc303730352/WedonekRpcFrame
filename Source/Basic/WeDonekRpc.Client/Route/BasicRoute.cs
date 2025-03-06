@@ -9,18 +9,18 @@ namespace WeDonekRpc.Client.Route
 {
     internal class BasicRoute : Route
     {
-        private ExecRoute _Action;
-        public BasicRoute(string name, MethodInfo method) : base(name, method)
+        private readonly ExecRoute _Action;
+        public BasicRoute ( string name, MethodInfo method ) : base(name, method)
         {
-            _Action = RpcRouteHelper.GetExecRoute(method);
+            this._Action = RpcRouteHelper.GetExecRoute(method);
         }
-      
-        protected override IBasicRes _ExecFun(object source, object[] param)
+
+        protected override IBasicRes _ExecFun ( object source, object[] param )
         {
             try
             {
-                IBasicRes res= _Action(source, param);
-                if (res == null)
+                IBasicRes res = this._Action(source, param);
+                if ( res == null )
                 {
                     return new BasicRes("rpc.result.null");
                 }
@@ -29,7 +29,7 @@ namespace WeDonekRpc.Client.Route
                     return res;
                 }
             }
-            catch (Exception e)
+            catch ( Exception e )
             {
                 ErrorException ex = ErrorException.FormatError(e);
                 RpcLogSystem.AddReplyErrorLog(this._Method, this.RouteName, this._SourceType, param, ex);

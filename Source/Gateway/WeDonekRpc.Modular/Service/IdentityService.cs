@@ -16,13 +16,30 @@ namespace WeDonekRpc.Modular.Service
     internal class IdentityService : IIdentityService
     {
         private static readonly ConcurrentDictionary<string, UserIdentity> _Identity = new ConcurrentDictionary<string, UserIdentity>();
-        private static readonly AsyncLocal<string> _IdentityId = new AsyncLocal<string>();
+        private static readonly AsyncLocal<IdentityIdLocal> _IdentityId = new AsyncLocal<IdentityIdLocal>(_IdentityChange);
+
+        private static void _IdentityChange ( AsyncLocalValueChangedArgs<IdentityIdLocal> e )
+        {
+            if ( e.CurrentValue != null && e.CurrentValue.isEnd )
+            {
+                _IdentityId.Value = null;
+            }
+        }
+
         private readonly IdentityConfig _Config = null;
 
         public string IdentityId
         {
-            get => _IdentityId.Value ?? this._Config.DefAppId;
-            set => _IdentityId.Value = value;
+            get => _IdentityId.Value != null ? _IdentityId.Value.value : this._Config.DefAppId;
+            set
+            {
+                IdentityIdLocal local = _IdentityId.Value;
+                if ( local != null && local.value != value )
+                {
+                    local.isEnd = true;
+                }
+                _IdentityId.Value = new IdentityIdLocal { value = value };
+            }
         }
         public bool IsEnableIdentity
         {
@@ -57,7 +74,7 @@ namespace WeDonekRpc.Modular.Service
         {
             if ( sendNum == 0 && _IdentityId.Value != null )
             {
-                send.config.SetAppIdentity(send.model, _IdentityId.Value);
+                send.config.SetAppIdentity(send.model, _IdentityId.Value.value);
             }
         }
 
@@ -69,7 +86,7 @@ namespace WeDonekRpc.Modular.Service
             }
             if ( !identity.Init() )
             {
-                _Identity.TryRemove(id, out identity);
+                _ = _Identity.TryRemove(id, out identity);
                 identity.Dispose();
                 return false;
             }
@@ -118,7 +135,12 @@ namespace WeDonekRpc.Modular.Service
         }
         public void Clear ()
         {
-            IdentityService._IdentityId.Value = null;
+            IdentityIdLocal local = IdentityService._IdentityId.Value;
+            if ( local != null )
+            {
+                local.isEnd = true;
+                IdentityService._IdentityId.Value = null;
+            }
         }
     }
 }

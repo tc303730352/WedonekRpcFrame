@@ -22,19 +22,27 @@ namespace WeDonekRpc.Modular.Accredit
         {
 
         }
-        private static readonly AsyncLocal<IUserState> _UserState = new AsyncLocal<IUserState>();
+        private static readonly AsyncLocal<IUserState> _UserState = new AsyncLocal<IUserState>(_StateChange);
+
+        private static void _StateChange ( AsyncLocalValueChangedArgs<IUserState> e )
+        {
+            if ( e.CurrentValue != null && e.CurrentValue.AccreditId != AccreditService._CurAccreditId )
+            {
+                _UserState.Value = null;
+            }
+        }
 
         private static readonly Type _StateType = typeof(UserState);
         public IUserState CurrentUser => _UserState.Value;
 
 
-        public IUserState GetAccredit (string accreditId)
+        public IUserState GetAccredit ( string accreditId )
         {
             UserAccreditDomain accredit = _GetAccredit(accreditId);
             _UserState.Value = accredit.GetUserState(_StateType);
             return _UserState.Value;
         }
-        public void CancelAccredit (string accreditId)
+        public void CancelAccredit ( string accreditId )
         {
             Cancel(accreditId);
         }
@@ -43,7 +51,7 @@ namespace WeDonekRpc.Modular.Accredit
         /// </summary>
         /// <param name="accreditId"></param>
         /// <returns></returns>
-        public IUserState SetCurrentAccredit (string accreditId)
+        public IUserState SetCurrentAccredit ( string accreditId )
         {
             UserAccreditDomain accredit = base.SetAccredit(accreditId);
             _UserState.Value = accredit.GetUserState(_StateType);

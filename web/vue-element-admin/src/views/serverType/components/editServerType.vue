@@ -36,7 +36,7 @@ export default {
   props: {
     id: {
       type: String,
-      default: 0
+      default: null
     },
     visible: {
       type: Boolean,

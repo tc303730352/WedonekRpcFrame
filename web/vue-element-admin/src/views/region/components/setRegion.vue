@@ -73,7 +73,7 @@ export default {
     },
     id: {
       type: String,
-      default: 0
+      default: null
     }
   },
   data() {

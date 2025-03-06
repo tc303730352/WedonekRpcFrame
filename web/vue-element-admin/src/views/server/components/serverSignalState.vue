@@ -111,7 +111,7 @@ export default {
   props: {
     serverId: {
       type: String,
-      default: 0
+      default: null
     },
     isLoad: {
       type: Boolean,

@@ -19,9 +19,9 @@ namespace WeDonekRpc.Client.Helper
     internal class RpcClientHelper
     {
         private static uint _PageId = 0;
-        public static IRemoteNode GetRemoteServer (BalancedType type, WeDonekRpc.Model.ServerConfig[] servers)
+        public static IRemoteNode GetRemoteServer ( BalancedType type, WeDonekRpc.Model.ServerConfig[] servers )
         {
-            if (servers.FindIndex(a => a.IsTransmit) != -1)
+            if ( servers.FindIndex(a => a.IsTransmit) != -1 )
             {
                 return new RangeRemoteNode(type, servers);
             }
@@ -30,32 +30,32 @@ namespace WeDonekRpc.Client.Helper
                 return new BasicRemoteHelper(type, servers);
             }
         }
-        public static bool ValidateData<T> (IRemoteConfig config, T model, out string error)
+        public static bool ValidateData<T> ( IRemoteConfig config, T model, out string error )
         {
-            if (WebConfig.RpcConfig.IsValidateData && config.IsValidate)
+            if ( WebConfig.RpcConfig.IsValidateData && config.IsValidate )
             {
                 return DataValidateHepler.ValidateData(model, out error);
             }
             error = null;
             return true;
         }
-        public static bool ValidateData<T> (IRemoteBroadcast config, T model, out string error)
+        public static bool ValidateData<T> ( IRemoteBroadcast config, T model, out string error )
         {
-            if (WebConfig.RpcConfig.IsValidateData && config.IsValidate)
+            if ( WebConfig.RpcConfig.IsValidateData && config.IsValidate )
             {
                 return DataValidateHepler.ValidateData(model, out error);
             }
             error = null;
             return true;
         }
-        public static bool GetResult (IRemoteResult res, out string error)
+        public static bool GetResult ( IRemoteResult res, out string error )
         {
-            if (res.IsError)
+            if ( res.IsError )
             {
                 error = res.ErrorMsg;
                 return false;
             }
-            else if (!res.IsReply)
+            else if ( !res.IsReply )
             {
                 error = null;
                 return true;
@@ -63,12 +63,12 @@ namespace WeDonekRpc.Client.Helper
             else
             {
                 BasicRes result = res.GetResult<BasicRes>();
-                if (result == null)
+                if ( result == null )
                 {
                     error = "rpc.data.return.null";
                     return false;
                 }
-                else if (result.IsError)
+                else if ( result.IsError )
                 {
                     error = result.ErrorMsg;
                     return false;
@@ -77,38 +77,38 @@ namespace WeDonekRpc.Client.Helper
                 return true;
             }
         }
-        public static BasicResult<Result> GetResult<Result> (IRemoteResult res)
+        public static BasicResult<Result> GetResult<Result> ( IRemoteResult res )
         {
-            if (res.IsError)
+            if ( res.IsError )
             {
                 return new BasicResult<Result>(res.ErrorMsg, res.RemoteServerId);
             }
             BasicRes<Result> result = res.GetResult<BasicRes<Result>>();
-            if (result == null)
+            if ( result == null )
             {
                 return new BasicResult<Result>("rpc.data.return.null", res.RemoteServerId);
             }
-            else if (result.IsError)
+            else if ( result.IsError )
             {
                 return new BasicResult<Result>(result.ErrorMsg, res.RemoteServerId);
             }
             return new BasicResult<Result>(result.Result, res.RemoteServerId);
         }
-        public static bool GetResult<Result> (IRemoteResult res, out Result result, out string error) where Result : IBasicRes
+        public static bool GetResult<Result> ( IRemoteResult res, out Result result, out string error ) where Result : IBasicRes
         {
-            if (res.IsError)
+            if ( res.IsError )
             {
                 result = default;
                 error = res.ErrorMsg;
                 return false;
             }
             result = res.GetResult<Result>();
-            if (result == null)
+            if ( result == null )
             {
                 error = "rpc.data.return.null";
                 return false;
             }
-            else if (result.IsError)
+            else if ( result.IsError )
             {
                 error = result.ErrorMsg;
                 return false;
@@ -116,7 +116,7 @@ namespace WeDonekRpc.Client.Helper
             error = null;
             return true;
         }
-        public static TcpRemoteMsg GetQueueMsg<T> (IRemoteBroadcast config, T body)
+        public static TcpRemoteMsg GetQueueMsg<T> ( IRemoteBroadcast config, T body )
         {
             TcpRemoteMsg data = new TcpRemoteMsg
             {
@@ -126,7 +126,7 @@ namespace WeDonekRpc.Client.Helper
                 Source = RpcStateCollect.LocalSource,
                 PageId = Interlocked.Increment(ref _PageId)
             };
-            if (config.RemoteConfig != null)
+            if ( config.RemoteConfig != null )
             {
                 RemoteSet rConfig = config.RemoteConfig;
                 data.IsSync = rConfig.IsEnableLock;
@@ -136,7 +136,7 @@ namespace WeDonekRpc.Client.Helper
             data.Extend = RpcService.Service.LoadExtendEvent(config.SysDictate);
             return data;
         }
-        public static TcpRemoteMsg GetQueueMsg (IRemoteBroadcast config, DynamicModel body)
+        public static TcpRemoteMsg GetQueueMsg ( IRemoteBroadcast config, DynamicModel body )
         {
             TcpRemoteMsg data = new TcpRemoteMsg
             {
@@ -146,7 +146,7 @@ namespace WeDonekRpc.Client.Helper
                 ExpireTime = WebConfig.RpcConfig.ExpireTime,
                 PageId = Interlocked.Increment(ref _PageId)
             };
-            if (config.RemoteConfig != null)
+            if ( config.RemoteConfig != null )
             {
                 RemoteSet rConfig = config.RemoteConfig;
                 data.IsSync = rConfig.IsEnableLock;
@@ -156,7 +156,7 @@ namespace WeDonekRpc.Client.Helper
             data.Extend = RpcService.Service.LoadExtendEvent(config.SysDictate);
             return data;
         }
-        public static TcpRemoteMsg GetRemoteMsg (DynamicModel body, IRemoteConfig config)
+        public static TcpRemoteMsg GetRemoteMsg ( DynamicModel body, IRemoteConfig config )
         {
             return new TcpRemoteMsg
             {
@@ -172,7 +172,7 @@ namespace WeDonekRpc.Client.Helper
                 PageId = Interlocked.Increment(ref _PageId)
             };
         }
-        public static TcpRemoteMsg GetTcpRemoteMsg<T> (string dictate, T body, IRemoteConfig config)
+        public static TcpRemoteMsg GetTcpRemoteMsg<T> ( string dictate, T body, IRemoteConfig config )
         {
             return new TcpRemoteMsg
             {
@@ -188,7 +188,7 @@ namespace WeDonekRpc.Client.Helper
                 PageId = Interlocked.Increment(ref _PageId)
             };
         }
-        public static TcpRemoteMsg GetDynamicTcpMsg (BroadcastDatum obj, MsgSource source, DynamicModel model, IRemoteConfig config)
+        public static TcpRemoteMsg GetDynamicTcpMsg ( BroadcastDatum obj, MsgSource source, DynamicModel model, IRemoteConfig config )
         {
             return new TcpRemoteMsg
             {
@@ -203,7 +203,7 @@ namespace WeDonekRpc.Client.Helper
                 PageId = Interlocked.Increment(ref _PageId)
             };
         }
-        public static TcpRemoteMsg GetTcpRemoteMsg (DynamicModel body, IRemoteConfig config)
+        public static TcpRemoteMsg GetTcpRemoteMsg ( DynamicModel body, IRemoteConfig config )
         {
             return new TcpRemoteMsg
             {
@@ -219,7 +219,7 @@ namespace WeDonekRpc.Client.Helper
                 PageId = Interlocked.Increment(ref _PageId)
             };
         }
-        public static TcpRemoteMsg GetTcpRemoteMsg<T> (T body, Type type, IRemoteConfig config)
+        public static TcpRemoteMsg GetTcpRemoteMsg<T> ( T body, Type type, IRemoteConfig config )
         {
             return new TcpRemoteMsg
             {
@@ -235,7 +235,7 @@ namespace WeDonekRpc.Client.Helper
                 PageId = Interlocked.Increment(ref _PageId)
             };
         }
-        public static TcpRemoteMsg GetTcpRemoteMsg<T> (T body, IRemoteConfig config, byte[] stream)
+        public static TcpRemoteMsg GetTcpRemoteMsg<T> ( T body, IRemoteConfig config, byte[] stream )
         {
             TcpRemoteMsg msg = new TcpRemoteMsg
             {
@@ -254,12 +254,12 @@ namespace WeDonekRpc.Client.Helper
             return msg;
         }
 
-        public static FuncParam GetParamType (ParameterInfo param)
+        public static FuncParam GetParamType ( ParameterInfo param )
         {
-            if (!param.IsOut)
+            if ( !param.IsOut )
             {
                 Type type = param.ParameterType;
-                if (type.FullName == ConfigDic.MsgSourceType.FullName)
+                if ( type.FullName == ConfigDic.MsgSourceType.FullName )
                 {
                     return new FuncParam
                     {
@@ -267,7 +267,7 @@ namespace WeDonekRpc.Client.Helper
                         DataType = ConfigDic.MsgSourceType
                     };
                 }
-                else if (type.FullName == ConfigDic.ParamType.FullName)
+                else if ( type.FullName == ConfigDic.ParamType.FullName )
                 {
                     return new FuncParam
                     {
@@ -275,7 +275,7 @@ namespace WeDonekRpc.Client.Helper
                         DataType = ConfigDic.ParamType
                     };
                 }
-                else if (type.IsInterface)
+                else if ( type.IsInterface )
                 {
                     return new FuncParam
                     {
@@ -283,7 +283,7 @@ namespace WeDonekRpc.Client.Helper
                         DataType = type
                     };
                 }
-                else if (type.IsArray && type.GetElementType().Name == PublicDataDic.ByteTypeName)
+                else if ( type.IsArray && type.GetElementType().Name == PublicDataDic.ByteTypeName )
                 {
                     return new FuncParam
                     {
@@ -291,7 +291,7 @@ namespace WeDonekRpc.Client.Helper
                         DataType = type
                     };
                 }
-                else if (Tools.IsBasicType(type))
+                else if ( Tools.IsBasicType(type) )
                 {
                     return new FuncParam
                     {
@@ -316,46 +316,46 @@ namespace WeDonekRpc.Client.Helper
             }
         }
 
-        public static bool InitParam (IMsg msg, FuncParam[] param, out object[] arg, bool isParam)
+        public static bool InitParam ( IMsg msg, IIocService ioc, FuncParam[] param, out object[] arg, bool isParam )
         {
-            if (param.Length == 0)
+            if ( param.Length == 0 )
             {
                 arg = null;
                 return true;
             }
-            else if (isParam)
+            else if ( isParam )
             {
                 arg = new object[param.Length];
-                for (int i = 0; i < param.Length; i++)
+                for ( int i = 0 ; i < param.Length ; i++ )
                 {
                     FuncParam a = param[i];
-                    if (a.ParamType == FuncParamType.数据源)
+                    if ( a.ParamType == FuncParamType.数据源 )
                     {
                         arg[i] = msg.Source;
                     }
-                    else if (a.ParamType == FuncParamType.源)
+                    else if ( a.ParamType == FuncParamType.源 )
                     {
                         arg[i] = msg;
                     }
-                    else if (a.ParamType == FuncParamType.接口)
+                    else if ( a.ParamType == FuncParamType.接口 )
                     {
-                        arg[i] = RpcClient.Ioc.Resolve(a.DataType);
+                        arg[i] = ioc.Resolve(a.DataType);
                     }
-                    else if (a.ParamType == FuncParamType.数据流)
+                    else if ( a.ParamType == FuncParamType.数据流 )
                     {
                         arg[i] = msg.Stream;
                     }
-                    else if (a.ParamType == FuncParamType.扩展参数)
+                    else if ( a.ParamType == FuncParamType.扩展参数 )
                     {
-                        if (msg.Extend != null && msg.Extend.TryGetValue(a.Key, out string val))
+                        if ( msg.Extend != null && msg.Extend.TryGetValue(a.Key, out string val) )
                         {
                             arg[i] = StringParseTools.Parse(val, a.DataType);
                         }
                     }
-                    else if (a.ParamType == FuncParamType.参数)
+                    else if ( a.ParamType == FuncParamType.参数 )
                     {
                         object data = msg.GetMsgBody(a.DataType);
-                        if (data == null)
+                        if ( data == null )
                         {
                             return false;
                         }

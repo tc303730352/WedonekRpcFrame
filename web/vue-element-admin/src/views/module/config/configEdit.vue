@@ -26,7 +26,7 @@
           </el-card>
         </el-col>
         <el-col :lg="16">
-          <customConfigFrom ref="valueForm" :templete="templateKey" :config-value="configValue" :config-value-type="valueType" />
+          <customConfigFrom ref="valueForm" :templete="templateKey" :config-value="configValue" :config-value-type.sync="valueType" />
         </el-col>
       </el-row>
     </el-form>
@@ -48,7 +48,7 @@ export default {
   props: {
     id: {
       type: String,
-      default: 0
+      default: null
     },
     visible: {
       type: Boolean,
@@ -64,7 +64,7 @@ export default {
       },
       configValue: null,
       oldFormAddr: null,
-      valueType: null,
+      valueType: 1,
       templateKey: null,
       formData: {
         Name: null,
@@ -114,23 +114,19 @@ export default {
     async save() {
       const value = await this.$refs.valueForm.getValue()
       if (value != null) {
-        let valueType = this.$refs.valueForm.configType
-        if (valueType == null) {
-          valueType = 1
-        }
         const templateKey = this.$refs.valueForm.templateKey
         const that = this
         this.$refs['form'].validate((valid) => {
           if (valid) {
-            that.saveData(value, valueType, templateKey)
+            that.saveData(value, templateKey)
           }
         })
       }
     },
-    async saveData(value, valueType, templateKey) {
+    async saveData(value, templateKey) {
       await configApi.Set(this.id, {
-        ValueType: valueType,
-        Value: valueType === 1 ? JSON.stringify(value) : value,
+        ValueType: this.valueType,
+        Value: this.valueType === 1 ? JSON.stringify(value) : value,
         Prower: this.formData.Prower,
         Show: this.formData.Show,
         IsEnable: this.formData.IsEnableConfig,

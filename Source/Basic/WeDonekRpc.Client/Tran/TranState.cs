@@ -16,7 +16,7 @@ namespace WeDonekRpc.Client.Tran
         {
             this.Template = template;
             this.Body = new TranSource(body);
-            this.Source = new CurTranState
+            this.TranState = new CurTranState
             {
                 TranId = tranId,
                 RegionId = RpcStateCollect.ServerConfig.RegionId,
@@ -28,7 +28,7 @@ namespace WeDonekRpc.Client.Tran
         {
             this.Body = new TranSource(body);
             this.Template = template;
-            this.Source = new CurTranState
+            this.TranState = new CurTranState
             {
                 TranId = tranId,
                 RegionId = state.RegionId,
@@ -40,7 +40,7 @@ namespace WeDonekRpc.Client.Tran
         {
             this.Body = source;
             this.Template = template;
-            this.Source = new CurTranState
+            this.TranState = new CurTranState
             {
                 TranId = tranId,
                 RegionId = state.RegionId,
@@ -50,7 +50,7 @@ namespace WeDonekRpc.Client.Tran
         }
         public TranStateVal ( CurTranState state )
         {
-            this.Source = state;
+            this.TranState = state;
             this.Body = new TranSource();
         }
         public void BeginTran ()
@@ -60,36 +60,38 @@ namespace WeDonekRpc.Client.Tran
                 this._Ass = this.Template.BeginTran(this);
             }
         }
-        public CurTranState Source { get; }
+        public CurTranState Source => this.TranState;
         /// <summary>
         /// 事务Id
         /// </summary>
-        public long TranId => this.Source.TranId;
+        public long TranId => this.TranState.TranId;
 
         /// <summary>
         /// 事务协调服务所在区
         /// </summary>
-        public int RegionId => this.Source.RegionId;
+        public int RegionId => this.TranState.RegionId;
         /// <summary>
         /// 事务协调服务所在集群
         /// </summary>
-        public long RpcMerId => this.Source.RpcMerId;
+        public long RpcMerId => this.TranState.RpcMerId;
         /// <summary>
         /// 事务超时时间
         /// </summary>
-        public long OverTime => this.Source.OverTime;
+        public long OverTime => this.TranState.OverTime;
 
         public ITranTemplate Template { get; }
 
         public ITranSource Body { get; }
 
-        public CurTranState TranState => this.Source;
+        public CurTranState TranState { get; }
+
+        public bool IsDispose { get; private set; }
 
         public override bool Equals ( object obj )
         {
             if ( obj is ICurTran i )
             {
-                return i.TranId == this.Source.TranId;
+                return i.TranId == this.TranState.TranId;
             }
             return false;
         }
@@ -100,16 +102,17 @@ namespace WeDonekRpc.Client.Tran
             {
                 return false;
             }
-            return other.TranId == this.Source.TranId;
+            return other.TranId == this.TranState.TranId;
         }
 
         public override int GetHashCode ()
         {
-            return this.Source.TranId.GetHashCode();
+            return this.TranState.TranId.GetHashCode();
         }
 
         public void Dispose ()
         {
+            this.IsDispose = true;
             this._Ass?.Dispose();
         }
     }
